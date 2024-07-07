@@ -27,3 +27,6 @@ build/
 *.egg-info/
 
 *.sh
+
+# Protyping folder
+prototype
