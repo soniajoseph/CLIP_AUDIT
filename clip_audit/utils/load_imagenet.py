@@ -9,6 +9,9 @@ from typing import Any, Callable, Optional, Tuple
 
 import torchvision
 
+from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
+
+from PIL import Image
 
 class ImageNetValDataset(torch.utils.data.Dataset):
         def __init__(self, images_dir, imagenet_class_index, labels,  transform=None, return_index=True):
@@ -119,7 +122,7 @@ class ImageNetTrainDataset(ImageFolder):
             return image, kaggle_label_idx
 
 
-def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, drop_last=True):
+def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, drop_last=True, transform=None):
 
     # assuming the same structure as here: https://www.kaggle.com/c/imagenet-object-localization-challenge/overview/description
     imagenet_train_path = os.path.join(imagenet_path, "ILSVRC/Data/CLS-LOC/train")
@@ -128,24 +131,26 @@ def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, d
     imagenet_val_labels = os.path.join(imagenet_path, "LOC_val_solution.csv")
     imagenet_label_strings = os.path.join(imagenet_path, "LOC_synset_mapping.txt" )
 
-    data_transforms = transforms.Compose([
-            transforms.Resize((224, 224)),  # Resize all images to 224x224
-            transforms.ToTensor(),
-            transforms.Normalize([0.48145466, 0.4578275, 0.40821073], 
-                                    [0.26862954, 0.26130258, 0.27577711])
-        ])
-    
+    # data_transforms = transforms.Compose([
+    #     Resize(224, interpolation=Image.BICUBIC),
+    #     CenterCrop(224),
+    #     lambda image: image.convert("RGB"),
+    #     ToTensor(),
+    #     Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711))
+    # ])
+
+        
     # Define data transforms
     # Set the appropriate directory based on train_test_val
     if train_test_val == 'train':
         data_dir = imagenet_train_path
         labels = imagenet_train_labels
-        dataset = ImageNetTrainDataset(data_dir, imagenet_label_strings, labels, transform=data_transforms)
+        dataset = ImageNetTrainDataset(data_dir, imagenet_label_strings, labels, transform=transform)
 
     elif train_test_val == 'val':
         data_dir = imagenet_val_path
         labels = imagenet_val_labels
-        dataset = ImageNetValDataset(data_dir, imagenet_label_strings, labels, transform=data_transforms)
+        dataset = ImageNetValDataset(data_dir, imagenet_label_strings, labels, transform=transform)
 
     # Create the dataloader
     dataloader = torch.utils.data.DataLoader(
@@ -156,3 +161,26 @@ def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, d
     )
 
     return dataloader
+
+def get_imagenet_names(imagenet_path):
+    ind_to_name = {}
+    list_of_names = []
+    with open( os.path.join(imagenet_path, "LOC_synset_mapping.txt" ), 'r') as file:
+        # Iterate over each line in the file
+        for line_num, line in enumerate(file):
+            line = line.strip()
+            if not line:
+                continue
+            parts = line.split(' ')
+            label = parts[1].split(',')[0]
+            ind_to_name[line_num] = label
+            list_of_names.append(label)
+    return ind_to_name, list_of_names
+
+def get_text_embeddings(model_name, list_of_classes):
+    vanilla_model = CLIPModel.from_pretrained(model_name)
+    processor = CLIPProcessor.from_pretrained(model_name, do_rescale=False) # Make sure the do_rescale is false for pytorch datasets
+    inputs = processor(text=list_of_classes, return_tensors='pt', padding=True)
+    text_embeddings = vanilla_model.get_text_features(**inputs)
+    del vanilla_model, processor
+    return text_embeddings
