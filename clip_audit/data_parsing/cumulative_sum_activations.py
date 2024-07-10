@@ -5,42 +5,6 @@ import json
 from tqdm.auto import tqdm
 
 
-# def process_and_save_activation_data(input_data, output_file):
-#     """
-#     Process activation data, calculate cumulative sums, and save to a JSON file.
-
-#     :param input_data: A string of CSV data or a path to a CSV file
-#     :param output_file: Path to save the processed data as JSON
-#     """
-#     # Read the data
-#     try:
-#         df = pd.read_csv(input_data)
-#     except:
-#         df = pd.read_csv(pd.compat.StringIO(input_data))
-
-#     # Calculate cumulative sum and percentiles
-#     df['Cumulative_Count'] = df['Count'].cumsum()
-#     total_count = df['Count'].sum()
-#     df['Percentile'] = df['Cumulative_Count'] / total_count * 100
-
-#     # Prepare data for JSON serialization
-#     data_to_save = {
-#         'data': df.to_dict(orient='records'),
-#         'total_count': int(total_count)
-#     }
-
-#     # Save to JSON file
-#     with open(output_file, 'w') as f:
-#         json.dump(data_to_save, f)
-
-#     print(f"Processed data saved to {output_file}")
-
-
-
-# for layer in tqdm(range(12)):
-#     input_path = f'../histograms/blocks.{layer}.mlp.hook_post_percentiles.txt'
-#     output_file = f'../histograms/blocks.{layer}.mlp.hook_post_cumulative_sum.json'
-#     process_and_save_activation_data(input_path, output_file)
 
 
 def analyze_saved_activation_data(input_file, start_percentile, end_percentile):
@@ -52,11 +16,11 @@ def analyze_saved_activation_data(input_file, start_percentile, end_percentile):
     :param end_percentile: The end of the percentile range (0-100)
     :return: A dictionary containing analysis results and the requested interval
     """
-    # Load the data
-    with open(input_file, 'r') as f:
-        loaded_data = json.load(f)
+    df = pd.read_csv(input_file, sep='\t')
+    
+    start_row = df[df['Percentile'] >= start_pct].iloc[0]
+    end_row = df[df['Percentile'] >= end_pct].iloc[0]
 
-    df = pd.DataFrame(loaded_data['data'])
     total_count = loaded_data['total_count']
 
     # Function to find activation interval for a given percentile range
@@ -103,7 +67,7 @@ all_results = []
 # Analyze data for each layer and interval
 for layer in range(12):
     for start, end in intervals:
-        output = analyze_saved_activation_data(f'../histograms/blocks.{layer}.mlp.hook_post_cumulative_sum.json', start, end)
+        output = analyze_saved_activation_data(f'../histograms/mlp.hook_out/blocks.{layer}.hook_mlp_out_percentiles.txt', start, end)
         
         # Add layer and interval information to the output
         output['Layer'] = layer
@@ -127,7 +91,7 @@ df_results = df_results.sort_values(['Layer', 'Interval_Start'])
 df_results = df_results.reset_index(drop=True)
 
 # Save the DataFrame to a CSV file
-output_file = 'all_layers_intervals_analysis.csv'
+output_file = 'all_layers_intervals_analysis_mlp_out.csv'
 df_results.to_csv(output_file, index=False)
 
 print(f"All results have been saved to {output_file}")

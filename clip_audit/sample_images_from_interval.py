@@ -120,7 +120,14 @@ dataset = load_dataset(imagenet_path)
 neuron = 1  # Example neuron
 layer = 11
 
+# Get neuron intervals based on standard deviatoin
+intervals = get_neuron_intervals()
 
+
+
+
+
+# SAMPLE IMAGES
 
 sampled_indices = sample_image_indices(file_path, activation_range, layer, neuron)
 print(f"Sampled image indices: {sampled_indices}")
