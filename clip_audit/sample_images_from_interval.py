@@ -259,7 +259,13 @@ def get_top_activations_only(file_path, output_dir, neuron, layer_idx, df, n_sam
         activations = f[layer_key][:, :, neuron]
 
         # Get indices for max activations across all tokens
+        # print("max activations shape before max", activations.shape)
         max_activations = np.max(activations, axis=1)  # Max activation per image
+        # print("max activations shape", max_activations.shape) 
+        
+        # The thing about doing things this way is that we won't capture all the high variance images necessarily? 
+        # It shouldn't matter for the max, but it may matter for the minimum image.
+
         top_k_indices = np.argsort(max_activations)[-n_samples:][::-1]  # Top k indices
         # top k activation values
         top_k_activations = max_activations[top_k_indices]
