@@ -1,0 +1,17 @@
+[=== Module python/3.10 loaded ===]
+Traceback (most recent call last):
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 77, in <module>
+    main()
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 74, in main
+    process_layer(tinyclip_directory, layer_num)
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 58, in process_layer
+    create_neuron_figure(neuron_dir)
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 32, in create_neuron_figure
+    axes[i].imshow(np.array(img))
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/Image.py", line 696, in __array_interface__
+    new["data"] = self.tobytes()
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/Image.py", line 755, in tobytes
+    self.load()
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (0 bytes not processed)

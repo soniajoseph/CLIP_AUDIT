@@ -1,0 +1,30 @@
+[=== Module python/3.10 loaded ===]
+Traceback (most recent call last):
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/ImageFile.py", line 271, in load
+    s = read(self.decodermaxblock)
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/PngImagePlugin.py", line 932, in load_read
+    cid, pos, length = self.png.read()
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/PngImagePlugin.py", line 167, in read
+    length = i32(s)
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/_binary.py", line 95, in i32be
+    return unpack_from(">I", c, o)[0]
+struct.error: unpack_from requires a buffer of at least 4 bytes for unpacking 4 bytes at offset 0 (actual buffer size is 0)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 77, in <module>
+    main()
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 74, in main
+    process_layer(tinyclip_directory, layer_num)
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 58, in process_layer
+    create_neuron_figure(neuron_dir)
+  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/data_parsing/create_figure_all_intervals.py", line 32, in create_neuron_figure
+    axes[i].imshow(np.array(img))
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/Image.py", line 696, in __array_interface__
+    new["data"] = self.tobytes()
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/Image.py", line 755, in tobytes
+    self.load()
+  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/ImageFile.py", line 278, in load
+    raise OSError(msg) from e
+OSError: image file is truncated

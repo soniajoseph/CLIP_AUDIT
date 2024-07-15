@@ -1,0 +1,245 @@
+{'n_layers': 12, 'd_model': 512, 'd_head': 64, 'model_name': '', 'n_heads': 8, 'd_mlp': 2048, 'activation_name': 'gelu', 'eps': 1e-05, 'original_architecture': 'vit_clip_vision_encoder', 'initializer_range': 0.02, 'n_channels': 3, 'patch_size': 32, 'image_size': 224, 'n_classes': 512, 'n_params': None, 'layer_norm_pre': True, 'return_type': 'class_logits'}
+LayerNorm folded.
+Centered weights writing to residual stream
+Loaded pretrained model wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M into HookedTransformer
+Neuron 472, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_472/neuron_472_layer_9_top_k_only.png
+Neuron 185, Layer 9, SD intervals: (5.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_185/neuron_185_layer_9_top_k_only.png
+Neuron 4, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_4/neuron_4_layer_9_top_k_only.png
+Neuron 477, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_477/neuron_477_layer_9_top_k_only.png
+Neuron 347, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_347/neuron_347_layer_9_top_k_only.png
+Neuron 380, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_380/neuron_380_layer_9_top_k_only.png
+Neuron 162, Layer 9, SD intervals: (4.0, 6.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_162/neuron_162_layer_9_top_k_only.png
+Neuron 244, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_244/neuron_244_layer_9_top_k_only.png
+Neuron 365, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_365/neuron_365_layer_9_top_k_only.png
+Neuron 40, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_40/neuron_40_layer_9_top_k_only.png
+Neuron 188, Layer 9, SD intervals: (5.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_188/neuron_188_layer_9_top_k_only.png
+Neuron 105, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_105/neuron_105_layer_9_top_k_only.png
+Neuron 260, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_260/neuron_260_layer_9_top_k_only.png
+Neuron 89, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_89/neuron_89_layer_9_top_k_only.png
+Neuron 379, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_379/neuron_379_layer_9_top_k_only.png
+Neuron 404, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_404/neuron_404_layer_9_top_k_only.png
+Neuron 211, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_211/neuron_211_layer_9_top_k_only.png
+Neuron 352, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_352/neuron_352_layer_9_top_k_only.png
+Neuron 381, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_381/neuron_381_layer_9_top_k_only.png
+Neuron 103, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_103/neuron_103_layer_9_top_k_only.png
+Neuron 325, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_325/neuron_325_layer_9_top_k_only.png
+Neuron 261, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_261/neuron_261_layer_9_top_k_only.png
+Neuron 233, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_233/neuron_233_layer_9_top_k_only.png
+Neuron 366, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_366/neuron_366_layer_9_top_k_only.png
+Neuron 183, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_183/neuron_183_layer_9_top_k_only.png
+Neuron 290, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_290/neuron_290_layer_9_top_k_only.png
+Neuron 12, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_12/neuron_12_layer_9_top_k_only.png
+Neuron 73, Layer 9, SD intervals: (6.0, 11.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_73/neuron_73_layer_9_top_k_only.png
+Neuron 206, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_206/neuron_206_layer_9_top_k_only.png
+Neuron 79, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_79/neuron_79_layer_9_top_k_only.png
+Neuron 100, Layer 9, SD intervals: (5.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_100/neuron_100_layer_9_top_k_only.png
+Neuron 174, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_174/neuron_174_layer_9_top_k_only.png
+Neuron 247, Layer 9, SD intervals: (7.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_247/neuron_247_layer_9_top_k_only.png
+Neuron 64, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_64/neuron_64_layer_9_top_k_only.png
+Neuron 304, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_304/neuron_304_layer_9_top_k_only.png
+Neuron 362, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_362/neuron_362_layer_9_top_k_only.png
+Neuron 153, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_153/neuron_153_layer_9_top_k_only.png
+Neuron 450, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_450/neuron_450_layer_9_top_k_only.png
+Neuron 25, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_25/neuron_25_layer_9_top_k_only.png
+Neuron 241, Layer 9, SD intervals: (6.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_241/neuron_241_layer_9_top_k_only.png
+Neuron 298, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_298/neuron_298_layer_9_top_k_only.png
+Neuron 418, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_418/neuron_418_layer_9_top_k_only.png
+Neuron 118, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_118/neuron_118_layer_9_top_k_only.png
+Neuron 436, Layer 9, SD intervals: (5.0, 13.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_436/neuron_436_layer_9_top_k_only.png
+Neuron 495, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_495/neuron_495_layer_9_top_k_only.png
+Neuron 324, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_324/neuron_324_layer_9_top_k_only.png
+Neuron 197, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_197/neuron_197_layer_9_top_k_only.png
+Neuron 98, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_98/neuron_98_layer_9_top_k_only.png
+Neuron 375, Layer 9, SD intervals: (5.0, 6.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_375/neuron_375_layer_9_top_k_only.png
+Neuron 6, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_6/neuron_6_layer_9_top_k_only.png
+Neuron 468, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_468/neuron_468_layer_9_top_k_only.png
+Neuron 196, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_196/neuron_196_layer_9_top_k_only.png
+Neuron 143, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_143/neuron_143_layer_9_top_k_only.png
+Neuron 332, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_332/neuron_332_layer_9_top_k_only.png
+Neuron 433, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_433/neuron_433_layer_9_top_k_only.png
+Neuron 182, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_182/neuron_182_layer_9_top_k_only.png
+Neuron 200, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_200/neuron_200_layer_9_top_k_only.png
+Neuron 448, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_448/neuron_448_layer_9_top_k_only.png
+Neuron 342, Layer 9, SD intervals: (5.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_342/neuron_342_layer_9_top_k_only.png
+Neuron 438, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_438/neuron_438_layer_9_top_k_only.png
+Neuron 32, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_32/neuron_32_layer_9_top_k_only.png
+Neuron 30, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_30/neuron_30_layer_9_top_k_only.png
+Neuron 488, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_488/neuron_488_layer_9_top_k_only.png
+Neuron 322, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_322/neuron_322_layer_9_top_k_only.png
+Neuron 179, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_179/neuron_179_layer_9_top_k_only.png
+Neuron 202, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_202/neuron_202_layer_9_top_k_only.png
+Neuron 88, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_88/neuron_88_layer_9_top_k_only.png
+Neuron 117, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_117/neuron_117_layer_9_top_k_only.png
+Neuron 456, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_456/neuron_456_layer_9_top_k_only.png
+Neuron 393, Layer 9, SD intervals: (4.0, 6.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_393/neuron_393_layer_9_top_k_only.png
+Neuron 474, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_474/neuron_474_layer_9_top_k_only.png
+Neuron 361, Layer 9, SD intervals: (6.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_361/neuron_361_layer_9_top_k_only.png
+Neuron 502, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_502/neuron_502_layer_9_top_k_only.png
+Neuron 57, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_57/neuron_57_layer_9_top_k_only.png
+Neuron 479, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_479/neuron_479_layer_9_top_k_only.png
+Neuron 159, Layer 9, SD intervals: (5.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_159/neuron_159_layer_9_top_k_only.png
+Neuron 170, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_170/neuron_170_layer_9_top_k_only.png
+Neuron 24, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_24/neuron_24_layer_9_top_k_only.png
+Neuron 484, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_484/neuron_484_layer_9_top_k_only.png
+Neuron 462, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_462/neuron_462_layer_9_top_k_only.png
+Neuron 253, Layer 9, SD intervals: (5.0, 11.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_253/neuron_253_layer_9_top_k_only.png
+Neuron 273, Layer 9, SD intervals: (6.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_273/neuron_273_layer_9_top_k_only.png
+Neuron 235, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_235/neuron_235_layer_9_top_k_only.png
+Neuron 164, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_164/neuron_164_layer_9_top_k_only.png
+Neuron 309, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_309/neuron_309_layer_9_top_k_only.png
+Neuron 446, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_446/neuron_446_layer_9_top_k_only.png
+Neuron 434, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_434/neuron_434_layer_9_top_k_only.png
+Neuron 215, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_215/neuron_215_layer_9_top_k_only.png
+Neuron 293, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_293/neuron_293_layer_9_top_k_only.png
+Neuron 339, Layer 9, SD intervals: (4.0, 6.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_339/neuron_339_layer_9_top_k_only.png
+Neuron 156, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_156/neuron_156_layer_9_top_k_only.png
+Neuron 491, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_491/neuron_491_layer_9_top_k_only.png
+Neuron 467, Layer 9, SD intervals: (7.0, 9.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_467/neuron_467_layer_9_top_k_only.png
+Neuron 420, Layer 9, SD intervals: (6.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_420/neuron_420_layer_9_top_k_only.png
+Neuron 92, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_92/neuron_92_layer_9_top_k_only.png
+Neuron 165, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_165/neuron_165_layer_9_top_k_only.png
+Neuron 199, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_199/neuron_199_layer_9_top_k_only.png
+Neuron 412, Layer 9, SD intervals: (5.0, 8.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_412/neuron_412_layer_9_top_k_only.png
+Neuron 69, Layer 9, SD intervals: (5.0, 7.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_69/neuron_69_layer_9_top_k_only.png
+Neuron 84, Layer 9, SD intervals: (6.0, 10.0)
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_9/neuron_84/neuron_84_layer_9_top_k_only.png
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Thu Jul 11 11:23:53 2024
+Driver Version                            : 535.183.06
+CUDA Version                              : 12.2
+
+Attached GPUs                             : 1
+GPU 00000000:88:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 1491477
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 382 MiB
+            Time                          : 1864790 ms
+            Is Running                    : 0
+
+Thu Jul 11 11:23:53 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.183.06             Driver Version: 535.183.06   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Quadro RTX 8000                On  | 00000000:88:00.0 Off |                    0 |
+| 33%   35C    P2              71W / 260W |      1MiB / 46080MiB |      5%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+

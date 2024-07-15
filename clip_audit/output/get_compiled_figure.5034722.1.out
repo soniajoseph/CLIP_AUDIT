@@ -1,0 +1,53 @@
+Processing layer_1
+Processing neuron_80
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_80/neuron_80_compiled.png
+Processing neuron_274
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_274/neuron_274_compiled.png
+Processing neuron_206
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_206/neuron_206_compiled.png
+Processing neuron_479
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_479/neuron_479_compiled.png
+Processing neuron_58
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_58/neuron_58_compiled.png
+Processing neuron_310
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_310/neuron_310_compiled.png
+Processing neuron_342
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_342/neuron_342_compiled.png
+Processing neuron_87
+Compiled figure saved as /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/TinyCLIP40M/layer_1/neuron_87/neuron_87_compiled.png
+Processing neuron_157
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Thu Jul 11 19:59:17 2024
+Driver Version                            : 535.161.08
+CUDA Version                              : 12.2
+
+Attached GPUs                             : 1
+GPU 00000000:C1:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes                   : None
+
+Thu Jul 11 19:59:17 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.161.08             Driver Version: 535.161.08   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  | 00000000:C1:00.0 Off |                    0 |
+| N/A   25C    P0              57W / 500W |      0MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+

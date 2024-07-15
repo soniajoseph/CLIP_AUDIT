@@ -1,0 +1,236 @@
+{'n_layers': 12, 'd_model': 512, 'd_head': 64, 'model_name': '', 'n_heads': 8, 'd_mlp': 2048, 'activation_name': 'gelu', 'eps': 1e-05, 'original_architecture': 'vit_clip_vision_encoder', 'initializer_range': 0.02, 'n_channels': 3, 'patch_size': 32, 'image_size': 224, 'n_classes': 512, 'n_params': None, 'layer_norm_pre': True, 'return_type': 'class_logits'}
+LayerNorm folded.
+Centered weights writing to residual stream
+Loaded pretrained model wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M into HookedTransformer
+Neuron 415 in layer 4 already processed. Skipping.
+Neuron 502 in layer 4 already processed. Skipping.
+Neuron 7 in layer 4 already processed. Skipping.
+Neuron 268 in layer 4 already processed. Skipping.
+Neuron 491 in layer 4 already processed. Skipping.
+Neuron 51 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.254289299249649, -0.2407176196575164) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2760547995567322, 0.3115748465061188) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.2490922212600708, -0.2490922212600708) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2403779327869415, -0.1970761120319366) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3020649254322052, 0.3328223526477813) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2910043597221374, -0.253138929605484) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2477761059999466, 0.2729146480560303) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3000032901763916, 0.3000032901763916) as it has less than 20 images
+Neuron 190 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.3054132759571075, -0.2626649141311645) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2740799188613891, 0.3157467544078827) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3413886129856109, 0.3413886129856109) as it has less than 20 images
+Neuron 100 in layer 4 already processed. Skipping.
+Skipping interval (6.0, 7.0, 0.4146229028701782, 0.4394614994525909) as it has less than 20 images
+Neuron 145 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.3071475028991699, -0.283460795879364) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2478683292865753, 0.2610304951667785) as it has less than 20 images
+Neuron 136 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2961150109767914, -0.2507883012294769) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.2910740673542022, 0.2910740673542022) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3442386090755462, -0.3146959841251373) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3347156941890716, 0.3391766250133514) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3032044470310211, -0.2697915136814117) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3223524391651153, 0.3473978340625763) as it has less than 20 images
+Neuron 475 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2984831035137176, -0.2638270556926727) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2444964498281479, 0.2758684754371643) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3321520388126373, -0.2889551222324371) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2426792979240417, 0.2908377051353454) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3104470670223236, 0.3104470670223236) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3300535380840301, -0.3137148916721344) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2487142831087112, 0.2883881032466888) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3203063905239105, -0.3203063905239105) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2948599755764007, -0.2473299354314804) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2683072686195373, 0.3098919689655304) as it has less than 20 images
+Neuron 259 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2512739598751068, -0.2025376260280609) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3038302063941955, 0.3378680646419525) as it has less than 20 images
+Skipping interval (-8.0, -7.0, -0.3837405741214752, -0.3837405741214752) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3458085358142853, -0.3458085358142853) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2544064223766327, 0.2676069140434265) as it has less than 20 images
+Neuron 213 in layer 4 already processed. Skipping.
+Skipping interval (-7.0, -6.0, -0.3246466815471649, -0.3203877508640289) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.290028840303421, 0.3127236664295196) as it has less than 20 images
+Neuron 284 in layer 4 already processed. Skipping.
+Skipping interval (-7.0, -6.0, -0.3738415539264679, -0.3738415539264679) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3298455774784088, -0.295161634683609) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2565281689167022, -0.2254036962985992) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2865960896015167, -0.2423477470874786) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3224870264530182, 0.3224870264530182) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2747627198696136, -0.2352430522441864) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3290524482727051, 0.3718944489955902) as it has less than 20 images
+Skipping interval (7.0, 8.0, 0.3789319097995758, 0.3866414725780487) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3303723335266113, -0.3095837235450744) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2762731611728668, 0.2970857918262481) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.276517778635025, -0.276517778635025) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.269606351852417, 0.3147068917751312) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.2896389663219452, -0.2896389663219452) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2847691476345062, -0.2372032254934311) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2815028131008148, 0.2874087393283844) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2608246505260467, -0.2448257952928543) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2876808941364288, 0.3134520053863525) as it has less than 20 images
+Neuron 149 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2496277689933776, -0.2350338399410247) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2080210894346237, 0.2441040575504303) as it has less than 20 images
+Neuron 339 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.334134578704834, -0.2851336896419525) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.250698983669281, 0.2918739020824432) as it has less than 20 images
+Neuron 230 in layer 4 already processed. Skipping.
+Skipping interval (-7.0, -6.0, -0.1258614361286163, -0.1258614361286163) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.11210697889328, -0.0735972076654434) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3393880724906921, 0.3427969217300415) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3888672590255737, 0.3888672590255737) as it has less than 20 images
+Neuron 74 in layer 4 already processed. Skipping.
+Skipping interval (-7.0, -6.0, -0.3083948791027069, -0.3083948791027069) as it has less than 20 images
+Neuron 464 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.3254494369029999, -0.3031149506568908) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2625907957553863, 0.2989955842494964) as it has less than 20 images
+Neuron 48 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2558134198188782, -0.2316983193159103) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2839365005493164, 0.2875526547431946) as it has less than 20 images
+Neuron 465 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2765604555606842, -0.2595205307006836) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2524296939373016, 0.2631103694438934) as it has less than 20 images
+Neuron 129 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2932300269603729, -0.2513448297977447) as it has less than 20 images
+Neuron 476 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2720382511615753, -0.2522788941860199) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2459258139133453, 0.2654207646846771) as it has less than 20 images
+Skipping interval (-8.0, -7.0, -0.3532633483409881, -0.3532633483409881) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3385083377361297, -0.3054593503475189) as it has less than 20 images
+Neuron 37 in layer 4 already processed. Skipping.
+Skipping interval (6.0, 7.0, 0.2939019799232483, 0.2939019799232483) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3025480508804321, -0.2564747035503387) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2645274102687835, 0.3138888478279114) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3178248107433319, 0.3178248107433319) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3468963801860809, -0.3468963801860809) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2841915190219879, -0.2579301297664642) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2663226723670959, 0.2811334431171417) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2914877235889435, -0.27708500623703) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2897267639636993, 0.293499618768692) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.315882533788681, -0.2920964956283569) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2532197535037994, 0.2574051916599273) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2919827997684479, -0.2726553976535797) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2495191842317581, 0.2896144390106201) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.275074303150177, -0.2699556350708008) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2357086837291717, 0.2841183245182037) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.2910791337490082, 0.2910791337490082) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.4086251556873321, -0.4086251556873321) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2796179950237274, 0.2796179950237274) as it has less than 20 images
+Skipping interval (-8.0, -7.0, -0.4583007991313934, -0.4583007991313934) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3958401679992676, -0.3941621780395508) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3340762257575989, 0.348171204328537) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3311250805854797, -0.3311250805854797) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3166656196117401, -0.2763158679008484) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2195857465267181, 0.2620912492275238) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.275141566991806, 0.2906837165355682) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2592334449291229, 0.2881069779396057) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3189811408519745, 0.3189811408519745) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2724677920341491, 0.309557169675827) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.290547639131546, -0.2538559138774872) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3062008023262024, 0.3252392113208771) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.297544777393341, -0.2620711028575897) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2550263106822967, 0.2686196565628052) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3357290923595428, -0.3357290923595428) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2938223481178283, -0.2762743532657623) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.337792694568634, 0.3745392262935638) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3300574123859405, -0.3300574123859405) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2846195697784424, -0.2454318851232528) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.262336403131485, 0.3066330850124359) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3249581754207611, 0.3249581754207611) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2832532227039337, -0.2354742437601089) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2626923620700836, -0.2626923620700836) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2633415460586548, 0.2808924615383148) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.305481344461441, -0.2772857248783111) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2266461253166198, 0.2457488179206848) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3195918202400207, -0.2909608483314514) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2259065508842468, 0.2718712985515594) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.2898167073726654, 0.2898167073726654) as it has less than 20 images
+Skipping interval (-8.0, -7.0, -0.3981101214885711, -0.3981101214885711) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3381451964378357, -0.3178228735923767) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2471034228801727, 0.2871012687683105) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.313793271780014, 0.313793271780014) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3071195185184479, -0.2653866410255432) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2791724801063537, 0.2872936427593231) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.316873550415039, -0.2887104451656341) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2569476664066314, 0.2990516722202301) as it has less than 20 images
+Skipping interval (6.0, 7.0, 0.3132863342761993, 0.3132863342761993) as it has less than 20 images
+Neuron 365 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.3326974809169769, -0.3326974809169769) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2853902578353882, 0.3411069214344024) as it has less than 20 images
+Neuron 279 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.3409624397754669, -0.3134905099868774) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2507144510746002, 0.2980751097202301) as it has less than 20 images
+Neuron 119 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2373449206352234, -0.2092499434947967) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2679139673709869, 0.2812396585941314) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2980691790580749, -0.260889321565628) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.264784425497055, 0.264784425497055) as it has less than 20 images
+Skipping interval (-9.0, -8.0, -0.3119716942310333, -0.3119716942310333) as it has less than 20 images
+Skipping interval (-8.0, -7.0, -0.2922954857349396, -0.2641860544681549) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.1076769903302192, 0.1301970481872558) as it has less than 20 images
+Skipping interval (-7.0, -6.0, -0.3512924611568451, -0.3512924611568451) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3246781527996063, -0.2864594757556915) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3036878108978271, 0.308449774980545) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.2857647240161896, -0.259568303823471) as it has less than 20 images
+Neuron 278 in layer 4 already processed. Skipping.
+Skipping interval (-9.0, -8.0, -0.3413291275501251, -0.3413291275501251) as it has less than 20 images
+Skipping interval (-8.0, -7.0, -0.3253488540649414, -0.276179701089859) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.3615261614322662, 0.3615261614322662) as it has less than 20 images
+Neuron 503 in layer 4 already processed. Skipping.
+Skipping interval (5.0, 6.0, 0.3329280912876129, 0.3669650852680206) as it has less than 20 images
+Neuron 23 in layer 4 already processed. Skipping.
+Skipping interval (-7.0, -6.0, -0.348361998796463, -0.348361998796463) as it has less than 20 images
+Skipping interval (-6.0, -5.0, -0.3067727386951446, -0.2611121535301208) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2599436938762665, 0.3039915859699249) as it has less than 20 images
+Neuron 422 in layer 4 already processed. Skipping.
+Skipping interval (-6.0, -5.0, -0.2993607521057129, -0.2993607521057129) as it has less than 20 images
+Skipping interval (5.0, 6.0, 0.2352631688117981, 0.2651582062244415) as it has less than 20 images
+Neuron 47 in layer 4 already processed. Skipping.
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Thu Jul 11 01:36:22 2024
+Driver Version                            : 535.161.08
+CUDA Version                              : 12.2
+
+Attached GPUs                             : 1
+GPU 00000000:81:00.0
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes                   : None
+
+Thu Jul 11 01:36:22 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.161.08             Driver Version: 535.161.08   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  | 00000000:81:00.0 Off |                   On |
+| N/A   32C    P0              81W / 500W |    443MiB / 81920MiB |     N/A      Default |
+|                                         |                      |              Enabled |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| MIG devices:                                                                          |
++------------------+--------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                   Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                     BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                |        ECC|                       |
+|==================+================================+===========+=======================|
+|  0    2   0   0  |              21MiB / 40448MiB  | 56      0 |  4   0    2    0    0 |
+|                  |               0MiB / 65535MiB  |           |                       |
++------------------+--------------------------------+-----------+-----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
