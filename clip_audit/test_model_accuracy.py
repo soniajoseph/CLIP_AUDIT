@@ -32,12 +32,13 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
 
     device = 'cuda'
 
+
     # Check original model
     if model_type == 'original':
         model = CLIPModel.from_pretrained(model_name)
     elif model_type == 'hooked':
         model = HookedViT.from_pretrained(model_name, is_clip=True, is_timm=False)
-
+        
     # Get text features
     with torch.no_grad():
         vanilla_model = CLIPModel.from_pretrained(model_name)
@@ -111,16 +112,26 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
 # Results for old preprocessing (with center crop):
 # Vanilla wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M for 50k ImageNet Val (top 1):  36.36%
 
+
+# Results for "openai/clip-vit-base-patch32"
+# Vanilla openai/clip-vit-base-patch32 for 50k ImageNet Val (top 1):  52.15%
+
+# What now I''m getting different results
+# Loaded pretrained model wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M into HookedTransformer
+# Evaluating:   2%|██▋                                                                                                                                     | 31/1562 [00:36<30:04,  1.18s/it]
+# Top-5 Accuracy on ImageNet: 50.88%
+
 if __name__ == '__main__':
 
 
     parser = argparse.ArgumentParser(description='Test accuracy of TinyCLIP on dataset')
     parser.add_argument('--imagenet_path', type=str, default='/network/scratch/s/sonia.joseph/datasets/kaggle_datasets', help='Path to dataset')
     parser.add_argument('--train_val', type=str, default='val', help='Train, test or validation set')
-    parser.add_argument('--model_type', type=str, default='original', help="Model to test (original/hooked)")
+    parser.add_argument('--model_type', type=str, default='original', help="Model to test (original/hooked)", choices=['original', 'hooked'])
     parser.add_argument('--model_name', type=str, default='wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M', help='Model name to test')
     parser.add_argument('--max', type=int, default=1000, help='Number of images to test on. Put -1 to do full set')
+    parser.add_argument('--k', type=int, default=5, help='Top-k accuracy')
 
     args = parser.parse_args()
     
-    main(args.imagenet_path, args.train_val, args.model_type, args.model_name, args.max)
+    main(args.imagenet_path, args.train_val, args.model_type, args.model_name, args.max, args.k)
