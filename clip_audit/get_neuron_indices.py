@@ -6,6 +6,8 @@ from collections import OrderedDict
 
 import numpy as np
 
+import os
+
 
 def main(save_file_name, total_neurons, n, layers):
     """
@@ -33,10 +35,13 @@ def main(save_file_name, total_neurons, n, layers):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Get neuron indices")
-    parser.add_argument("--save_file_name", default="./saved_data/tinyclip_neuron_indices_mlp_out.npy", type=str, help="Model name")
+    parser.add_argument("--save_file_dir", default="./saved_data", type=str, help="Model name")
+    parser.add_argument("--save_file_name", required=True, type=str, help="Model name")
     parser.add_argument("--total_neurons", default=512, type=int, help="Total number of neurons")
-    parser.add_argument("--n", default=100, type=int, help="Number of neurons to sample")
+    parser.add_argument("--n", default=30, type=int, help="Number of neurons to sample")
     parser.add_argument("--layers", default=12, type=int, help="Number of layers")
     args = parser.parse_args()
 
-    main(args.save_file_name, args.total_neurons, args.n, args.layers)
+    total_save_name  = os.path.join(args.save_file_dir, args.save_file_name)
+
+    main(total_save_name, args.total_neurons, args.n, args.layers)
