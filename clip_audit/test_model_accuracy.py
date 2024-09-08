@@ -26,6 +26,8 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
     transform = transforms.Compose([
             transforms.Resize((224, 224)), # Resize the image
             transforms.ToTensor(), # Convert the image to a tensor
+            transforms.Normalize((0.48145466, 0.4578275, 0.40821073), 
+                             (0.26862954, 0.26130258, 0.27577711),
         ])
 
     dataloader = load_imagenet(imagenet_path, train_val, shuffle=True, transform=transform)
@@ -130,7 +132,7 @@ if __name__ == '__main__':
     parser.add_argument('--model_type', type=str, default='original', help="Model to test (original/hooked)", choices=['original', 'hooked'])
     parser.add_argument('--model_name', type=str, default='wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M', help='Model name to test')
     parser.add_argument('--max', type=int, default=1000, help='Number of images to test on. Put -1 to do full set')
-    parser.add_argument('--k', type=int, default=5, help='Top-k accuracy')
+    parser.add_argument('--k', type=int, default=1, help='Top-k accuracy')
 
     args = parser.parse_args()
     
