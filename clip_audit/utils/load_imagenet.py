@@ -163,19 +163,27 @@ def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, d
     return dataloader
 
 def get_imagenet_names(imagenet_path):
-    ind_to_name = {}
+    ind_to_names = {}
     list_of_names = []
-    with open( os.path.join(imagenet_path, "LOC_synset_mapping.txt" ), 'r') as file:
-        # Iterate over each line in the file
+    with open(os.path.join(imagenet_path, "LOC_synset_mapping.txt"), 'r') as file:
         for line_num, line in enumerate(file):
             line = line.strip()
             if not line:
                 continue
-            parts = line.split(' ')
-            label = parts[1].split(',')[0]
-            ind_to_name[line_num] = label
-            list_of_names.append(label)
-    return ind_to_name, list_of_names
+            
+            # Split the line into synset ID and the rest (names)
+            parts = line.split(maxsplit=1)
+            if len(parts) < 2:
+                continue
+            
+            synset = parts[0]
+            full_names = parts[1].split(',')
+            full_names = [name.strip() for name in full_names if name.strip()]
+            
+            ind_to_names[line_num] = full_names
+            list_of_names.extend(full_names)
+    
+    return ind_to_names, list_of_names
 
 def get_text_embeddings(model_name, list_of_classes):
     vanilla_model = CLIPModel.from_pretrained(model_name)
