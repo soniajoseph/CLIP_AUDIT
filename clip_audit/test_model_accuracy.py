@@ -7,6 +7,7 @@ Mainly as sanity check and also making sure we're doing our image normalization 
 
 import os
 from clip_audit.utils.load_imagenet import load_imagenet, get_imagenet_names
+from clip_audit.utils.transforms import get_clip_transform
 
 import argparse
 from transformers import CLIPProcessor, CLIPModel
@@ -19,6 +20,12 @@ from torchvision import transforms
 
 from tqdm.auto import tqdm
 
+from clip_audit.utils.templates import PROMPT_TEMPLATES
+
+
+
+from PIL import Image
+
 def main(imagenet_path, train_val, model_type, model_name, max, k=5):
 
     ind_to_name, imagenet_names = get_imagenet_names(imagenet_path)
@@ -29,11 +36,7 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
     # image_mean = processor.image_processor.image_mean
     # image_std = processor.image_processor.image_std
     
-    transform = transforms.Compose([
-            transforms.Resize((224, 224)), # Resize the image
-            transforms.ToTensor(), # Convert the image to a tensor
-            # transforms.Normalize(mean=image_mean, std=image_std)
-        ])
+    transform = get_clip_transform()
 
     dataloader = load_imagenet(imagenet_path, train_val, shuffle=True, transform=transform)
 
@@ -56,18 +59,70 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
     #     text_features = text_features.to(device)
     #     del vanilla_model
 
-    # Get text features
+    # # Get text features
+    # with torch.no_grad():
+    #     vanilla_model = CLIPModel.from_pretrained(model_name)
+    #     processor = CLIPProcessor.from_pretrained(model_name, do_rescale=False)
+
+    #     # Create a list of all prompts and a mapping from prompt to class index
+    #     all_prompts = []
+    #     prompt_to_class = []
+    #     for class_idx, names in ind_to_name.items():
+    #         for name in names:
+    #             all_prompts.append(f"a photo of a {name}")
+    #             prompt_to_class.append(class_idx)
+
+    #     # Convert prompt_to_class to a tensor
+    #     prompt_to_class = torch.tensor(prompt_to_class)
+
+    #     # Process all prompts in batches to avoid potential memory issues
+    #     batch_size = 256
+    #     text_features_list = []
+    #     for i in range(0, len(all_prompts), batch_size):
+    #         batch_prompts = all_prompts[i:i+batch_size]
+    #         inputs = processor(text=batch_prompts, return_tensors='pt', padding=True)
+    #         batch_text_features = vanilla_model.get_text_features(**inputs)
+    #         batch_text_features = batch_text_features / batch_text_features.norm(dim=-1, keepdim=True)
+    #         text_features_list.append(batch_text_features)
+
+    #     # Concatenate all text features
+    #     text_features = torch.cat(text_features_list, dim=0)
+        
+    #     # Move tensors to the appropriate device
+    #     text_features = text_features.to(device)
+    #     prompt_to_class = prompt_to_class.to(device)
+
+    #     del vanilla_model
+
+        # Get text features
     with torch.no_grad():
         vanilla_model = CLIPModel.from_pretrained(model_name)
         processor = CLIPProcessor.from_pretrained(model_name, do_rescale=False)
 
+        # Define multiple prompt templates
+        # prompt_templates = [
+        #     "a photo of a {}",
+        #     "a photograph of a {}",
+        #     "an image of a {}",
+        #     "a picture of a {}",
+        #     "a {} in a photo",
+        #     "a clear photo of a {}",
+        #     "a color photo of a {}",
+        #     "a close-up photo of a {}",
+        #     "a bright photo of a {}",
+        #     "a cropped photo of a {}",
+        #     "{}"
+        
+
+        prompt_templates = PROMPT_TEMPLATES
         # Create a list of all prompts and a mapping from prompt to class index
         all_prompts = []
         prompt_to_class = []
         for class_idx, names in ind_to_name.items():
             for name in names:
-                all_prompts.append(f"a photo of a {name}")
-                prompt_to_class.append(class_idx)
+                for template in prompt_templates:
+                    all_prompts.append(template.format(name))
+                    prompt_to_class.append(class_idx)
 
         # Convert prompt_to_class to a tensor
         prompt_to_class = torch.tensor(prompt_to_class)
@@ -91,7 +146,6 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
 
         del vanilla_model
 
-
     # get processor clip normalziation values
     model.to(device)
 
@@ -103,38 +157,75 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
     
 
     print("Max is ", max)
-    print("All prompts are ", all_prompts)
+    # print("All prompts are ", all_prompts)
 
+    # with torch.no_grad():
+    #     for images, labels, _ in tqdm(dataloader, desc="Evaluating"):
+    #         images = images.to(device)
+    #         labels = labels.to(device)
+
+    #         inputs  = processor(images=images, return_tensors="pt", do_resize=True, do_center_crop=True, do_normalize=True, do_rescale=False)
+    #         inputs = {k: v.to(device) for k, v in inputs.items()}
+
+        
+    #         if model_type == 'original':
+    #             image_features = model.get_image_features(**inputs)
+    #         else: 
+    #             image_features = model(images)
+
+    #         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+
+    #         # Compute similarity scores for all prompts
+    #         similarity = 100.0 * image_features @ text_features.T
+
+    #         # For each image, get the maximum similarity for each class
+    #         max_similarity = torch.zeros(similarity.shape[0], len(ind_to_name), device=device)
+    #         for class_idx in range(len(ind_to_name)):
+    #             class_mask = (prompt_to_class == class_idx)
+    #             max_similarity[:, class_idx] = similarity[:, class_mask].max(dim=1).values
+
+    #         # Apply softmax to get probabilities
+    #         similarity = max_similarity.softmax(dim=-1)
+
+    #         # Get top-k predictions
+    #         _, top_k_indices = torch.topk(similarity, k, dim=-1)
+
+    #         # Compute top-1 and top-k accuracy
+    #         top_1_correct += (top_k_indices[:, 0] == labels).sum().item()
+    #         top_k_correct += sum([label in pred for label, pred in zip(labels, top_k_indices)])
+    #         total += labels.size(0)
+
+    #         if max != -1 and total >= max:
+    #             break
+        # In your evaluation loop:
     with torch.no_grad():
         for images, labels, _ in tqdm(dataloader, desc="Evaluating"):
             images = images.to(device)
             labels = labels.to(device)
 
-            inputs  = processor(images=images, return_tensors="pt", do_resize=True, do_center_crop=True, do_normalize=True, do_rescale=False)
-            inputs = {k: v.to(device) for k, v in inputs.items()}
+            # inputs = processor(images=images, return_tensors="pt", do_resize=True, do_center_crop=True, do_normalize=True, do_rescale=False)
+            # inputs = {k: v.to(device) for k, v in inputs.items()}
 
-        
             if model_type == 'original':
-                image_features = model.get_image_features(**inputs)
+                image_features = model.get_image_features(images)
+                # image_features = model.encode_image(images)
             else: 
                 image_features = model(images)
-
+            
             image_features = image_features / image_features.norm(dim=-1, keepdim=True)
 
             # Compute similarity scores for all prompts
             similarity = 100.0 * image_features @ text_features.T
 
             # For each image, get the maximum similarity for each class
-            max_similarity = torch.zeros(similarity.shape[0], len(ind_to_name), device=device)
-            for class_idx in range(len(ind_to_name)):
+            num_classes = len(ind_to_name)
+            max_similarity = torch.zeros(similarity.shape[0], num_classes, device=device)
+            for class_idx in range(num_classes):
                 class_mask = (prompt_to_class == class_idx)
                 max_similarity[:, class_idx] = similarity[:, class_mask].max(dim=1).values
 
-            # Apply softmax to get probabilities
-            similarity = max_similarity.softmax(dim=-1)
-
             # Get top-k predictions
-            _, top_k_indices = torch.topk(similarity, k, dim=-1)
+            _, top_k_indices = torch.topk(max_similarity, k, dim=-1)
 
             # Compute top-1 and top-k accuracy
             top_1_correct += (top_k_indices[:, 0] == labels).sum().item()
@@ -144,10 +235,15 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
             if max != -1 and total >= max:
                 break
 
-        top_1_accuracy = 100 * top_1_correct / total
-        top_k_accuracy = 100 * top_k_correct / total
-        print(f"Top-1 Accuracy on ImageNet: {top_1_accuracy:.2f}%")
-        print(f"Top-{k} Accuracy on ImageNet: {top_k_accuracy:.2f}%")
+    top_1_accuracy = 100 * top_1_correct / total
+    top_k_accuracy = 100 * top_k_correct / total
+    print(f"Top-1 Accuracy on ImageNet: {top_1_accuracy:.2f}%")
+    print(f"Top-{k} Accuracy on ImageNet: {top_k_accuracy:.2f}%")
+
+        # top_1_accuracy = 100 * top_1_correct / total
+        # top_k_accuracy = 100 * top_k_correct / total
+        # print(f"Top-1 Accuracy on ImageNet: {top_1_accuracy:.2f}%")
+        # print(f"Top-{k} Accuracy on ImageNet: {top_k_accuracy:.2f}%")
                     
     #         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
 
@@ -205,7 +301,7 @@ if __name__ == '__main__':
     parser.add_argument('--model_type', type=str, default='original', help="Model to test (original/hooked)", choices=['original', 'hooked'])
     parser.add_argument('--model_name', type=str, default='wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M', help='Model name to test')
     parser.add_argument('--max', type=int, default=1000, help='Number of images to test on. Put -1 to do full set')
-    parser.add_argument('--k', type=int, default=1, help='Top-k accuracy')
+    parser.add_argument('--k', type=int, default=5, help='Top-k accuracy')
 
     args = parser.parse_args()
     

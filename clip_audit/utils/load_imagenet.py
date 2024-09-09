@@ -131,13 +131,6 @@ def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, d
     imagenet_val_labels = os.path.join(imagenet_path, "LOC_val_solution.csv")
     imagenet_label_strings = os.path.join(imagenet_path, "LOC_synset_mapping.txt" )
 
-    # data_transforms = transforms.Compose([
-    #     Resize(224, interpolation=Image.BICUBIC),
-    #     CenterCrop(224),
-    #     lambda image: image.convert("RGB"),
-    #     ToTensor(),
-    #     Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711))
-    # ])
 
         
     # Define data transforms
