@@ -26,6 +26,8 @@ from clip_audit.utils.templates import PROMPT_TEMPLATES
 
 from PIL import Image
 
+import open_clip
+
 def main(imagenet_path, train_val, model_type, model_name, max, k=5):
 
     ind_to_name, imagenet_names = get_imagenet_names(imagenet_path)
@@ -46,6 +48,7 @@ def main(imagenet_path, train_val, model_type, model_name, max, k=5):
     # Check original model
     if model_type == 'original':
         model = CLIPModel.from_pretrained(model_name)
+        # model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('ViT-B-32', pretrained='openai')
     elif model_type == 'hooked':
         model = HookedViT.from_pretrained(model_name, is_clip=True, is_timm=False)
         
