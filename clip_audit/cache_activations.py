@@ -21,31 +21,27 @@ from tqdm.auto import tqdm
 import numpy as np
 import h5py
 
+from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms
+
 
 
 def create_save_path(save_dir, model_name, train_val, layer_type):
     return os.path.join(save_dir, model_name, train_val, f"{layer_type}.h5")
 
 def main(imagenet_path, train_val, model_name, save_dir, total_layers=12):
+
+    # Load data
     ind_to_name, imagenet_names = get_imagenet_names(imagenet_path)
-    
-    # Note -- change this to get CLIP processor
-    transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.48145466, 0.4578275, 0.40821073], std=[0.26862954, 0.26130258, 0.27577711])
-        ])
+    transforms = get_clip_val_transforms()
+    dataloader = load_imagenet(imagenet_path, train_val, shuffle=False, transform=transforms)
 
-    dataloader = load_imagenet(imagenet_path, train_val, shuffle=False, transform=transform)
-
+    # Load model
     device = 'cuda'
-
     model = HookedViT.from_pretrained(model_name, is_timm=False, is_clip=True, fold_ln=False, center_writing_weights=False) # in future, do all models
     model.to(device)
     print(f"Model loaded: {model_name}")
 
 
-    # Make sure these are indeed the right layers.
     # Create names_filter
     hook_point_names = []
     for layer in range(12):  # Assuming 12 layers
@@ -56,9 +52,7 @@ def main(imagenet_path, train_val, model_name, save_dir, total_layers=12):
         ])
     names_filter = lambda name: name in hook_point_names
 
-
     layer_types = ["hook_mlp_out", "hook_resid_post", "hook_post"]
-    # Create a file for each layer type
     files = {layer_type: h5py.File(create_save_path(save_dir, model_name, train_val, layer_type), 'w') 
              for layer_type in layer_types}
 

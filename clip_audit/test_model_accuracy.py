@@ -7,7 +7,6 @@ Mainly as sanity check and also making sure we're doing our image normalization 
 
 import os
 from clip_audit.utils.load_imagenet import load_imagenet, get_imagenet_names
-from clip_audit.utils.transforms import get_clip_transform
 
 import argparse
 from transformers import CLIPProcessor, CLIPModel
