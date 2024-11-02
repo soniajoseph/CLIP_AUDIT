@@ -25,7 +25,8 @@ from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms
 from vit_prisma.dataloaders.imagenet_classes_simple import imagenet_classes
 
 
-VERBOSE = False
+VERBOSE = True
+SAVE_FIGURES = False
 
 def print_available_layers(file_path):
     with h5py.File(file_path, 'r') as f:
@@ -34,7 +35,7 @@ def print_available_layers(file_path):
             if key != 'image_indices':
                 print(f"- {key}")
 
-def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samples=20, type_of_sampling='average'):
+def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samples=20, type_of_sampling='avg'):
     # print_available_layers(file_path)
     file_path = os.path.join(file_path, f"{layer_type}.h5")
     # print(f"File path: {file_path}")
@@ -55,8 +56,10 @@ def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samp
 
         if type_of_sampling == 'max':
             aggregated_activations = np.max(activations, axis=1)
-        elif type_of_sampling == 'average':
+        elif type_of_sampling == 'avg':
             aggregated_activations = np.mean(activations, axis=1)
+        elif type_of_sampling == 'max_cls':
+            aggregated_activations = activations[:, 0]
         else:
             raise ValueError(f"Unknown sampling type: {type_of_sampling}")
 
@@ -92,9 +95,26 @@ def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, t
         # Get class names
         top_class_names = [imagenet_classes[dataset[idx][1]] for idx in top_indices]
         bottom_class_names = [imagenet_classes[dataset[idx][1]] for idx in bottom_indices]
+
+        # Save values and indices
+        top_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/top"
+        bot_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/bottom"
+
+        # Save indices and activations
+        torch.save({
+            'indices': top_indices,
+            'activations': top_activations
+        }, f"{top_dir}/indices_and_activations.pt")
         
-        plot_images(top_images, top_indices, top_class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling=type_of_sampling, activations=top_activations, extreme_type='top', layer_type=layer_type, file_path=file_path)
-        plot_images(bottom_images, bottom_indices, bottom_class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling=type_of_sampling, activations=bottom_activations, extreme_type='bottom', layer_type=layer_type, file_path=file_path)
+        torch.save({
+            'indices': bottom_indices,
+            'activations': bottom_activations
+        }, f"{bot_dir}/indices_and_activations.pt")
+
+        # Plot figures
+        if SAVE_FIGURES:
+            plot_images(top_images, top_indices, top_class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling=type_of_sampling, activations=top_activations, extreme_type='top', layer_type=layer_type, file_path=file_path)
+            plot_images(bottom_images, bottom_indices, bottom_class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling=type_of_sampling, activations=bottom_activations, extreme_type='bottom', layer_type=layer_type, file_path=file_path)
 
 def tensor_to_pil(tensor):
     """Convert a tensor to a PIL Image."""
@@ -133,7 +153,7 @@ def denormalize_for_display(image):
         raise ValueError("Expected PIL Image, got {}".format(type(image)))
 
 
-def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling='max', activations=None, extreme_type='top', layer_type=None, file_path=None):
+def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling='max', activations=None, extreme_type='top', layer_type=None, file_path=None, save_figures=SAVE_FIGURES):
     grid_size = int(np.ceil(np.sqrt(len(images))))
     
     def create_figure(include_heatmap=True):
@@ -186,16 +206,15 @@ def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model
     fig_without_heatmap, _ = create_figure(include_heatmap=False)
 
     # Prepare file names and directories
-    sampling_type = "max" if type_of_sampling == 'max' else "avg"
-    base_name = f"neuron_{neuron_idx}_layer_{layer_idx}_{extreme_type}_{sampling_type}_{layer_type}"
+    base_name = f"neuron_{neuron_idx}_layer_{layer_idx}_{extreme_type}_{type_of_sampling}_{layer_type}"
     
     # Function to save figures
     def save_figure(fig, name_suffix, is_svg=False):
         if is_svg:
-            base_dir = f"{save_dir}/svg/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{sampling_type}/{extreme_type}"
+            base_dir = f"{save_dir}/svg/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/{extreme_type}"
             file_ext = "svg"
         else:
-            base_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{sampling_type}/{extreme_type}"
+            base_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/{extreme_type}"
             file_ext = "png"
         
         os.makedirs(base_dir, exist_ok=True)
@@ -209,10 +228,14 @@ def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model
         print(f"Saved {file_ext.upper()} image to {save_path}") if VERBOSE else None
 
     # Save figures
-    save_figure(fig_with_heatmap, "", is_svg=False)
-    save_figure(fig_with_heatmap, "", is_svg=True)
-    save_figure(fig_without_heatmap, "_no_heatmap", is_svg=False)
-    save_figure(fig_without_heatmap, "_no_heatmap", is_svg=True)
+    if save_figures:
+        save_figure(fig_with_heatmap, "", is_svg=False)
+        save_figure(fig_with_heatmap, "", is_svg=True)
+        save_figure(fig_without_heatmap, "_no_heatmap", is_svg=False)
+        save_figure(fig_without_heatmap, "_no_heatmap", is_svg=True)
+    
+    
+
 
     # # Save individual images
     # img_save_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{sampling_type}/{extreme_type}/individual_images"
@@ -383,7 +406,7 @@ def main(args):
         for neuron_idx in tqdm(neuron_indices[layer_idx], desc="Neuron"):
             save_name = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/"
             # if directory exists, skip this neuron
-            if os.path.exists(save_name) and not args.top_k_only:
+            if os.path.exists(save_name) and not args.replace:
                 print(f"Neuron {neuron_idx} in layer {layer_idx} already processed. Skipping.")
                 continue
             process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, args.type_of_sampling, imagenet_classes)
@@ -393,8 +416,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process neurons in specific layers of a neural network.")
     parser.add_argument("--layer_idx", type=int, help="Specific layer index to process. If not provided, all layers will be processed.", default=None)
     # get top k only, store true, use as a boolean
-    parser.add_argument("--top_k_only", action="store_true", help="Get only the top k activations for each neuron.")
-    parser.add_argument("--type_of_sampling", type=str, default='average', help="Type of sampling to use for selecting top k activations.")
+    parser.add_argument("--replace", action="store_true", help="Rerun despite folder already being there.")
+    parser.add_argument("--type_of_sampling", type=str, default='avg', help="Type of sampling to use for selecting top k activations.")
+    parser.add_argument("--verbose", action="store_true", help="Print verbose output.")
     args = parser.parse_args()
     main(args)
-
