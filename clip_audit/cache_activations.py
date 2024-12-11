@@ -141,9 +141,9 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Test accuracy of TinyCLIP on dataset')
     parser.add_argument('--imagenet_path', type=str, default='/network/scratch/s/sonia.joseph/datasets/kaggle_datasets', help='Path to dataset')
-    parser.add_argument('--train_val', type=str, default='val', help='Train, test or validation set')
-    parser.add_argument('--model_name', type=str, default='open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K', help='Model name to test')
-    parser.add_argument('--save_dir', type=str, default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/CLIP-ViT-B-32-DataComp.XL-s13B-b90K', help='Directory to save results')
+    parser.add_argument('--train_val', type=str, default='train', help='Train, test or validation set')
+    parser.add_argument('--model_name', type=str, default='open-clip:laion/CLIP-ViT-B-16-DataComp.XL-s13B-b90K', help='Model name to test')
+    parser.add_argument('--save_dir', type=str, default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/CLIP-ViT-B-16-DataComp.XL-s13B-b90K', help='Directory to save results')
     # parser.add_argument('--hook_point_name', type=str, default="blocks.{layer}.mlp.hook_post", help='Name of the activation to save')
 
     args = parser.parse_args()

@@ -100,6 +100,10 @@ def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, t
         top_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/top"
         bot_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/bottom"
 
+        # if directory doesn't exist, make it
+        os.makedirs(top_dir, exist_ok=True)
+        os.makedirs(bot_dir, exist_ok=True)
+
         # Save indices and activations
         torch.save({
             'indices': top_indices,
@@ -391,7 +395,14 @@ def main(args):
     dataset = load_dataset(imagenet_path)
     model = HookedViT.from_pretrained(model_name, is_clip=True, is_timm=False).to('cuda')
     # df_intervals = pd.read_csv(df_intervals_path)
-    neuron_indices = np.load(neuron_indices_path, allow_pickle=True).item()
+    if args.all_neurons:
+        neuron_indices = {layer_idx: np.arange(768) for layer_idx in range(12)}
+        save_dir = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/top_img_indices_only' # save indices in diff location than when saving heatmaps
+        # make dir if doesn't exist
+        os.makedirs(save_dir, exist_ok=True)
+
+    else:
+        neuron_indices = np.load(neuron_indices_path, allow_pickle=True).item()
 
     if args.layer_idx is not None:
         if args.layer_idx in neuron_indices:
@@ -419,5 +430,6 @@ if __name__ == "__main__":
     parser.add_argument("--replace", action="store_true", help="Rerun despite folder already being there.")
     parser.add_argument("--type_of_sampling", type=str, default='avg', help="Type of sampling to use for selecting top k activations.")
     parser.add_argument("--verbose", action="store_true", help="Print verbose output.")
+    parser.add_argument("--all_neurons", action="store_true", help="Do every neuron, not just randomly sampled ones.")
     args = parser.parse_args()
     main(args)
