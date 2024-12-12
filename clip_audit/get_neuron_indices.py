@@ -37,7 +37,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get neuron indices")
     parser.add_argument("--save_file_dir", default="./saved_data", type=str, help="Model name")
     parser.add_argument("--save_file_name", required=True, type=str, help="Model name")
-    parser.add_argument("--total_neurons", default=512, type=int, help="Total number of neurons")
+    parser.add_argument("--total_neurons", default=1600, type=int, help="Total number of neurons")
     parser.add_argument("--n", default=30, type=int, help="Number of neurons to sample")
     parser.add_argument("--layers", default=12, type=int, help="Number of layers")
     args = parser.parse_args()

@@ -24,9 +24,10 @@ from torchvision.transforms.functional import InterpolationMode
 from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms 
 from vit_prisma.dataloaders.imagenet_classes_simple import imagenet_classes
 
+from clip_audit.dataloader.conceptual_captions import load_conceptual_captions
 
 VERBOSE = True
-SAVE_FIGURES = False
+SAVE_FIGURES = True
 
 def print_available_layers(file_path):
     with h5py.File(file_path, 'r') as f:
@@ -41,6 +42,8 @@ def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samp
     # print(f"File path: {file_path}")
     # print_available_layers(file_path)
     with h5py.File(file_path, 'r') as f:
+        # print("All keys:", list(f.keys()))
+
         if layer_type == 'hook_post':
             layer_key = f'blocks.{layer_idx}.mlp.hook_post'
         else:
@@ -79,22 +82,36 @@ def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samp
     
     return top_sampled_image_indices.tolist(), top_k_activations, bottom_sampled_image_indices.tolist(), bottom_k_activations
 
-def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, type_of_sampling='max', imagenet_classes=None):
+def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, dataset_name, type_of_sampling='max', imagenet_classes=None):
     
-    layer_types = ["hook_mlp_out", "hook_resid_post", "hook_post"]
+    layer_types = ["hook_mlp_out", "hook_resid_post"]
 
     print(f"Processing neuron {neuron_idx} in layer {layer_idx}") if VERBOSE else None
+
+    
 
     for layer_type in layer_types:
         top_indices, top_activations, bottom_indices, bottom_activations = get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, type_of_sampling=type_of_sampling)
         # print(f"Neuron {neuron_idx}, Layer {layer_idx}, Layer Type {layer_type}")
-        
-        top_images = [dataset[idx][0] for idx in top_indices]
-        bottom_images = [dataset[idx][0] for idx in bottom_indices]
 
-        # Get class names
-        top_class_names = [imagenet_classes[dataset[idx][1]] for idx in top_indices]
-        bottom_class_names = [imagenet_classes[dataset[idx][1]] for idx in bottom_indices]
+        if dataset_name == 'imagenet':
+            image_key = 0
+            label_key = 1
+        elif dataset_name == 'conceptual_captions':
+            image_key = 'image'
+            label_key = 'caption'
+
+        top_images = [dataset[idx][image_key] for idx in top_indices]
+        bottom_images = [dataset[idx][image_key] for idx in bottom_indices]
+
+        if dataset_name == 'imagenet':
+            top_class_names = [imagenet_classes[dataset[idx][label_key]] for idx in top_indices]
+            bottom_class_names = [imagenet_classes[dataset[idx][label_key]] for idx in bottom_indices]
+        elif dataset_name == 'conceptual_captions':
+            # top_class_names = [dataset[idx][label_key] for idx in top_indices]
+            # bottom_class_names = [dataset[idx][label_key] for idx in bottom_indices]
+            top_class_names = ['' for idx in top_indices]
+            bottom_class_names = ['' for idx in bottom_indices]
 
         # Save values and indices
         top_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/top"
@@ -124,38 +141,28 @@ def tensor_to_pil(tensor):
     """Convert a tensor to a PIL Image."""
     return Image.fromarray((tensor.permute(1, 2, 0).cpu().numpy() * 255).astype('uint8'))
 
-    
-def get_clip_val_transforms_display(image_size=224):
-    return transforms.Compose([
-        transforms.Resize(size=image_size, interpolation=InterpolationMode.BICUBIC, max_size=None, antialias=True),
-        transforms.CenterCrop(size=(image_size, image_size))
-    ])
 
 
-def denormalize_for_display(image):
-    """
-    Denormalize the image for display.
-    Assumes the input is a PIL Image.
-    """
+def process_display_image(image):
+    # Convert to numpy array if it isn't already
     if isinstance(image, Image.Image):
-        # Convert PIL Image to numpy array
-        np_image = np.array(image).astype(np.float32) / 255.0
-        
-        # Assuming the normalization used mean [0.48145466, 0.4578275, 0.40821073] 
-        # and std [0.26862954, 0.26130258, 0.27577711] (common for CLIP models)
-        mean = np.array([0.48145466, 0.4578275, 0.40821073])
-        std = np.array([0.26862954, 0.26130258, 0.27577711])
-        
-        # Denormalize
-        np_image = np_image * std + mean
-        
-        # Clip values to [0, 1] range
-        np_image = np.clip(np_image, 0, 1)
-        
-        return np_image
-    else:
-        raise ValueError("Expected PIL Image, got {}".format(type(image)))
+        image = np.array(image)
+    
+    # Ensure the values are in 0-255 range
+    if image.dtype == np.float32 or image.dtype == np.float64:
+        image = (image * 255).astype(np.uint8)
+    
+    return image
 
+def get_clip_val_transforms_display(image_size=224):
+    """
+    Transform for display that preserves the visual quality of the image
+    """
+    return transforms.Compose([
+        transforms.Resize(size=image_size, interpolation=InterpolationMode.NEAREST),
+        transforms.CenterCrop(size=(image_size, image_size)),
+        # No need for ToTensor() and permute since we want to keep the image displayable
+    ])
 
 def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model, save_dir, type_of_sampling='max', activations=None, extreme_type='top', layer_type=None, file_path=None, save_figures=SAVE_FIGURES):
     grid_size = int(np.ceil(np.sqrt(len(images))))
@@ -171,29 +178,34 @@ def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model
         display_transform = get_clip_val_transforms_display()
         full_transform = get_clip_val_transforms()
 
+
         if layer_type == 'hook_post':
             key = f"blocks.{layer_idx}.mlp.hook_post"
         else:
             key = f'blocks.{layer_idx}.{layer_type}'
 
-        for idx, (image, image_idx, class_name) in enumerate(zip(images, image_indices, class_names)):
-            display_image = display_transform(image)
-            transformed_image = full_transform(image)
 
+        for idx, (image, image_idx, class_name) in enumerate(zip(images, image_indices, class_names)):
+
+            # img_pil = transforms.ToPILImage()(image)
+            # img_pil = transforms.Resize(224, interpolation=InterpolationMode.BICUBIC)(img_pil)
+            # img_pil = transforms.CenterCrop(224)(img_pil)
+
+            img = image.permute(1, 2, 0).numpy()
+            display_image = (img - img.min()) / (img.max() - img.min())
+            
             ax = axs[idx]
 
             if include_heatmap:
-                opacity = 0.8
-                faded_image = Image.fromarray((np.array(display_image) * opacity + 255 * (1 - opacity)).astype(np.uint8))
-                ax.imshow(faded_image)
+                ax.imshow(display_image)
 
+                # Heatmap
                 all_activations = get_all_activations(image_idx, layer_idx, layer_type, neuron_idx, file_path)
-                # all_activations = get_all_activations(transformed_image, model, hook_point_name=key, neuron_idx=neuron_idx)
-                heatmap = image_patch_heatmap(all_activations)
-                ax.imshow(heatmap, cmap='viridis', alpha=0.4)
+                pixel_num = int(np.sqrt(all_activations.shape[0]-1))
+                heatmap = image_patch_heatmap(all_activations, pixel_num=pixel_num)
+                ax.imshow(heatmap, cmap='viridis', alpha=0.3)
             else:
                 ax.imshow(display_image)
-            
             
             ax.axis('off')
                     
@@ -359,6 +371,7 @@ def get_interval_keys(i):
 def get_all_activations(image_index, layer_idx, layer_type, neuron_idx, file_path):
     file_path = os.path.join(file_path, f"{layer_type}.h5")
     with h5py.File(file_path, 'r') as f:
+
         if layer_type == 'hook_post':
             layer_key = f'blocks.{layer_idx}.mlp.hook_post'
         else:
@@ -384,20 +397,84 @@ def load_dataset(imagenet_path):
     dataloader = load_imagenet(imagenet_path, 'val', shuffle=False, transform=None)
     return dataloader.dataset
 
-def main(args):
-    model_name = 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K'
-    file_path = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/val/'
-    imagenet_path = '/network/scratch/s/sonia.joseph/datasets/kaggle_datasets'
-    save_dir = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/'
-    # df_intervals_path = "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/histograms/mlp.hook_out/all_neuron_activations_SD_intervals.csv"
-    neuron_indices_path = '/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy'
+def create_parser():
+    import argparse
+    parser = argparse.ArgumentParser(description="Process neurons in specific layers of a neural network.")
+    
+    # Model and path configurations
+    parser.add_argument("--model_name", 
+                    #    default='open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K',
+                    default = "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k",
+                       help="Name of the model to use")
+    
+    parser.add_argument("--dataset_name", 
+                       default='conceptual_captions',)
 
-    dataset = load_dataset(imagenet_path)
-    model = HookedViT.from_pretrained(model_name, is_clip=True, is_timm=False).to('cuda')
+    parser.add_argument("--file_path",
+                       default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/laion_CLIP-ViT-bigG-14-laion2B-39B-b160k/conceptual_captions/val',
+                       help="Base file path for model data")
+    
+    parser.add_argument("--imagenet_path",
+                       default='/network/scratch/s/sonia.joseph/datasets/kaggle_datasets',
+                       help="Path to ImageNet dataset")
+    
+    parser.add_argument("--save_dir",
+                       default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/laion_CLIP-ViT-bigG-14-laion2B-39B-b160k/val',
+                       help="Directory to save output files")
+    
+    parser.add_argument("--neuron_indices_path",
+                       default='/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy',
+                       help="Path to neuron indices file")
+    
+    # Processing options
+    parser.add_argument("--layer_idx", 
+                       type=int,
+                       default=None,
+                       help="Specific layer index to process. If not provided, all layers will be processed.")
+    
+    parser.add_argument("--replace",
+                       action="store_true",
+                       help="Rerun despite folder already being there")
+    
+    parser.add_argument("--type_of_sampling",
+                       type=str,
+                       default='avg',
+                       help="Type of sampling to use for selecting top k activations")
+    
+    parser.add_argument("--verbose",
+                       action="store_true",
+                       help="Print verbose output")
+    
+    parser.add_argument("--all_neurons",
+                       action="store_true",
+                       help="Do every neuron, not just randomly sampled ones")
+
+    return parser
+
+
+def main(args):
+    # model_name = 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K'
+    # file_path = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/val/'
+    # imagenet_path = '/network/scratch/s/sonia.joseph/datasets/kaggle_datasets'
+    # save_dir = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/'
+    # # df_intervals_path = "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/histograms/mlp.hook_out/all_neuron_activations_SD_intervals.csv"
+    # neuron_indices_path = '/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy'
+
+    
+    if args.dataset_name == 'imagenet':
+        dataset = load_dataset(imagenet_path)
+    elif args.dataset_name == 'conceptual_captions':
+        dataset = load_conceptual_captions('val', dataloader=False)
+
+    model = HookedViT.from_pretrained(args.model_name, is_clip=True, is_timm=False, fold_ln=False).to('cuda')
     # df_intervals = pd.read_csv(df_intervals_path)
     if args.all_neurons:
-        neuron_indices = {layer_idx: np.arange(768) for layer_idx in range(12)}
-        save_dir = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/top_img_indices_only' # save indices in diff location than when saving heatmaps
+        if model.cfg.n_layers >= 12:
+            range_object = range(0, model.cfg.n_layers, 4)
+        else:
+            range_object = range(model.cfg.n_layers)
+        neuron_indices = {layer_idx: np.arange(30) for layer_idx in range_object}
+        save_dir = f'{args.save_dir}/all_neurons'
         # make dir if doesn't exist
         os.makedirs(save_dir, exist_ok=True)
 
@@ -405,11 +482,7 @@ def main(args):
         neuron_indices = np.load(neuron_indices_path, allow_pickle=True).item()
 
     if args.layer_idx is not None:
-        if args.layer_idx in neuron_indices:
-            layer_indices = [args.layer_idx]
-        else:
-            print(f"Layer {args.layer_idx} not found in neuron indices. Exiting.")
-            return
+       layer_indices = [args.layer_idx]
     else:
         layer_indices = neuron_indices.keys()
 
@@ -420,16 +493,21 @@ def main(args):
             if os.path.exists(save_name) and not args.replace:
                 print(f"Neuron {neuron_idx} in layer {layer_idx} already processed. Skipping.")
                 continue
-            process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, args.type_of_sampling, imagenet_classes)
+            process_neuron(layer_idx, neuron_idx, model, dataset, args.file_path, save_dir, args.dataset_name, args.type_of_sampling, imagenet_classes)
 
 if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser(description="Process neurons in specific layers of a neural network.")
-    parser.add_argument("--layer_idx", type=int, help="Specific layer index to process. If not provided, all layers will be processed.", default=None)
-    # get top k only, store true, use as a boolean
-    parser.add_argument("--replace", action="store_true", help="Rerun despite folder already being there.")
-    parser.add_argument("--type_of_sampling", type=str, default='avg', help="Type of sampling to use for selecting top k activations.")
-    parser.add_argument("--verbose", action="store_true", help="Print verbose output.")
-    parser.add_argument("--all_neurons", action="store_true", help="Do every neuron, not just randomly sampled ones.")
+    parser = create_parser()
     args = parser.parse_args()
     main(args)
+    
+# if __name__ == "__main__":
+#     import argparse
+#     parser = argparse.ArgumentParser(description="Process neurons in specific layers of a neural network.")
+#     parser.add_argument("--layer_idx", type=int, help="Specific layer index to process. If not provided, all layers will be processed.", default=None)
+#     # get top k only, store true, use as a boolean
+#     parser.add_argument("--replace", action="store_true", help="Rerun despite folder already being there.")
+#     parser.add_argument("--type_of_sampling", type=str, default='avg', help="Type of sampling to use for selecting top k activations.")
+#     parser.add_argument("--verbose", action="store_true", help="Print verbose output.")
+#     parser.add_argument("--all_neurons", action="store_true", help="Do every neuron, not just randomly sampled ones.")
+#     args = parser.parse_args()
+#     main(args)
