@@ -211,7 +211,7 @@ def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model
                     
             fontsize = 14
             if activations is not None:
-                ax.set_title(f"{class_name}, {activations[idx]:.4f}", fontsize=fontsize)
+                ax.set_title(f"{class_name}  {activations[idx]:.4f}", fontsize=fontsize)
             else:
                 ax.set_title(f"{class_name}", fontsize=fontsize)
 
@@ -403,24 +403,19 @@ def create_parser():
     
     # Model and path configurations
     parser.add_argument("--model_name", 
-                    #    default='open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K',
-                    default = "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k",
+                       default='open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K',
+                    # default = "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k",
                        help="Name of the model to use")
     
     parser.add_argument("--dataset_name", 
                        default='conceptual_captions',)
 
-    parser.add_argument("--file_path",
-                       default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/laion_CLIP-ViT-bigG-14-laion2B-39B-b160k/conceptual_captions/val',
-                       help="Base file path for model data")
+    parser.add_argument("--train_or_test",
+                       default='val',)
     
     parser.add_argument("--imagenet_path",
                        default='/network/scratch/s/sonia.joseph/datasets/kaggle_datasets',
                        help="Path to ImageNet dataset")
-    
-    parser.add_argument("--save_dir",
-                       default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/laion_CLIP-ViT-bigG-14-laion2B-39B-b160k/val',
-                       help="Directory to save output files")
     
     parser.add_argument("--neuron_indices_path",
                        default='/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy',
@@ -460,26 +455,34 @@ def main(args):
     # # df_intervals_path = "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/histograms/mlp.hook_out/all_neuron_activations_SD_intervals.csv"
     # neuron_indices_path = '/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy'
 
+    clean_model_name = args.model_name.replace("/", "_")
+    clean_model_name = clean_model_name.replace(":", "_")
+    file_path = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/{clean_model_name}/{args.dataset_name}/{args.train_or_test}'
+    save_dir = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/{clean_model_name}/{args.dataset_name}/{args.train_or_test}'
+
     
     if args.dataset_name == 'imagenet':
         dataset = load_dataset(imagenet_path)
     elif args.dataset_name == 'conceptual_captions':
-        dataset = load_conceptual_captions('val', dataloader=False)
+        dataset = load_conceptual_captions(args.train_or_test, dataloader=False)
 
     model = HookedViT.from_pretrained(args.model_name, is_clip=True, is_timm=False, fold_ln=False).to('cuda')
     # df_intervals = pd.read_csv(df_intervals_path)
+
+    print("Number of layers:", model.cfg.n_layers)
     if args.all_neurons:
-        if model.cfg.n_layers >= 12:
+        if model.cfg.n_layers > 12:
             range_object = range(0, model.cfg.n_layers, 4)
         else:
             range_object = range(model.cfg.n_layers)
         neuron_indices = {layer_idx: np.arange(30) for layer_idx in range_object}
-        save_dir = f'{args.save_dir}/all_neurons'
+        save_dir = f'{save_dir}/all_neurons'
         # make dir if doesn't exist
         os.makedirs(save_dir, exist_ok=True)
-
     else:
-        neuron_indices = np.load(neuron_indices_path, allow_pickle=True).item()
+        neuron_indices = np.load(args.neuron_indices_path, allow_pickle=True).item()
+    
+    print("Neuron indices:", neuron_indices)
 
     if args.layer_idx is not None:
        layer_indices = [args.layer_idx]
@@ -493,7 +496,7 @@ def main(args):
             if os.path.exists(save_name) and not args.replace:
                 print(f"Neuron {neuron_idx} in layer {layer_idx} already processed. Skipping.")
                 continue
-            process_neuron(layer_idx, neuron_idx, model, dataset, args.file_path, save_dir, args.dataset_name, args.type_of_sampling, imagenet_classes)
+            process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, args.dataset_name, args.type_of_sampling, imagenet_classes)
 
 if __name__ == "__main__":
     parser = create_parser()

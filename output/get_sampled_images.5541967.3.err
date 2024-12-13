@@ -1,0 +1,5 @@
+[=== Module python/3.10 loaded ===]
+usage: sample_images_from_interval.py [-h] [--layer_idx LAYER_IDX] [--replace]
+                                      [--type_of_sampling TYPE_OF_SAMPLING]
+                                      [--verbose] [--all_neurons]
+sample_images_from_interval.py: error: unrecognized arguments: -all_neurons

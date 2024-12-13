@@ -1,0 +1,79 @@
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Converting OpenCLIP weights
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+visual projection shape torch.Size([768, 512])
+Setting center_writing_weights to False for OpenCLIP
+Setting fold_ln to False for OpenCLIP
+Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer
+Processing neuron 710 in layer 8
+Processing neuron 708 in layer 8
+Processing neuron 146 in layer 8
+Processing neuron 680 in layer 8
+Processing neuron 55 in layer 8
+Processing neuron 254 in layer 8
+Processing neuron 399 in layer 8
+Processing neuron 405 in layer 8
+Processing neuron 201 in layer 8
+Processing neuron 375 in layer 8
+Processing neuron 651 in layer 8
+Processing neuron 578 in layer 8
+Processing neuron 590 in layer 8
+Processing neuron 691 in layer 8
+Processing neuron 701 in layer 8
+Processing neuron 520 in layer 8
+Processing neuron 239 in layer 8
+Processing neuron 702 in layer 8
+Processing neuron 297 in layer 8
+Processing neuron 649 in layer 8
+Processing neuron 713 in layer 8
+Processing neuron 391 in layer 8
+Processing neuron 652 in layer 8
+Processing neuron 495 in layer 8
+Processing neuron 434 in layer 8
+Processing neuron 523 in layer 8
+Processing neuron 610 in layer 8
+Processing neuron 453 in layer 8
+Processing neuron 150 in layer 8
+Processing neuron 632 in layer 8
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Sat Nov  2 15:16:24 2024
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:27:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 3262549
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 544 MiB
+            Time                          : 3500519 ms
+            Is Running                    : 0
+
+Sat Nov  2 15:16:24 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 8000                On  |   00000000:27:00.0 Off |                    0 |
+| 35%   39C    P8             26W /  260W |       1MiB /  46080MiB |     16%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+

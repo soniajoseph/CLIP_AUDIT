@@ -1,0 +1,79 @@
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Converting OpenCLIP weights
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+visual projection shape torch.Size([768, 512])
+Setting center_writing_weights to False for OpenCLIP
+Setting fold_ln to False for OpenCLIP
+Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer
+Processing neuron 496 in layer 5
+Processing neuron 227 in layer 5
+Processing neuron 504 in layer 5
+Processing neuron 753 in layer 5
+Processing neuron 86 in layer 5
+Processing neuron 523 in layer 5
+Processing neuron 73 in layer 5
+Processing neuron 733 in layer 5
+Processing neuron 320 in layer 5
+Processing neuron 553 in layer 5
+Processing neuron 349 in layer 5
+Processing neuron 109 in layer 5
+Processing neuron 72 in layer 5
+Processing neuron 579 in layer 5
+Processing neuron 226 in layer 5
+Processing neuron 292 in layer 5
+Processing neuron 313 in layer 5
+Processing neuron 477 in layer 5
+Processing neuron 324 in layer 5
+Processing neuron 198 in layer 5
+Processing neuron 365 in layer 5
+Processing neuron 423 in layer 5
+Processing neuron 245 in layer 5
+Processing neuron 439 in layer 5
+Processing neuron 279 in layer 5
+Processing neuron 87 in layer 5
+Processing neuron 634 in layer 5
+Processing neuron 118 in layer 5
+Processing neuron 557 in layer 5
+Processing neuron 302 in layer 5
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Sat Nov  2 15:14:21 2024
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:27:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 3796669
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 544 MiB
+            Time                          : 3559319 ms
+            Is Running                    : 0
+
+Sat Nov  2 15:14:21 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 8000                On  |   00000000:27:00.0 Off |                    0 |
+| 35%   39C    P8             23W /  260W |       1MiB /  46080MiB |     17%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+

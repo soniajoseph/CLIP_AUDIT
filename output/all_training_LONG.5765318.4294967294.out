@@ -1,0 +1,15 @@
+Loading training dataset
+Found 3318333 annotations in TSV file
+Successfully loaded image files from cache
+Successfully loaded 2860642 valid image-annotation pairs from cache
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Converting OpenCLIP weights
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+visual projection shape torch.Size([768, 512])
+visual projection shape torch.Size([768, 512])
+Setting center_writing_weights to False for OpenCLIP
+Setting fold_ln to False for OpenCLIP
+Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer
+Model loaded: open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Number of layers: 12

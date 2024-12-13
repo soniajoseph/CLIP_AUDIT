@@ -1,0 +1,79 @@
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Converting OpenCLIP weights
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+visual projection shape torch.Size([768, 512])
+Setting center_writing_weights to False for OpenCLIP
+Setting fold_ln to False for OpenCLIP
+Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer
+Processing neuron 662 in layer 1
+Processing neuron 367 in layer 1
+Processing neuron 684 in layer 1
+Processing neuron 118 in layer 1
+Processing neuron 592 in layer 1
+Processing neuron 695 in layer 1
+Processing neuron 42 in layer 1
+Processing neuron 295 in layer 1
+Processing neuron 280 in layer 1
+Processing neuron 73 in layer 1
+Processing neuron 131 in layer 1
+Processing neuron 212 in layer 1
+Processing neuron 640 in layer 1
+Processing neuron 206 in layer 1
+Processing neuron 277 in layer 1
+Processing neuron 651 in layer 1
+Processing neuron 702 in layer 1
+Processing neuron 685 in layer 1
+Processing neuron 161 in layer 1
+Processing neuron 198 in layer 1
+Processing neuron 156 in layer 1
+Processing neuron 565 in layer 1
+Processing neuron 495 in layer 1
+Processing neuron 623 in layer 1
+Processing neuron 716 in layer 1
+Processing neuron 491 in layer 1
+Processing neuron 407 in layer 1
+Processing neuron 60 in layer 1
+Processing neuron 391 in layer 1
+Processing neuron 487 in layer 1
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Sat Nov  2 15:14:16 2024
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:15:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 2868357
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 688 MiB
+            Time                          : 3553723 ms
+            Is Running                    : 0
+
+Sat Nov  2 15:14:16 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:15:00.0 Off |                    0 |
+| N/A   31C    P0             55W /  300W |       1MiB /  32768MiB |     12%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+

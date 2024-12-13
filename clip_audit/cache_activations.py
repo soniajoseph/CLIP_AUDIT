@@ -30,6 +30,7 @@ from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms
 def create_save_path(save_dir, model_name, dataset_name, train_val, layer_type):
     # clean model name of '/'
     model_name = model_name.replace('/', '_')
+    model_name = model_name.replace(':', '_')
     
     # Construct full path
     full_path = os.path.join(save_dir, model_name, dataset_name, train_val, f"{layer_type}.h5")
@@ -48,9 +49,13 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
         dataloader = load_imagenet(imagenet_path, train_val, shuffle=False, transforms=transforms)
     elif dataset_name == 'conceptual_captions':
         dataloader = load_conceptual_captions(train_val)
-        if neuron_indices:
-            neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/vit_g_mlp_out.npy', allow_pickle=True).item()
-            neuron_indices_resid_post = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/vit_g_resid.npy', allow_pickle=True).item()
+        if neuron_indices and model_name == 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K':
+            neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy', allow_pickle=True).item()
+            neuron_indices_resid_post = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_residual_post.npy', allow_pickle=True).item()
+            
+        # if neuron_indices and model_name == 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K':
+        #     neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/vit_g_mlp_out.npy', allow_pickle=True).item()
+        #     neuron_indices_resid_post = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/vit_g_resid.npy', allow_pickle=True).item()
 
         # Load model
     device = 'cuda'
@@ -59,6 +64,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
     print(f"Model loaded: {model_name}")
 
     layer_num = model.cfg.n_layers
+    print(f"Number of layers: {layer_num}")
     if layer_num > 12:
         stride = 4
         total_range = range(0, layer_num, stride)  # if doing vit-big, do every 4 layers, starting at layer 0 
@@ -101,7 +107,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
 
 
                 if neuron_indices:
-                    layer_idx = int(layer.split('.')[1]) // stride
+                    layer_idx = int(layer.split('.')[1]) 
                     if 'hook_mlp_out' in layer:
                         selected_neurons = neuron_indices_mlp_out[layer_idx]
                         # print(selected_neurons)
@@ -185,8 +191,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Test accuracy of TinyCLIP on dataset')
     parser.add_argument('--imagenet_path', type=str, default='/network/scratch/s/sonia.joseph/datasets/kaggle_datasets', help='Path to dataset')
     parser.add_argument('--train_val', type=str, default='train', help='Train, test or validation set')
-    parser.add_argument('--model_name', type=str, default='open-clip:laion/CLIP-ViT-B-16-DataComp.XL-s13B-b90K', help='Model name to test')
-    parser.add_argument('--dataset_name', type=str, default='imagenet', help='Dataset name')
+    parser.add_argument('--model_name', type=str, default='open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K', help='Model name to test')
+    parser.add_argument('--dataset_name', type=str, default='conceptual_captions', help='Dataset name')
     parser.add_argument('--save_dir', type=str, default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/', help='Directory to save results')
     parser.add_argument('--neuron_indices', type=bool, default=False, help='Whether to save neuron indices')
     # parser.add_argument('--hook_point_name', type=str, default="blocks.{layer}.mlp.hook_post", help='Name of the activation to save')

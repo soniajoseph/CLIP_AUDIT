@@ -1,0 +1,70 @@
+Loading validation dataset
+Found 15840 annotations in TSV file
+Successfully loaded image files from cache
+Successfully loaded 13204 valid image-annotation pairs from cache
+CLIPVisionConfig {
+  "architecture": "vit_clip_vision_encoder",
+  "attention_dropout": 0.0,
+  "dropout": 0.0,
+  "hidden_act": "gelu",
+  "hidden_size": 1664,
+  "image_size": 224,
+  "initializer_factor": 1.0,
+  "initializer_range": 0.02,
+  "intermediate_size": 8192,
+  "layer_norm_eps": 1e-05,
+  "model_type": "clip_vision_model",
+  "num_attention_heads": 16,
+  "num_channels": 3,
+  "num_classes": 1280,
+  "num_hidden_layers": 48,
+  "patch_size": 14,
+  "projection_dim": 1280,
+  "transformers_version": "4.39.3"
+}
+
+Official model name laion/CLIP-ViT-bigG-14-laion2B-39B-b160k
+Loaded pretrained model laion/CLIP-ViT-bigG-14-laion2B-39B-b160k into HookedTransformer
+Model loaded: laion/CLIP-ViT-bigG-14-laion2B-39B-b160k
+Finished caching activations and image indices for 13204 images.
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Wed Dec 11 23:53:47 2024
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:A3:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 3504821
+            GPU Utilization               : 46 %
+            Memory Utilization            : 35 %
+            Max memory usage              : 25444 MiB
+            Time                          : 2988194 ms
+            Is Running                    : 0
+
+Wed Dec 11 23:53:48 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 8000                On  |   00000000:A3:00.0 Off |                    0 |
+| 33%   47C    P2             92W /  235W |       1MiB /  46080MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+

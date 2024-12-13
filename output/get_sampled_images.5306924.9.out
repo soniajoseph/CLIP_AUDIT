@@ -1,0 +1,857 @@
+Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Converting OpenCLIP weights
+visual projection shape torch.Size([768, 512])
+Setting center_writing_weights to False for OpenCLIP
+Setting fold_ln to False for OpenCLIP
+Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 1429 36817 21561 17930 10034  4626  2165 18007 17204 40922 25500 21236
+ 46940  3721 42479 41983  7002 35508 12055 45480]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [ 8039  3796 18708 29300 30822 49667 31552 13777 23557 28171  6204 17073
+  2673 27419 34146 45996 33958 32068 34634 33705]
+Neuron 572, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_572/hook_mlp_out/avg/top/neuron_572_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_572/hook_mlp_out/avg/bottom/neuron_572_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [18156 16266  7127 19610 43819 15142  1923  1550 12330 38542 41012 48412
+ 47790 48869 35508 42086 45693 43428 33470 27514]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 6916 23557 22313 25326  5005  6238 25521 19639 27421 25145 42518  4939
+ 10032 11446 38739  2131  9971  2947 29300 27478]
+Neuron 572, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_572/hook_resid_post/avg/top/neuron_572_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_572/hook_resid_post/avg/bottom/neuron_572_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [45997  1288 14092 33482 43066 22862 46832 30798  7788 14776 27644 39982
+ 25916 46791 48805 21289 18804 34838 32485 27744]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [15228 37109 31232 22728 20078 41550 24253 22217  9266  7689 23479 11856
+ 39696 36355 47780 13961   323  2822  1757 38070]
+Neuron 572, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_572/hook_post/avg/top/neuron_572_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_572/hook_post/avg/bottom/neuron_572_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [15836 46078 37026 22351 33461  3594 32572 44709  1014 37588  2440 16682
+ 48647 44842 35491 18732  8413 29349  5345  5111]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [12629 31597 42881 17172 41633 48444 14281 10115 37564 28002 34899 22359
+ 49780 42556 24373 32101 37368 18713  6963  4818]
+Neuron 536, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_536/hook_mlp_out/avg/top/neuron_536_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_536/hook_mlp_out/avg/bottom/neuron_536_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [35491 23114 44709 22854  1068 38037 32572 35273 13003 13777  5345 37282
+  1014 33461 37448 14609 15836  5111 22351 29529]
+Bottom sampled image indices for blocks.9.hook_resid_post: [12629  4818 19486 28002 41633 13378 17172 16117 42556 48525  6374  4171
+  1630 10463 14507  4702 45418 33533 14281 44020]
+Neuron 536, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_536/hook_resid_post/avg/top/neuron_536_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_536/hook_resid_post/avg/bottom/neuron_536_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [34248 38528  5114 28718 47701  3281 44888  9846  1291 17655  3625 14382
+ 21961 27393 29953  9221  3304 25404  5474 41294]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [45014 39291   586 13494 35491 12886 43182 34545 47842 39672 33250 13378
+ 25497  6250 48686 45840 41089 36646 21581 32242]
+Neuron 536, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_536/hook_post/avg/top/neuron_536_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_536/hook_post/avg/bottom/neuron_536_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [18347  1375 26092  6339 42466 12500 11739 47476 30323 48460  8066  3423
+ 26423 23933 29566  8701 10234  4180 19803 28059]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [  115  7801 42571 48916 27306 29154 43428 38787 39986 29300   320 29493
+  8942 13471 11359 40088 27447 10628 15745  3520]
+Neuron 617, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_617/hook_mlp_out/avg/top/neuron_617_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_617/hook_mlp_out/avg/bottom/neuron_617_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [24758  6339 31823 42292 33171 23985 36910  8026 40696 43103 29794  6154
+ 34327 20505 20008 14720 12629 43297  2036 28059]
+Bottom sampled image indices for blocks.9.hook_resid_post: [42571   115  7801 48916 28586 46563 23144 29300 22351  4535  8492 18608
+ 18282 40324 27447 38787  1475 11026 29493  1864]
+Neuron 617, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_617/hook_resid_post/avg/top/neuron_617_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_617/hook_resid_post/avg/bottom/neuron_617_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [28843 49589 46026 43927 16153 42136  1653 28698 33061 23323 37553 19540
+  7791  2940 19780 48895 31191 13838 36828 36871]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [ 1520 31847 17852 47799 18222 24081  5531 10811  9762 14665 41209 13027
+ 40972 35040 20627 22603 27308  6751 18541 45795]
+Neuron 617, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_617/hook_post/avg/top/neuron_617_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_617/hook_post/avg/bottom/neuron_617_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [49270 42418 26430 36940 12955 44509 31209 35957 23139  8899 45842 38656
+ 39483  9956  2440 23093 17149 48982 15342 17204]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [31593  1403  2921 24010 47227  4055 30925 17193 15400 25710 13669 42581
+ 19530 48999 48595 16858 27062 14720  9386  9907]
+Neuron 281, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_281/hook_mlp_out/avg/top/neuron_281_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_281/hook_mlp_out/avg/bottom/neuron_281_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [33999 32125 27713 35217 12955 31903 22047 49196 12825 37060  1344 30504
+ 20660 17424 38998 32548 32637 26430 36481 17204]
+Bottom sampled image indices for blocks.9.hook_resid_post: [35271 40431 47227 30323 15856 42581 31593 19803 28059  7109 24699 27082
+  2765 42086  3311 25710 35119  4180 25281 49876]
+Neuron 281, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_281/hook_resid_post/avg/top/neuron_281_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_281/hook_resid_post/avg/bottom/neuron_281_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [34529  6310 40324 34061 45554 35659  5345  4032 18726 25698 34131 19440
+ 48424  3237 39762 41551 23239 35747 43848 27663]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [22058 48252 18955 33858  7136 39415 22307 23820 25421 15194 45915 46929
+  8486 48647  9631 18430 29008 47476 21527 31490]
+Neuron 281, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_281/hook_post/avg/top/neuron_281_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_281/hook_post/avg/bottom/neuron_281_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [46941 33496  7747 43124 18732 22486  4818  1825 21375 42190  7296  5223
+ 39257  8413  2982 16626 26818  5213 28372 27631]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [ 6490 21860 47790  8619 21942 27539 41012  1627 38542 40696 13402 20505
+ 17720 19623 30184 21561 34949 15988  1550 48340]
+Neuron 241, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_241/hook_mlp_out/avg/top/neuron_241_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_241/hook_mlp_out/avg/bottom/neuron_241_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [32637  5148    57 48377 22535 12661  4818  8413  1825  7002  5223  2982
+ 18214 33110 39257  5213 16626 27631 14934 31174]
+Bottom sampled image indices for blocks.9.hook_resid_post: [21942  8734 48340 27539  3440  1627 35599 47790  3812 14775 38542 17720
+ 22727 21561 33498  4034 19483 39548 26430 21281]
+Neuron 241, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_241/hook_resid_post/avg/top/neuron_241_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_241/hook_resid_post/avg/bottom/neuron_241_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [46722 37062 18536 34916 34591 29043 17548 22553 31955 20560 22118 14026
+  5454 38789 37047 13578  1783 45172 28514  2181]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [  407  5887 29327 26925 22750 42193 10182 13233  7307 27063 34242 10798
+ 15981 44469 35169 37081 30827 11245 28840 43976]
+Neuron 241, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_241/hook_post/avg/top/neuron_241_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_241/hook_post/avg/bottom/neuron_241_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 1416 37774 46566  9578 48267 29529  2122 49596 20981 22486 49665 26430
+ 15845 29865 27623 38186 37060 10653 35087 17172]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [27060 12150 48238 32916 17988 12932 34197  8107 30925 12569 34949  3845
+ 14265 36914  5767 29297 31341 37134 48481  4564]
+Neuron 274, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_274/hook_mlp_out/avg/top/neuron_274_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_274/hook_mlp_out/avg/bottom/neuron_274_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [46566 21184 39410 35087 45590 38186 46520 37060 23130 16200  6203 27560
+ 33073 30069 27623 17172 28822 44302 23062 15845]
+Bottom sampled image indices for blocks.9.hook_resid_post: [32103  4564  5662 17104 47811  2241 46731 32916 42317 29297 11517 26121
+ 21874  3510 35508 31597 49015  2294  4914 21082]
+Neuron 274, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_274/hook_resid_post/avg/top/neuron_274_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_274/hook_resid_post/avg/bottom/neuron_274_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [14748 29796 44962 29690 28134 37984 16756 13603 12459 40594 16135 12959
+  4716 11836 38405 26831 38252 23233 13478  6532]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [22982 17533 12550 24807 36667 32359 38128  1141 49530 13060 21014 18678
+ 26986 15559 21469 37490 20410 46442 48687 38946]
+Neuron 274, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_274/hook_post/avg/top/neuron_274_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_274/hook_post/avg/bottom/neuron_274_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [24332 28059  7457 15313 17981 36262  9014 44019  5069 34751 20654 37415
+ 38186  1825 21192 27082 27519 39257 35444 27631]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [41896 18347 16643  2382  5741 19861 18747  3083 13672  1828 46296 36732
+ 28623 39529  6100 19392   141 49884 36267  2588]
+Neuron 329, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_329/hook_mlp_out/avg/top/neuron_329_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_329/hook_mlp_out/avg/bottom/neuron_329_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 8066 31449 12581 28372 17104 18017 37415 32679 27495 42516  2472  8701
+  6633 35444 27082 20654  9014 38186 15988 28059]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 8833 33482 21912 35087 17030 35491 12863 49015 12843  7167 45072  1302
+ 17993  9683 26122 36971 32642 15639 24570 13184]
+Neuron 329, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_329/hook_resid_post/avg/top/neuron_329_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_329/hook_resid_post/avg/bottom/neuron_329_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [14608 29457 12718 20652 20590 38835  4238  7664  3317  6203  3500 18855
+  6389  9117 32233 15396 22448 39712 22187 38677]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [35273 45682 47046 20129 17918 28258 10596  9824 28043  8425 15786 42313
+ 21946 36642 38040 17852  8060 25351   705 48793]
+Neuron 329, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_329/hook_post/avg/top/neuron_329_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_329/hook_post/avg/bottom/neuron_329_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [21424 27290 38542  5750 37448  7598 44218 48475 15836 25500 47115 33613
+ 45480 14717  1302 21979 37523  2382  1344 19392]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [17910 22094 46867 39684 18123 42021 22307 32901 47879 43796  2424 49219
+ 28133  5496 21509  6726  1369 16979 22395 19429]
+Neuron 104, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_104/hook_mlp_out/avg/top/neuron_104_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_104/hook_mlp_out/avg/bottom/neuron_104_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [39955 14717 32983 12208 30648 31200 23181  7598 45480 37523 16495 17204
+ 40543 41213 37776 34818 33613 29601  1344 19392]
+Bottom sampled image indices for blocks.9.hook_resid_post: [17910 42086 33470 47879  6726 42021 48412 36196 35246 20862 18123 43129
+ 37062 30814 11337 36973 16211 22094 32901  1282]
+Neuron 104, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_104/hook_resid_post/avg/top/neuron_104_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_104/hook_resid_post/avg/bottom/neuron_104_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [31469 36800 23318 22104 18698 41226 15142  6386 42937 35544 20325 22524
+  9517 28846  7523 15660 48793 22182  5898 49520]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [27692  1291  5887 11271 13905  6413 22527 36679 25653 35090 10260 13741
+ 47429 28051 33844   586 21529 12136 17314  9359]
+Neuron 104, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_104/hook_post/avg/top/neuron_104_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_104/hook_post/avg/bottom/neuron_104_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [28722 47405  1176  5108 28598 25940  1849 48107 34561 40775 12500  7883
+ 22468 43926  6633 20119 42660  1957  7291 21236]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [21509  7196 38314 41554  1429 31631 39316 48108 47426 46251 16178  1565
+  7853 20644 32445  9686 11515 19222 21561 34751]
+Neuron 231, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_231/hook_mlp_out/avg/top/neuron_231_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_231/hook_mlp_out/avg/bottom/neuron_231_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [18347 26247 21684 23765  9637  1849 25940 33831 20119  7883 33860 36825
+ 48107 12500 34561  1957  5108 21236 42660  7291]
+Bottom sampled image indices for blocks.9.hook_resid_post: [29929 36858 48108 32503 37415 45999 21509 11984 33475 15729 33632 37915
+ 39350  7196 13380 47426 31631  3254 19602 47010]
+Neuron 231, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_231/hook_resid_post/avg/top/neuron_231_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_231/hook_resid_post/avg/bottom/neuron_231_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [27114 46621 21848 34998 40933 20879  5923  9522 22553 22859 16223 28753
+ 33131 10646 14535  5513 37813 38434 15380 36626]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [23466 34424 24424 49313  5889  5969 48304 22177  1331 32643 24034 28314
+ 35699 26858 15792 27514 30694 25426 48758 20485]
+Neuron 231, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_231/hook_post/avg/top/neuron_231_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_231/hook_post/avg/bottom/neuron_231_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [39923 49046 22469  9385 38317  3344 29870 46346 21192 34854 10805 34285
+ 11593  4779 14016 39135 34482 42581  8280 44844]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [30998 34431 14663 29154  4425 44612 12955 15523 29173 11060 18619 47182
+ 37588  5223 15573 39483 47070 21509 35617  2183]
+Neuron 32, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_32/hook_mlp_out/avg/top/neuron_32_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_32/hook_mlp_out/avg/bottom/neuron_32_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [23878 20220 29870 22511 21365  9865 40213 17983  7027 47916 11593 40777
+ 42581 23062  7457 14839 10805 30542 44844  8280]
+Bottom sampled image indices for blocks.9.hook_resid_post: [24007 29154  6140 30482 34214 11060 12955  7741 32478 12175 19145  8480
+ 13964 49270 15444 11551 17636  8307 17599 32499]
+Neuron 32, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_32/hook_resid_post/avg/top/neuron_32_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_32/hook_resid_post/avg/bottom/neuron_32_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [17602 17647  1718  9966 48480 36870 10196 38621 43496 22728 20627 35567
+ 23062 48453  3357 45179 38926 45378  2453 13088]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [18871 48071 25056 49028 34667 31437 12928 45339 20726 45690 45429 28059
+ 17015 22885 24759 21403 24881 37761 21551 36190]
+Neuron 32, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_32/hook_post/avg/top/neuron_32_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_32/hook_post/avg/bottom/neuron_32_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [33115 34385 22383 30344 13104 10653 48684 17172 44094 44019 35957  6953
+ 19462 47476 31209 45842 45418 37060  6374 26430]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [21236  7291 37026 33831  1957 42660 46563  9797 48107 34097 21711 23219
+ 46574 20404 36940 28853 25940 34561 23531 46358]
+Neuron 256, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_256/hook_mlp_out/avg/top/neuron_256_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_256/hook_mlp_out/avg/bottom/neuron_256_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [34450 25056 15452 41643 45418 19265 19379 21844 43297 47476 45842 19462
+  7708 32545  6374 35535 37060 48684  8249 26430]
+Bottom sampled image indices for blocks.9.hook_resid_post: [18779 21236 15745 14006 46563 42660 16495  3664 28521 33831 38249  8048
+ 27655 36286 12863 10888 30072 47586  5799 47695]
+Neuron 256, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_256/hook_resid_post/avg/top/neuron_256_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_256/hook_resid_post/avg/bottom/neuron_256_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [32182 24363  8823  2994 31869   832 26223  5736 27690 11710  2758  4489
+  9309 35984 13919 40745 21053 12075 22512 31203]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [28258 18863 16784  9016 35412 38070 24029 27422  7754 14041 42647 13145
+ 47013 18805 11214 34216 34554 14839 36509 34347]
+Neuron 256, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_256/hook_post/avg/top/neuron_256_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_256/hook_post/avg/bottom/neuron_256_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [23702 15977 32549 14934  2511  9375 32668  3576 22535 26121 12828  8053
+ 24327  7002 31174 21313  5857 17204 43103 12825]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [18347 29674   587 10056 36732 41513 19219 34700 47434 48651 27809 30352
+ 46150  9003 29836  2218 38771 14382 23876 21839]
+Neuron 28, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_28/hook_mlp_out/avg/top/neuron_28_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_28/hook_mlp_out/avg/bottom/neuron_28_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 3567 38642 11898  5890 37281 15834 36630 24876 33224 12620 21313 17629
+ 30935 18508 14624  1429 42609 29154 21509 29228]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 8813 46175  7640  2962 36732 41180 15236 13340 47434 38584 38771  5474
+ 15521  1122 22952 49836 18188 43289 28881 38793]
+Neuron 28, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_28/hook_resid_post/avg/top/neuron_28_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_28/hook_resid_post/avg/bottom/neuron_28_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [  891 38400 17918  9512  7602 40525   564  1898 18117 15616 26094  9115
+ 18090 35966  6587 42675 23224 19277 44192 21121]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [15220 22037 49093 21961 20120 42142 17271  8604 44335 13232 40557 47957
+ 30254  9330 19955 42061 33717  2162 29180 37490]
+Neuron 28, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_28/hook_post/avg/top/neuron_28_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_28/hook_post/avg/bottom/neuron_28_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 5875 47879 18347 43520  7883 38186 32403  1849  5836  7521 21711 33853
+ 31780 38183 19861 42660 21236  1957  8249  7291]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [10334   696  5714 42040 36757 36408  3520 20811  4738 44850  7227 31577
+ 19939 41418 37935 41097  7449 37062  6916 46189]
+Neuron 25, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_25/hook_mlp_out/avg/top/neuron_25_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_25/hook_mlp_out/avg/bottom/neuron_25_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [34526 32403 23663 12975 25236 10245 34306 33853  9637 17360 36825  1957
+ 31780 42660 34561  7883 21236 33860  1849  7291]
+Bottom sampled image indices for blocks.9.hook_resid_post: [38947 10334 33441 33661 12847 47405  6701  5714 46646 31577  3501 42736
+ 42735 46094 14121 26065 39189 40090 20065 37331]
+Neuron 25, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_25/hook_resid_post/avg/top/neuron_25_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_25/hook_resid_post/avg/bottom/neuron_25_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [   41   420  1990 33313  2893 42598 34560 10540 16062 41467 27419   425
+ 20222 27606 35830 28444 29926 32010 18606 29932]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [46094 34869 43984 11649 42955  7355 19084 29657 40525  8211 46757 21264
+ 32170 10086 12705 34083 30010 35699 28263 38207]
+Neuron 25, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_25/hook_post/avg/top/neuron_25_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_25/hook_post/avg/bottom/neuron_25_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [13250  4055 13652 41253 35527 38881 31593 33333 36972  9183 26968  2700
+ 13669  4925 48108 17433 29254 27819 37633 29674]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [48982 43782 48627 48513 38656 41072 31680 36020 13959 16718  1080 37774
+ 36292 23093  6661  2375  1515 44997 11502 48297]
+Neuron 375, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_375/hook_mlp_out/avg/top/neuron_375_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_375/hook_mlp_out/avg/bottom/neuron_375_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 2707 24765 16782  7827 40334 45955 14108 21689  4925 27819 33294 38881
+ 44765  1344 17433  8309 37633 43341 47456 29674]
+Bottom sampled image indices for blocks.9.hook_resid_post: [43610 30120   904  5960 48627  8755 33425 45840 17602  1017 43782   902
+ 17221 48453  1515 19838 20630 30581 36020  2036]
+Neuron 375, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_375/hook_resid_post/avg/top/neuron_375_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_375/hook_resid_post/avg/bottom/neuron_375_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [13024  1270 24099 31225  7398 39130 13458 35566  8079 26224 34424 12976
+ 28769 22104 32589 25592  5875 36800 12529 35699]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [  836 32847 45027 36096 17030 30864 38613 39232 37043   586  3294 42599
+  4333 13491 48561 43648 48036 34202 10788 15986]
+Neuron 375, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_375/hook_post/avg/top/neuron_375_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_375/hook_post/avg/bottom/neuron_375_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [13340 34107 43341 10449 26503 21241 11051 27042 19211 24570 44390 47684
+ 23359 23765 32125 47253 33470 43298 45250 29154]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [ 1110 49884 38542  1550  8619 17944 14704 14931 32775 23219 45693 38378
+ 46277 47790 29936 47402  5970 37666 49922 21860]
+Neuron 89, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_89/hook_mlp_out/avg/top/neuron_89_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_89/hook_mlp_out/avg/bottom/neuron_89_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [21997  5125 45564 49214  9404 24765 22517  2058 29931  4073 10449 19044
+ 39787 19701 24788 42132 25497 26329  2297  4946]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 7466  8619 25439   407 25295 12793 47387 11593 30374 19249 44994  9015
+ 20294 23219 15476  1550 22783 41715 49605 18768]
+Neuron 89, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_89/hook_resid_post/avg/top/neuron_89_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_89/hook_resid_post/avg/bottom/neuron_89_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [ 3960 20004 11026 23897 11166 18863 12631  8444 28955  8961 36415 20690
+ 27595 25806 10627 18188 40016  6768 23820 14485]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [27381 34676 23544 39356 48149 12053 44126 45610  1443 48402  8425  1193
+ 45240 28979  5976 11151 29566 15640 12693 15595]
+Neuron 89, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_89/hook_post/avg/top/neuron_89_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_89/hook_post/avg/bottom/neuron_89_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [39273 22958 32932  4252 49748 13289 33661 18342 35508 41060 16277 43949
+ 39189  4407 39993 19757  9117 39330 32029 18640]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [34949  6490  2337 24939 19530 15219 35903  2751 36910 36419 23184 39864
+ 36736 31465 21406 30925 40097 34037 37134 23442]
+Neuron 763, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_763/hook_mlp_out/avg/top/neuron_763_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_763/hook_mlp_out/avg/bottom/neuron_763_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 9053 34516 13309 16682  7640 39993 18869 23433 32478  7126 30422 47368
+  1867 21825 30348 22735 30648 22803  2210  4793]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 1550 38542 15219 47790 35903 41012 38927 21860 21406 40709 23868 25986
+ 17944 12793 48690 48987 33934 31137 30925 34037]
+Neuron 763, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_763/hook_resid_post/avg/top/neuron_763_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_763/hook_resid_post/avg/bottom/neuron_763_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [49712 15102 18113  4110 12637 38839 13759 25791 24553  2114 41485  9126
+ 44256 19134 39525 18985 28329 20892 14601 30279]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [ 9544 24337  9689 41434 15796 12944 31845   791 47296 39228 48340 12146
+ 13088   998 15201 14129 19433 18585 11412  7140]
+Neuron 763, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_763/hook_post/avg/top/neuron_763_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_763/hook_post/avg/bottom/neuron_763_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 5244 49395 27713 14738 16180 30648  2478 41998 18101 37757  1719 30689
+ 24337 31917 28916  5335 30776 45735 16954 47635]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [45250  2788 27042 43298 34574 32125 14979 21241 23209 28940  9343 44390
+ 35355  7266 48001 37935 11755 49604 44985 26485]
+Neuron 425, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_425/hook_mlp_out/avg/top/neuron_425_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_425/hook_mlp_out/avg/bottom/neuron_425_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 9764 27319 11593  6281 20690  8647 10627 17533 29870 30910 10323 15218
+  7109 16954 48670  4030 31917 37490 39350 39251]
+Bottom sampled image indices for blocks.9.hook_resid_post: [44563 39225 23128 24007  7435  8338  2788 48379 48374 19145 43984 30117
+ 31811 18436 35535 26357 41988 45319 18059  5489]
+Neuron 425, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_425/hook_resid_post/avg/top/neuron_425_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_425/hook_resid_post/avg/bottom/neuron_425_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [26404 13015 27798 15319 15885 35263 33404 49634 11922 48686  8330  2597
+ 23184 14789 26246 30471  4757 45561  5685 45325]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [22984 12105  5782 15844  2150  3423 40036 47541  3769 48869 38186 19967
+ 23144  8201 12893 23372 25499 25122 40994   773]
+Neuron 425, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_425/hook_post/avg/top/neuron_425_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_425/hook_post/avg/bottom/neuron_425_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [12536 15634 17178 13331 39609 33668 18111 43090  8653  5244 26445  2511
+ 28623 45164 16645 17655 33938 19948  7191 40775]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [12955 39301 48466 37278 24581 49395  8486 37119  6598 41146 19392 14956
+  5779 45956 49325 20040  9946 32500  7827  9357]
+Neuron 190, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_190/hook_mlp_out/avg/top/neuron_190_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_190/hook_mlp_out/avg/bottom/neuron_190_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [35303 34964 31495 37448 16645 36402 33147 17178 40775 16494  2650 14301
+ 12150 26704 24321 12657 48975 19878 17397 28623]
+Bottom sampled image indices for blocks.9.hook_resid_post: [34197 15039 49395 30482 30648 17993 24580 47635 39106  5779 39301  5930
+  3556 21014 47815 28138 33599 35106  7262 43840]
+Neuron 190, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_190/hook_resid_post/avg/top/neuron_190_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_190/hook_resid_post/avg/bottom/neuron_190_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [40117 36315 29905 28843 17877 28640 47510 28617 24033 24605 40067 34342
+ 47440 15388 37073 13029 14543  2684 48114 38977]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [14271 34168  9140  1951 46030 26615   498 14209  7669 21831 45976 32871
+ 19252 45019 14996 48397 41366 31568 47411 17464]
+Neuron 190, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_190/hook_post/avg/top/neuron_190_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_190/hook_post/avg/bottom/neuron_190_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [22287 48172 35219 33470 22486 43551   601 30395 42086 11674 36667 48509
+ 19396 25581 17172  6965 36972  4522 27390 20036]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [46731 28171 49667 34577 32983 11837  3700  6676 40243 42965 18145 26038
+ 43703 48033  3311  2500 12114 24242 18503 39907]
+Neuron 553, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_553/hook_mlp_out/avg/top/neuron_553_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_553/hook_mlp_out/avg/bottom/neuron_553_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [22747 30945   862 31651  1383  5640   631 35957 25101 45956 10653 42196
+ 29334  5631 23738 36667 35219 46330 17172 25581]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 2542 16701 34530 32896 32125 37387 48341  1166  5107  5768  6385 18020
+ 29297  1615 13051   639 29887 41997 32428 12649]
+Neuron 553, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_553/hook_resid_post/avg/top/neuron_553_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_553/hook_resid_post/avg/bottom/neuron_553_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [42040 40776 17837 17841 38918 14167  8870 48676 34061 46346 27743 14016
+ 35169 14928 18012 43744  5887  3344 32959 48244]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [48234   495 22075 34765  5374 25150 25657 36642 37126 19913 48959 27183
+ 36533 17248 29070 32854 22596 48298  5674 20611]
+Neuron 553, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_553/hook_post/avg/top/neuron_553_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_553/hook_post/avg/bottom/neuron_553_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [43064 17094 32125 47833 37477  1467 35967 27042 46078 38887  6599 26424
+ 46470 33220 36901 49929 36972 41253 44709  5111]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [48521 47265 43605 42411 18436 25582 18347 14189 39597 30757  5887  4427
+ 14372 14624 42196 29987 29820  8249 28238  5229]
+Neuron 74, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_74/hook_mlp_out/avg/top/neuron_74_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_74/hook_mlp_out/avg/bottom/neuron_74_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [34949 41700  6490 30649 33601 32232  2429 33220  1957  7996 27042 36534
+ 44709 45250 12646 36901  5111 38377  2968 21236]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 9621 38542  2700 33799 26555 41010 21375 33733 41610  3814 44617 36931
+ 47043  2707 20695 14624 14189 38881 33999 35144]
+Neuron 74, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_74/hook_resid_post/avg/top/neuron_74_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_74/hook_resid_post/avg/bottom/neuron_74_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [17732 45179  1985 10768  2804 24943  1687  2102 12973 42445  5474 23777
+ 38359  4376 28621 27505 34245 49340 25586 38528]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [ 9017 44781 48016 37992 42325 36293  4702 12430 41716 40986  9217  8772
+ 47897 32831 12177 48843 21280  7310 47405 22596]
+Neuron 74, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_74/hook_post/avg/top/neuron_74_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_74/hook_post/avg/bottom/neuron_74_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [36678 46731 15710 17257 28635  5244  7291 17178 41861 32340 29356 21236
+ 11015  8424  2241 13331 20339 18350  8290 12500]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [28059  8701  1344 46464  8066 11739 29566 19803 49780  3083 43297  9935
+ 38225 48460  2822 42292  4183 48732 14720 36703]
+Neuron 236, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_236/hook_mlp_out/avg/top/neuron_236_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_236/hook_mlp_out/avg/bottom/neuron_236_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [10418   263 37497 16281 48453 34131 18214 21711 40775  1476 29804 32989
+ 14003 48558 47536 11967  7291  8290 21236 12500]
+Bottom sampled image indices for blocks.9.hook_resid_post: [28059  8701  5715  3041 25395 37062  1833 12550  8066 13672 28742 19803
+  2822 46382  3553  4901  4183 12687 45507 34557]
+Neuron 236, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_236/hook_resid_post/avg/top/neuron_236_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_236/hook_resid_post/avg/bottom/neuron_236_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [46532 33577  4003  7521 43080  1276 23068 49015 39395 49479 18779 39397
+ 38862 18655 18024   734  8338 14593 48663 27217]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [ 8887 40527 32169 40020 47861 48687 23854 40149 20563 18508  6339  6243
+ 47734 11527 36430 25506 29870 44706 27989 14382]
+Neuron 236, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_236/hook_post/avg/top/neuron_236_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_236/hook_post/avg/bottom/neuron_236_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [39985 22078 21735 12558 12053 14663  4609  6462 38926 29381 21236 37448
+  2758 27830  1957  7291  1849  6423 39483  3664]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [ 9014 12581 16010 16872  1816 42137  9306 39133 11758 42516 20040 11406
+ 36579  2514 47176  7996 19486 14738 44593  5468]
+Neuron 518, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_518/hook_mlp_out/avg/top/neuron_518_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_518/hook_mlp_out/avg/bottom/neuron_518_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [48374  3664 38021 47402 48987 48690  3814 40726  7883 46277  1849 33498
+ 42894 21236 47790 17944 17720 38542 27290  7291]
+Bottom sampled image indices for blocks.9.hook_resid_post: [16872  9014 48862 11758 42516 16010 47536 36800 40020 42137 23049 47785
+ 24424 12911 12581 16514  7464  1816 16015 30349]
+Neuron 518, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_518/hook_resid_post/avg/top/neuron_518_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_518/hook_resid_post/avg/bottom/neuron_518_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [45628 47250 10490 31481 18006 13409  9028 25942 23926 21480 30932 14958
+ 21437 34924 14662 34684  2481 16821 14777 36476]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [ 3596 23122 34316 21568 11363  6637 22245 34616 31714   736 15046 30452
+ 49955  7355 35962 18527 17105 19001 20754 43472]
+Neuron 518, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_518/hook_post/avg/top/neuron_518_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_518/hook_post/avg/bottom/neuron_518_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [47556  7360 29493 16139 39751 11026 10264 13514 22307 22445 15988  8755
+  3215  5489 34131  9048 26065 44170 29804 18347]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [    9 45249 27698 35447 22385 46824 37732 40744 45252 28627 16353 34504
+ 42302  2966 46296 28850 21937 44223  9984 13505]
+Neuron 430, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_430/hook_mlp_out/avg/top/neuron_430_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_430/hook_mlp_out/avg/bottom/neuron_430_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 2201 23278 38633 30452 34584 27049 42719 20247 40892 49956 13835 32212
+ 43021 38742  4372 11026 49086 13088 35045 32347]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 6420 46029 11763 38342 31668 32282 34768 36715 45025 39744 41338 26968
+ 43151 35339 33475   510 44440 48536 41160 37249]
+Neuron 430, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_430/hook_resid_post/avg/top/neuron_430_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_430/hook_resid_post/avg/bottom/neuron_430_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [49606 26092  9149 26256 36578 34309 28168 36939 48170 49185 26963 17725
+ 37656 16064 40271 13261 33022 40261 46357 47384]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [33669 35147 43848   320 31200  5065 41485 15191  5132 40681 17919 45735
+  5561 47476 40867 16283 26514 32669 22218 48774]
+Neuron 430, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_430/hook_post/avg/top/neuron_430_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_430/hook_post/avg/bottom/neuron_430_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [37588  9799   710  3796 49395  2138 33496  5779 30757 45956 33110  1957
+ 14225 28372 30648 17370 16682 27713 13587 44019]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [48374 48379 38123 18436 40629  8675 45804  2788 34685 17172 48663 37060
+ 34574 23209 23128 47684 40424  3294 46563 34131]
+Neuron 416, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_416/hook_mlp_out/avg/top/neuron_416_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_416/hook_mlp_out/avg/bottom/neuron_416_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [42137 46251  5779  2765 30757 36191 27004 30648 13587 33496 38186 21236
+ 39106 28802 16682 37588 12105  4872 37415 27713]
+Bottom sampled image indices for blocks.9.hook_resid_post: [ 4355 48379 36369 10805  1126  9216 46131 24492 34131 44844 15184  3294
+ 39609 48663 47771 45832 43090 48374 34962  8907]
+Neuron 416, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_416/hook_resid_post/avg/top/neuron_416_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_416/hook_resid_post/avg/bottom/neuron_416_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [ 9968 24366 18311   902 33619 12876 10469 35110 27744  8832 42519 26585
+ 31877 26773 17076 17574 12104  6627 15217 38342]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [48785 21777 18347 35217 43004 36144 15326 21431 47115 15289 32815 24716
+ 31220 40349 35379 38514 42397 15625 28516 34729]
+Neuron 416, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_416/hook_post/avg/top/neuron_416_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_416/hook_post/avg/bottom/neuron_416_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [35355 33938 41331 38183  2788 49604  1512 29123 19842 24885 21241 14979
+  9343 32125   178 23359 44390 27042 43298 45250]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [19319 43600 40020 25806  6562 13145 23820  8444 14007 28955 36415   170
+ 18863 30998  9802 14153 18708  9386 35217  7818]
+Neuron 348, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_348/hook_mlp_out/avg/top/neuron_348_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_348/hook_mlp_out/avg/bottom/neuron_348_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [48379 14979 13672 24007 44390 24885 38186 32679 41668 27949  2788 23905
+ 38183   178 19145 27042 43298 23359 32125 45250]
+Bottom sampled image indices for blocks.9.hook_resid_post: [15762   170 11161  6562 23765 18145 30998 41554 32186 16718  7790  7748
+ 45832  1504  5681 40254 33870  9393 35217 12168]
+Neuron 348, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_348/hook_resid_post/avg/top/neuron_348_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_348/hook_resid_post/avg/bottom/neuron_348_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [27044 41532  9890 17503 24158 26593  4355  3416 33376 10458 38280 31955
+ 21709   675 35912  9848 34916 38789 10391 13849]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [23359   149 13111 48643 15310 20079 31693 20678  5836 18064 15142  5875
+ 11261 35258 12529 47256 48004 37048 49757 37797]
+Neuron 348, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_348/hook_post/avg/top/neuron_348_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_348/hook_post/avg/bottom/neuron_348_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [20811  3812 19483 14775  3520 21711  8734 21236  2836 48676  2399 47160
+ 31735 21287 23168  3440  1627 48340 21942 27539]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [14720 29804 23359 26275  9014 42516 39053 29932 33397 42940 22728 26427
+ 33220 43990   238 26139 30452 26503  5989 11270]
+Neuron 34, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_34/hook_mlp_out/avg/top/neuron_34_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_34/hook_mlp_out/avg/bottom/neuron_34_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [26264  6853 31563  7125 34350 36065  6716  1565 12150 38855 26647  3318
+  2382 35122  3864   470  9386 14316 46346 22469]
+Bottom sampled image indices for blocks.9.hook_resid_post: [39053 14720 43944 44812 23181 33282 19117 45296 30452 32574 34962 12304
+ 38152 36800 15988 42940  1980 31772  7223  3273]
+Neuron 34, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_34/hook_resid_post/avg/top/neuron_34_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_34/hook_resid_post/avg/bottom/neuron_34_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [14092 41837 47695 10155 39982 49094 39280  8714 20659  5149 32383 35992
+ 26354 33828 13602  3860 17915 48141 44025     7]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [43701  5388 12832 15022 33959  7603  5760 34638 44047 14039  6999 31633
+  2363 41324 35414 34685  3388 40103 44588 43352]
+Neuron 34, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_34/hook_post/avg/top/neuron_34_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_34/hook_post/avg/bottom/neuron_34_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [47883 37475  6916 35444 38378 24460 11936   772  6580 45702 14931 29886
+  8659 35535  6100 25358 42819 48684 44052 12242]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [14373 31389 35417 31024 44631 41011 13340  1122  4191 35364  3562  8129
+ 29623 18732  5368 18641 22922 27294 48444 14949]
+Neuron 370, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_370/hook_mlp_out/avg/top/neuron_370_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_370/hook_mlp_out/avg/bottom/neuron_370_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [38871 12727 47883 32938 42167   862  4831 29886 45702 48049  5437 15360
+ 25993 12242 40988 26940  8338 21549 49878 39395]
+Bottom sampled image indices for blocks.9.hook_resid_post: [32847 10931 12330 16852   175 15643 11531 10653 22358 18641  8177 27294
+ 12432  7996 37710 25352 36546 17172 39554 25338]
+Neuron 370, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_370/hook_resid_post/avg/top/neuron_370_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_370/hook_resid_post/avg/bottom/neuron_370_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [ 6429 10933 12532   458 19869  1166 16934 41551 19222  2769 25285 42191
+ 36734   396   122 33854 34047 13224 35187 18020]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [29932  8509 37062 38486 11245 11995 32847 14477  5887 38918  2937  6579
+ 25145 41781 23779 37000  7312 44273 46346 42937]
+Neuron 370, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_370/hook_post/avg/top/neuron_370_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_370/hook_post/avg/bottom/neuron_370_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 4897 34793 22914  9621  2511  9386 21711 32403 39672 21236 42660  4896
+ 19281 33831  7883  1957 31814  6633  7291  9375]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [12500 48412 33470 25665   696 30998 42086 29334 19562 31735 48374  6957
+ 10334 16898  3520   283 29951 32675 19486 32340]
+Neuron 687, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_687/hook_mlp_out/avg/top/neuron_687_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_687/hook_mlp_out/avg/bottom/neuron_687_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [ 5108 43213 44807 19281 30901  1849 23832 34561 28452 11977  3893 37062
+ 24754 13732 42660 22914  7883  7291  1957 21236]
+Bottom sampled image indices for blocks.9.hook_resid_post: [12500 48412 14189  2399 15352  7640 26550 19562  2440 49752 16898 31735
+ 21942  5244 33612 20811 25665 19130 38584 37049]
+Neuron 687, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_687/hook_resid_post/avg/top/neuron_687_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_687/hook_resid_post/avg/bottom/neuron_687_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [43017  6442 28142 17618 31839 47012 33956 40965 18384   789 47631 20853
+ 26824 13112 42876  3617 49539 20807  9797 20404]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [ 2232 39193 36253  3676 23313 37920 14289  5529 33543 46353  2904  6332
+  7237 21041 20568 41957 29070 46515 23260 47010]
+Neuron 687, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_687/hook_post/avg/top/neuron_687_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_687/hook_post/avg/bottom/neuron_687_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 4724  3893 12500 37269 30374 27539 42178 32983 21360  7466 34373 45326
+ 19376  1565  3440 11593 48460 33613 21942 28059]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [17172 35087 10653 37060 48267 49665 38542 47790 17944 35254 46277 27623
+ 21860 26430 42894 16150 46349 45693  6183 48690]
+Neuron 608, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_608/hook_mlp_out/avg/top/neuron_608_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_608/hook_mlp_out/avg/bottom/neuron_608_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [25212 41079  3893 35820  7265 18488 25412 39602 48751  7466 33613 13255
+ 32983 21942 35161 49487 21360  4111 40243  2241]
+Bottom sampled image indices for blocks.9.hook_resid_post: [27082  5887  2914 17172 49598 48267 38186 37060 43937 31997 13578 26430
+  3324  7583 14372 21406 14191 16150 17647  3618]
+Neuron 608, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_608/hook_resid_post/avg/top/neuron_608_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_608/hook_resid_post/avg/bottom/neuron_608_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [27025 18331 49844 12525  7477 49779 37197  5933 13421 19044  9910 47009
+ 28350 13709 26625 26268  6359 25088 34953 49181]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [30784 44934 35572 22776 12364 19356  6314 32838  2427  4724 41180 25093
+  2777  7579 19826 29217 33948 21967  2758 19303]
+Neuron 608, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_608/hook_post/avg/top/neuron_608_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_608/hook_post/avg/bottom/neuron_608_layer_9_bottom_avg_hook_post.png
+Activations shape for blocks.9.hook_mlp_out (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_mlp_out: [ 6953 14720 22263 23181  4654 25899 43584 38894 12721 17755 21406 27723
+ 24508  4723 32024 37435 38158  4872 49567 22238]
+Bottom sampled image indices for blocks.9.hook_mlp_out: [19801 40727  7291  4818 48221 22657 30798 36382 35743 38225 42660  5474
+  6258 17094 41740 39982 41253 21711 42411  4183]
+Neuron 296, Layer 9, Layer Type hook_mlp_out
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_mlp_out/avg/top/neuron_296_layer_9_top_avg_hook_mlp_out.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_mlp_out/avg/bottom/neuron_296_layer_9_bottom_avg_hook_mlp_out.png
+Activations shape for blocks.9.hook_resid_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.hook_resid_post: [30010  8781 17947 42778 46977  4583 40667 36244 42335 13181 14720 36126
+  6048 25362 36614 36846  6953 23181  4872 22238]
+Bottom sampled image indices for blocks.9.hook_resid_post: [15493 45032  7291 12857 48221 47192 23173 44250 22395 22735 30798  1114
+ 48521 33666 42411 40727 47988 17820 48489 18288]
+Neuron 296, Layer 9, Layer Type hook_resid_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_resid_post/avg/top/neuron_296_layer_9_top_avg_hook_resid_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_resid_post/avg/bottom/neuron_296_layer_9_bottom_avg_hook_resid_post.png
+Activations shape for blocks.9.mlp.hook_post (49984, 50)
+Type of sampling: average
+Top sampled image indices for blocks.9.mlp.hook_post: [33017  7753 23013 17459  5654 32045  9782 14435 47604   320 40174 12431
+ 18845 12807 11808 27153 26427 35702 43428 18156]
+Bottom sampled image indices for blocks.9.mlp.hook_post: [20648 15492 21389   137 47550 46123  5338 25187 16718  5473 34744 35554
+ 30352 35304 36692 21864   192  2844 26102 37444]
+Neuron 296, Layer 9, Layer Type hook_post
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_post/avg/top/neuron_296_layer_9_top_avg_hook_post.png
+Saved image to /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_post/avg/bottom/neuron_296_layer_9_bottom_avg_hook_post.png
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Mon Sep 16 01:43:17 2024
+Driver Version                            : 535.183.06
+CUDA Version                              : 12.2
+
+Attached GPUs                             : 1
+GPU 00000000:14:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 680663
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 594 MiB
+            Time                          : 4938212 ms
+            Is Running                    : 0
+
+Mon Sep 16 01:43:17 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.183.06             Driver Version: 535.183.06   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Quadro RTX 8000                On  | 00000000:14:00.0 Off |                    0 |
+| 34%   30C    P2              71W / 260W |      1MiB / 46080MiB |      8%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
