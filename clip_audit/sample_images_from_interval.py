@@ -411,7 +411,7 @@ def create_parser():
                        default='conceptual_captions',)
 
     parser.add_argument("--train_or_test",
-                       default='val',)
+                       default='train',)
     
     parser.add_argument("--imagenet_path",
                        default='/network/scratch/s/sonia.joseph/datasets/kaggle_datasets',

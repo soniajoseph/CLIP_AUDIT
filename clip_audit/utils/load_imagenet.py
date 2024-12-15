@@ -127,7 +127,7 @@ def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, d
     # assuming the same structure as here: https://www.kaggle.com/c/imagenet-object-localization-challenge/overview/description
     imagenet_train_path = os.path.join(imagenet_path, "ILSVRC/Data/CLS-LOC/train")
     imagenet_val_path  =os.path.join(imagenet_path, "ILSVRC/Data/CLS-LOC/val")
-    imagenet_train_labels = os.path.join(imagenet_path, "LOC_train_solution.csv")
+    # imagenet_train_labels = os.path.join(imagenet_path, "LOC_train_solution.csv")
     imagenet_val_labels = os.path.join(imagenet_path, "LOC_val_solution.csv")
     imagenet_label_strings = os.path.join(imagenet_path, "LOC_synset_mapping.txt" )
 
@@ -137,8 +137,11 @@ def load_imagenet(imagenet_path, train_test_val, batch_size=32, shuffle=False, d
     # Set the appropriate directory based on train_test_val
     if train_test_val == 'train':
         data_dir = imagenet_train_path
-        labels = imagenet_train_labels
-        dataset = ImageNetTrainDataset(data_dir, imagenet_label_strings, labels, transform=transform)
+        # labels = imagenet_train_labels
+        dataset = torchvision.datasets.ImageFolder(
+                imagenet_train_path, transform=transform
+            )
+        # dataset = ImageNetTrainDataset(data_dir, imagenet_label_strings, labels, transform=transform)
 
     elif train_test_val == 'val':
         data_dir = imagenet_val_path

@@ -166,7 +166,7 @@ class ConceptualCaptionsDataset(Dataset):
         
 
 
-def load_conceptual_captions(train_or_val,dataloader=True):
+def load_conceptual_captions(train_or_val,dataloader=True, batch_size=256):
     if train_or_val == 'train':
         print("Loading training dataset")
         tsv_file = '/network/datasets/conceptualcaptions/Train/GCC-training.tsv'
@@ -178,7 +178,7 @@ def load_conceptual_captions(train_or_val,dataloader=True):
     cache_dir = '/network/scratch/s/sonia.joseph/datasets/conceptual_captions'
     dataset= ConceptualCaptionsDataset(train_or_val, tsv_file=tsv_file, image_root_dir=image_root_dir, cache_dir=cache_dir)
     if dataloader:
-        dataloader = DataLoader(dataset, batch_size=128, shuffle=False)
+        dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
         return dataloader
     else:
         return dataset
