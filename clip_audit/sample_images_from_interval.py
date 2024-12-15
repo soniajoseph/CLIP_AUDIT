@@ -190,10 +190,13 @@ def plot_images(images, image_indices, class_names, layer_idx, neuron_idx, model
             # img_pil = transforms.ToPILImage()(image)
             # img_pil = transforms.Resize(224, interpolation=InterpolationMode.BICUBIC)(img_pil)
             # img_pil = transforms.CenterCrop(224)(img_pil)
-
-            img = image.permute(1, 2, 0).numpy()
-            display_image = (img - img.min()) / (img.max() - img.min())
-            
+            # img_pil = transforms.CenterCrop(224)(img_pil)
+            if isinstance(image, Image.Image):
+                display_image = display_transform(image)
+            else:
+                img = image.permute(1, 2, 0).numpy()
+                display_image = (img - img.min()) / (img.max() - img.min())
+                
             ax = axs[idx]
 
             if include_heatmap:
@@ -392,9 +395,10 @@ def image_patch_heatmap(activation_values, image_size=224, pixel_num=7):
             heatmap[i*patch_size:(i+1)*patch_size, j*patch_size:(j+1)*patch_size] = activation_values[i, j]
     return heatmap
 
-def load_dataset(imagenet_path):
+def load_dataset(imagenet_path,train_or_test):
     # transform = get_clip_val_transforms()
-    dataloader = load_imagenet(imagenet_path, 'val', shuffle=False, transform=None)
+    
+    dataloader = load_imagenet(imagenet_path, train_or_test, shuffle=False, transform=None)
     return dataloader.dataset
 
 def create_parser():
@@ -462,7 +466,7 @@ def main(args):
 
     
     if args.dataset_name == 'imagenet':
-        dataset = load_dataset(imagenet_path)
+        dataset = load_dataset(args.imagenet_path, args.train_or_test)
     elif args.dataset_name == 'conceptual_captions':
         dataset = load_conceptual_captions(args.train_or_test, dataloader=False)
 
