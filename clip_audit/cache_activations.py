@@ -53,6 +53,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
     if neuron_indices and model_name == 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K':
         neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy', allow_pickle=True).item()
         neuron_indices_resid_post = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_residual_post.npy', allow_pickle=True).item()
+
         
         # if neuron_indices and model_name == 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K':
         #     neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/vit_g_mlp_out.npy', allow_pickle=True).item()
@@ -114,6 +115,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
                         # print(selected_neurons)
                         # print(activation.shape)
                         activation = activation[:, :, selected_neurons]
+                        print(selected_neurons)
                     elif 'hook_resid_post' in layer:
                         selected_neurons = neuron_indices_resid_post[layer_idx]
                         # print(selected_neurons)

@@ -54,6 +54,7 @@ def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samp
 
         activations = f[layer_key][:, :, neuron_idx]
 
+
         # print(f"Activations shape for {layer_key}", activations.shape)
         # print(f"Type of sampling: {type_of_sampling}")
 
@@ -452,13 +453,7 @@ def create_parser():
 
 
 def main(args):
-    # model_name = 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K'
-    # file_path = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/val/'
-    # imagenet_path = '/network/scratch/s/sonia.joseph/datasets/kaggle_datasets'
-    # save_dir = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K/'
-    # # df_intervals_path = "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/histograms/mlp.hook_out/all_neuron_activations_SD_intervals.csv"
-    # neuron_indices_path = '/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy'
-
+    
     clean_model_name = args.model_name.replace("/", "_")
     clean_model_name = clean_model_name.replace(":", "_")
     file_path = f'/network/scratch/s/sonia.joseph/CLIP_AUDIT/{clean_model_name}/{args.dataset_name}/{args.train_or_test}'
@@ -506,15 +501,3 @@ if __name__ == "__main__":
     parser = create_parser()
     args = parser.parse_args()
     main(args)
-    
-# if __name__ == "__main__":
-#     import argparse
-#     parser = argparse.ArgumentParser(description="Process neurons in specific layers of a neural network.")
-#     parser.add_argument("--layer_idx", type=int, help="Specific layer index to process. If not provided, all layers will be processed.", default=None)
-#     # get top k only, store true, use as a boolean
-#     parser.add_argument("--replace", action="store_true", help="Rerun despite folder already being there.")
-#     parser.add_argument("--type_of_sampling", type=str, default='avg', help="Type of sampling to use for selecting top k activations.")
-#     parser.add_argument("--verbose", action="store_true", help="Print verbose output.")
-#     parser.add_argument("--all_neurons", action="store_true", help="Do every neuron, not just randomly sampled ones.")
-#     args = parser.parse_args()
-#     main(args)
