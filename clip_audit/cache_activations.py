@@ -40,6 +40,19 @@ def create_save_path(save_dir, model_name, dataset_name, train_val, layer_type):
     
     return full_path
 
+def create_save_path_ids(save_dir, model_name, dataset_name, train_val):
+    # clean model name of '/'
+    model_name = model_name.replace('/', '_')
+    model_name = model_name.replace(':', '_')
+    
+    # Construct full path
+    full_path = os.path.join(save_dir, model_name, dataset_name, train_val, f"image_ids.h5")
+    
+    # Create all parent directories
+    os.makedirs(os.path.dirname(full_path), exist_ok=True)
+    
+    return full_path
+
 def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_indices=None):
 
     # Load data
@@ -47,13 +60,21 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
         ind_to_name, imagenet_names = get_imagenet_names(imagenet_path)
         transforms = get_clip_val_transforms()
         dataloader = load_imagenet(imagenet_path, train_val, shuffle=False, transform=transforms)
+    if dataset_name == 'imagenet21k':
+        from clip_audit.dataloader.imagenet21k_dataloader_simple_iterator import load_imagenet21k
+        transforms = get_clip_val_transforms()
+        tar_path = '/network/datasets/imagenet21k/winter21_whole.tar.gz'
+        batch_size = 64
+        dataloader = load_imagenet21k(tar_path, transforms, batch_size = batch_size)
+
     elif dataset_name == 'conceptual_captions':
         dataloader = load_conceptual_captions(train_val)
         
+
+
     if neuron_indices and model_name == 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K':
         neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_mlp_out.npy', allow_pickle=True).item()
         neuron_indices_resid_post = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/clip_base_residual_post.npy', allow_pickle=True).item()
-
         
         # if neuron_indices and model_name == 'open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K':
         #     neuron_indices_mlp_out = np.load('/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/saved_data/vit_g_mlp_out.npy', allow_pickle=True).item()
@@ -73,6 +94,31 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
     else:
         total_range = range(layer_num)
 
+
+    # Create id saving code (specific to imagenet21k)
+    # Create HDF5 file for image IDs with proper string dtype
+    id_file_path = create_save_path_ids(save_dir, model_name, dataset_name, train_val)
+    ids_file = h5py.File(id_file_path, 'w')
+    str_dt = h5py.special_dtype(vlen=str)
+    
+    # Create extensible dataset for image IDs
+    if dataset_name == 'imagenet21k':
+        initial_size = min(100000, 14_000_000)  # Start with reasonable size
+        max_size = 14_000_000
+    else:
+        initial_size = len(dataloader)
+        max_size = initial_size
+
+    ids_dataset = ids_file.create_dataset(
+        'image_ids',
+        shape=(initial_size,),
+        maxshape=(max_size,),
+        dtype=str_dt,
+        chunks=True,  # Allow chunking for efficient I/O
+        compression='lzf'  # Light compression
+    )
+
+    image_index = 0
     
 
     # Create names_filter
@@ -89,15 +135,35 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
     files = {layer_type: h5py.File(create_save_path(save_dir, model_name, dataset_name, train_val, layer_type), 'w') 
              for layer_type in layer_types}
 
+    if dataset_name == 'imagenet21k':
+        length = 14_000_000 // batch_size
+
+    else:
+        length = len(dataloader)
+
     image_index = 0
+    count = 0
+
+    MAX_COUNT = 100
+
     with torch.no_grad():
-        for output in tqdm(dataloader, desc="Evaluating"):
+        for output in tqdm(dataloader, desc="Evaluating", total=length):
             
             if dataset_name == 'imagenet':
                 images = output[0].to(device)
                 # labels = labels.to(device)
-            elif dataset_name == 'conceptual_captions':
+            else:
                 images = output['image'].to(device)
+
+            if dataset_name == 'imagenet21k':
+                image_ids = output['image_id']
+                # Resize dataset if needed
+                if image_index + len(image_ids) > ids_dataset.shape[0]:
+                    new_size = min(ids_dataset.shape[0] * 2, max_size)
+                    ids_dataset.resize((new_size,))
+                ids_dataset[image_index:image_index + len(image_ids)] = image_ids
+                image_index += images.shape[0]
+
 
             output, cache = model.run_with_cache(images, names_filter=names_filter)
 
@@ -115,7 +181,6 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
                         # print(selected_neurons)
                         # print(activation.shape)
                         activation = activation[:, :, selected_neurons]
-                        print(selected_neurons)
                     elif 'hook_resid_post' in layer:
                         selected_neurons = neuron_indices_resid_post[layer_idx]
                         # print(selected_neurons)
@@ -147,8 +212,13 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
                     f['image_indices'][-images.shape[0]:] = np.arange(image_index, image_index + images.shape[0])
 
             image_index += images.shape[0]
+            count += 1
+            if count >= MAX_COUNT:
+                break
 
-    # Close all files
+    # Cl
+    ids_dataset.resize((image_index,))
+    ids_file.close()
     for f in files.values():
         f.close()
 
