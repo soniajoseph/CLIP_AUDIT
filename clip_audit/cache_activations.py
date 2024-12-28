@@ -24,7 +24,9 @@ from tqdm.auto import tqdm
 import numpy as np
 import h5py
 
-from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms
+# from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms
+
+from clip_audit.utils.transforms import get_clip_transforms
 
 
 def create_save_path(save_dir, model_name, dataset_name, train_val, layer_type):
@@ -59,14 +61,15 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
     if dataset_name == 'imagenet':
         ind_to_name, imagenet_names = get_imagenet_names(imagenet_path)
         transforms = get_clip_val_transforms()
+
         dataloader = load_imagenet(imagenet_path, train_val, shuffle=False, transform=transforms)
     if dataset_name == 'imagenet21k':
+        print("Loading imagenet21k")
         from clip_audit.dataloader.imagenet21k_dataloader_simple_iterator import load_imagenet21k
-        transforms = get_clip_val_transforms()
+        transforms = get_clip_transforms()
         tar_path = '/network/datasets/imagenet21k/winter21_whole.tar.gz'
         batch_size = 64
-        dataloader = load_imagenet21k(tar_path, transforms, batch_size = batch_size)
-
+        dataloader = load_imagenet21k(tar_path,transforms= transforms, batch_size = batch_size)
     elif dataset_name == 'conceptual_captions':
         dataloader = load_conceptual_captions(train_val)
         
@@ -142,9 +145,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
         length = len(dataloader)
 
     image_index = 0
-    count = 0
 
-    MAX_COUNT = 100
 
     with torch.no_grad():
         for output in tqdm(dataloader, desc="Evaluating", total=length):
@@ -162,7 +163,6 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
                     new_size = min(ids_dataset.shape[0] * 2, max_size)
                     ids_dataset.resize((new_size,))
                 ids_dataset[image_index:image_index + len(image_ids)] = image_ids
-                image_index += images.shape[0]
 
 
             output, cache = model.run_with_cache(images, names_filter=names_filter)
@@ -212,10 +212,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
                     f['image_indices'][-images.shape[0]:] = np.arange(image_index, image_index + images.shape[0])
 
             image_index += images.shape[0]
-            count += 1
-            if count >= MAX_COUNT:
-                break
-
+          
     # Cl
     ids_dataset.resize((image_index,))
     ids_file.close()

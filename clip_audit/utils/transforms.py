@@ -4,7 +4,7 @@ from torchvision.transforms.functional import InterpolationMode
 def _convert_to_rgb(image):
     return image.convert('RGB')
 
-def get_clip_transform():
+def get_clip_transforms():
     return transforms.Compose([
         transforms.Resize(size=224, interpolation=InterpolationMode.BICUBIC, max_size=None, antialias=True),
         transforms.CenterCrop(size=(224, 224)),

@@ -41,8 +41,9 @@ import time
 class StreamingImageNet21k(IterableDataset):
     def __init__(self, tar_path, transform=None, seed=42):
         self.tar_path = tar_path
-        self.transform = None
+        self.transform = transform
         self.seed = seed
+
     
     def _get_stream(self):
         worker_info = torch.utils.data.get_worker_info()
@@ -77,7 +78,7 @@ class StreamingImageNet21k(IterableDataset):
                         try:
                             # Load and process image
                             img_data = current_class_tar.extractfile(img_member)
-                            img = Image.open(io.BytesIO(img_data.read())).convert('RGB')
+                            img = Image.open(io.BytesIO(img_data.read()))
                             
                             if self.transform:
                                 img = self.transform(img)

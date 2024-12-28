@@ -1,0 +1,53 @@
+Loading imagenet21k
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Converting OpenCLIP weights
+model_id download_pretrained_from_hf: laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+visual projection shape torch.Size([768, 512])
+visual projection shape torch.Size([768, 512])
+Setting center_writing_weights to False for OpenCLIP
+Setting fold_ln to False for OpenCLIP
+Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer
+Model loaded: open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+Number of layers: 12
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Thu Dec 26 15:14:21 2024
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:8A:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 2112987
+            GPU Utilization               : 12 %
+            Memory Utilization            : 4 %
+            Max memory usage              : 1418 MiB
+            Time                          : 0 ms
+            Is Running                    : 1
+
+Thu Dec 26 15:14:21 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:8A:00.0 Off |                    0 |
+| N/A   41C    P0             64W /  300W |    1422MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   2112987      C   python                                       1418MiB |
++-----------------------------------------------------------------------------------------+
