@@ -100,9 +100,13 @@ class StreamingImageNet21k(IterableDataset):
                 current_class_tar.close()
             tar.close()
 
-    def find_image(self, target_image_id):
+    def find_image(self, target_total_id):
         """Find and load a specific image by image_id"""
         tar = tarfile.open(self.tar_path, 'r|gz')
+
+        target_class_id = target_total_id.split('_')[0]
+        target_image_id = target_total_id.split('_')[1]
+        print(f"Looking for image {target_image_id} in class {target_class_id}")
         
         try:
             current_class_tar = None
@@ -114,13 +118,24 @@ class StreamingImageNet21k(IterableDataset):
                     
                     # Extract and open new class tar
                     class_id = member.name.split('/')[-1].split('.')[0]
+
+                    if class_id != target_class_id:
+                        # print(f"Skipping class {class_id}, looking for {target_class_id}")
+                        continue
+                    
+                    # print(f"Found matching class tar: {member.name}")
+                
                     inner_tar_data = tar.extractfile(member)
                     current_class_tar = tarfile.open(fileobj=io.BytesIO(inner_tar_data.read()))
                     
                     # Look for the target image in this class
                     for img_member in current_class_tar.getmembers():
+                        # print(f"Checking image {img_member.name}")
                         if img_member.name.endswith(('.JPEG', '.jpg', '.jpeg', '.png')):
-                            current_image_id = img_member.name.split('.')[0]
+                            current_image_id = img_member.name.split('_')[-1]
+                            current_image_id = current_image_id.split('.')[0]
+
+                            # print(f"On image {current_image_id}")
                             
                             if current_image_id == target_image_id:
                                 # Found the target image
@@ -129,6 +144,8 @@ class StreamingImageNet21k(IterableDataset):
                                 
                                 if self.transform:
                                     img = self.transform(img)
+                                
+                                print(f"Found image {target_image_id} in class {class_id}")
                                 
                                 return {
                                     'image': img,
@@ -146,6 +163,7 @@ class StreamingImageNet21k(IterableDataset):
     def __iter__(self):
         return self._get_stream()
 
+
 def collate_fn(batch):
     images = torch.stack([item['image'] for item in batch])
     class_ids = [item['class_id'] for item in batch]
@@ -159,6 +177,7 @@ def collate_fn(batch):
         'index': indices
     }
 
+
 def load_imagenet21k(tar_path, transforms, batch_size=64):
     dataset  = StreamingImageNet21k(tar_path, transform=transforms)
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=collate_fn)
@@ -171,52 +190,69 @@ def load_imagenet21k(tar_path, transforms, batch_size=64):
     
 #     # Create dataset
 #     # dataset = ImageNet21kDataset(tar_path, cache_dir=cache_dir)
-#     dataset = StreamingImageNet21k(tar_path)
+
+#     from clip_audit.utils.transforms import get_clip_transforms
+
+#     transform =get_clip_transforms()
+#     dataset = StreamingImageNet21k(tar_path, transform=transform)
+
+#     print("Finding specific image")
+#     target_id = 'n02689434_9032'
+
+#     from time import time
+#     start = time()
+#     target_image = dataset.find_image(target_id)
+#     print(f"Found image in {time() - start:.2f} seconds")
+#     # display
+#     plt.figure()
+#     plt.title(f'{target_id}')
+#     plt.imshow(target_image['image'].numpy().transpose(1, 2, 0))
+#     plt.savefig('imagenet21k_target.png')
 
     
-#     # Create dataloader
-#     dataloader = DataLoader(
-#         dataset,
-#         batch_size=4,
-#         shuffle=False,
-#         num_workers=4,
-#         collate_fn=collate_fn
-#     )
+    # # Create dataloader
+    # dataloader = DataLoader(
+    #     dataset,
+    #     batch_size=4,
+    #     shuffle=False,
+    #     num_workers=4,
+    #     collate_fn=collate_fn
+    # )
     
-#     # Example iteration
-#     for i, batch in enumerate(dataloader):
-#         if i >= 2:  # Just show first 2 batches
-#             break
+    # # # Example iteration
+    # # for i, batch in enumerate(dataloader):
+    # #     if i >= 2:  # Just show first 2 batches
+    # #         break
             
-#         print(f"Batch {i}:")
-#         print(f"Images shape: {batch['image'].shape}")
-#         print(f"Class IDs: {batch['class_id']}")
-#         print(f"Image IDs: {batch['image_id']}")
-#         print(f"Indices: {batch['index']}")
-#         print("---")
+    # #     print(f"Batch {i}:")
+    # #     print(f"Images shape: {batch['image'].shape}")
+    # #     print(f"Class IDs: {batch['class_id']}")
+    # #     print(f"Image IDs: {batch['image_id']}")
+    # #     print(f"Indices: {batch['index']}")
+    # #     print("---")
 
 
     
-#     # Visualization example
-#     def show_batch(batch, num_images=4):
-#         images = batch['image'][:num_images]
-#         class_ids = batch['class_id'][:num_images]
-#         indices = batch['index'][:num_images]
+    # # Visualization example
+    # def show_batch(batch, num_images=4):
+    #     images = batch['image'][:num_images]
+    #     class_ids = batch['class_id'][:num_images]
+    #     indices = batch['index'][:num_images]
         
-#         plt.figure(figsize=(15, 4))
-#         for i, (img, class_id, idx) in enumerate(zip(images, class_ids, indices)):
-#             plt.subplot(1, num_images, i + 1)
-#             img = img.numpy().transpose(1, 2, 0)
-#             # Denormalize
-#             img = img * np.array([0.229, 0.224, 0.225]) + np.array([0.485, 0.456, 0.406])
-#             img = np.clip(img, 0, 1)
+    #     plt.figure(figsize=(15, 4))
+    #     for i, (img, class_id, idx) in enumerate(zip(images, class_ids, indices)):
+    #         plt.subplot(1, num_images, i + 1)
+    #         img = img.numpy().transpose(1, 2, 0)
+    #         # Denormalize
+    #         img = img * np.array([0.229, 0.224, 0.225]) + np.array([0.485, 0.456, 0.406])
+    #         img = np.clip(img, 0, 1)
             
-#             plt.imshow(img)
-#             plt.title(f"Class: {class_id}\nIdx: {idx}")
-#             plt.axis('off')
-#         plt.tight_layout()
-#         plt.savefig('imagenet21k_batch.png')
-#         plt.show()
+    #         plt.imshow(img)
+    #         plt.title(f"Class: {class_id}\nIdx: {idx}")
+    #         plt.axis('off')
+    #     plt.tight_layout()
+    #     plt.savefig('imagenet21k_batch.png')
+    #     plt.show()
     
     # # Show first batch
     # dataloader = DataLoader(
@@ -230,10 +266,4 @@ def load_imagenet21k(tar_path, transforms, batch_size=64):
     # batch = next(iter(dataloader))
     # show_batch(batch)
 
-    # print("Finding specific image")
-    # target_id = 'n02689434_9260'
-    # target_image = dataset.find_image(target_id)
-    # # display
-    # plt.figure()
-    # plt.imshow(target_image['image'].numpy().transpose(1, 2, 0))
-    # plt.savefig('imagenet21k_target.png')
+    
