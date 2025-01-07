@@ -1,5 +1,0 @@
-[=== Module python/3.10 loaded ===]
-Traceback (most recent call last):
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 12, in <module>
-    from clip_audit.utils.load_imagenet import load_imagenet
-ValueError: source code string cannot contain null bytes

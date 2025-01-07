@@ -1,47 +1,0 @@
-[=== Module python/3.10 loaded ===]
-Layer:   0%|          | 0/1 [00:00<?, ?it/s]
-Neuron:   0%|          | 0/30 [00:00<?, ?it/s][A
-Neuron:   3%|▎         | 1/30 [03:26<1:40:01, 206.96s/it][A
-Neuron:   7%|▋         | 2/30 [06:11<1:24:48, 181.75s/it][A
-Neuron:  10%|█         | 3/30 [07:52<1:05:17, 145.09s/it][A
-Neuron:  13%|█▎        | 4/30 [09:54<58:58, 136.10s/it]  [A
-Neuron:  17%|█▋        | 5/30 [12:28<59:23, 142.53s/it][A
-Neuron:  20%|██        | 6/30 [15:16<1:00:26, 151.09s/it][A
-Neuron:  23%|██▎       | 7/30 [17:30<55:48, 145.58s/it]  [A
-Neuron:  27%|██▋       | 8/30 [18:50<45:43, 124.72s/it][A
-Neuron:  30%|███       | 9/30 [20:14<39:10, 111.94s/it][A
-Neuron:  33%|███▎      | 10/30 [22:01<36:48, 110.44s/it][A
-Neuron:  37%|███▋      | 11/30 [24:09<36:39, 115.76s/it][A
-Neuron:  40%|████      | 12/30 [26:06<34:51, 116.18s/it][A
-Neuron:  43%|████▎     | 13/30 [27:25<29:44, 104.95s/it][A
-Neuron:  47%|████▋     | 14/30 [29:19<28:40, 107.52s/it][A
-Neuron:  50%|█████     | 15/30 [31:11<27:13, 108.89s/it][A
-Neuron:  53%|█████▎    | 16/30 [32:36<23:45, 101.81s/it][A
-Neuron:  57%|█████▋    | 17/30 [34:26<22:35, 104.30s/it][A
-Neuron:  60%|██████    | 18/30 [36:19<21:20, 106.71s/it][A
-Neuron:  63%|██████▎   | 19/30 [38:43<21:37, 117.96s/it][A
-Neuron:  67%|██████▋   | 20/30 [40:51<20:11, 121.12s/it][A
-Neuron:  70%|███████   | 21/30 [43:02<18:35, 123.91s/it][A
-Neuron:  73%|███████▎  | 22/30 [45:30<17:29, 131.14s/it][A
-Neuron:  77%|███████▋  | 23/30 [47:19<14:31, 124.55s/it][A
-Neuron:  80%|████████  | 24/30 [48:52<11:31, 115.19s/it][A
-Neuron:  83%|████████▎ | 25/30 [50:47<09:35, 115.16s/it][A
-Neuron:  87%|████████▋ | 26/30 [52:51<07:50, 117.64s/it][A
-Neuron:  90%|█████████ | 27/30 [54:50<05:54, 118.20s/it][A
-Neuron:  93%|█████████▎| 28/30 [56:33<03:47, 113.57s/it][A
-Neuron:  97%|█████████▋| 29/30 [58:03<01:46, 106.61s/it][ANeuron:  97%|█████████▋| 29/30 [59:29<02:03, 123.10s/it]
-Layer:   0%|          | 0/1 [59:29<?, ?it/s]
-Traceback (most recent call last):
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 423, in <module>
-    main(args)
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 412, in main
-    process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, args.type_of_sampling, imagenet_classes)
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 104, in process_neuron
-    torch.save({
-  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/torch/serialization.py", line 618, in save
-    with _open_zipfile_writer(f) as opened_zipfile:
-  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/torch/serialization.py", line 492, in _open_zipfile_writer
-    return container(name_or_buffer)
-  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/torch/serialization.py", line 463, in __init__
-    super().__init__(torch._C.PyTorchFileWriter(self.name))
-RuntimeError: Parent directory /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_9/neuron_296/hook_post/max_cls/top does not exist.

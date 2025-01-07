@@ -1,42 +1,0 @@
-[=== Module python/3.10 loaded ===]
-Layer:   0%|          | 0/1 [00:00<?, ?it/s]
-Neuron:   0%|          | 0/30 [00:00<?, ?it/s][A
-Neuron:   3%|▎         | 1/30 [00:56<27:13, 56.34s/it][A
-Neuron:   7%|▋         | 2/30 [01:59<28:07, 60.26s/it][A
-Neuron:  10%|█         | 3/30 [02:51<25:30, 56.69s/it][A
-Neuron:  13%|█▎        | 4/30 [03:40<23:12, 53.55s/it][A
-Neuron:  17%|█▋        | 5/30 [04:28<21:26, 51.47s/it][A
-Neuron:  20%|██        | 6/30 [05:17<20:14, 50.60s/it][A
-Neuron:  23%|██▎       | 7/30 [06:16<20:26, 53.33s/it][A
-Neuron:  27%|██▋       | 8/30 [07:16<20:20, 55.49s/it][A
-Neuron:  30%|███       | 9/30 [08:08<19:05, 54.54s/it][A
-Neuron:  33%|███▎      | 10/30 [09:06<18:31, 55.60s/it][A
-Neuron:  37%|███▋      | 11/30 [09:55<16:57, 53.54s/it][A
-Neuron:  40%|████      | 12/30 [10:43<15:32, 51.80s/it][A/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/Image.py:1000: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
-  warnings.warn(
-
-Neuron:  43%|████▎     | 13/30 [11:28<14:07, 49.86s/it][A
-Neuron:  47%|████▋     | 14/30 [12:17<13:09, 49.37s/it][A
-Neuron:  50%|█████     | 15/30 [13:17<13:11, 52.79s/it][A
-Neuron:  53%|█████▎    | 16/30 [14:08<12:10, 52.18s/it][A
-Neuron:  57%|█████▋    | 17/30 [15:02<11:26, 52.78s/it][A
-Neuron:  60%|██████    | 18/30 [15:50<10:16, 51.38s/it][A
-Neuron:  63%|██████▎   | 19/30 [16:39<09:17, 50.65s/it][A
-Neuron:  67%|██████▋   | 20/30 [17:27<08:18, 49.85s/it][A
-Neuron:  70%|███████   | 21/30 [18:21<07:38, 50.96s/it][A
-Neuron:  73%|███████▎  | 22/30 [19:08<06:37, 49.75s/it][A
-Neuron:  77%|███████▋  | 23/30 [19:57<05:46, 49.50s/it][A
-Neuron:  80%|████████  | 24/30 [20:46<04:56, 49.48s/it][A
-Neuron:  83%|████████▎ | 25/30 [21:38<04:10, 50.10s/it][A
-Neuron:  87%|████████▋ | 26/30 [22:32<03:25, 51.49s/it][A/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/TiffImagePlugin.py:890: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0. 
-  warnings.warn(str(msg))
-
-Neuron:  90%|█████████ | 27/30 [23:21<02:32, 50.67s/it][A
-Neuron:  93%|█████████▎| 28/30 [24:09<01:39, 49.74s/it][A
-Neuron:  97%|█████████▋| 29/30 [25:11<00:53, 53.52s/it][A
-Neuron: 100%|██████████| 30/30 [26:05<00:00, 53.77s/it][ANeuron: 100%|██████████| 30/30 [26:05<00:00, 52.20s/it]
-Layer: 100%|██████████| 1/1 [26:05<00:00, 1565.86s/it]Layer: 100%|██████████| 1/1 [26:05<00:00, 1565.86s/it]
-/etc/slurm/slurmtask_epilog: line 26: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 27: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 28: ${OUT_FILE}: ambiguous redirect
-slurmstepd: error: --task-epilog failed status=1

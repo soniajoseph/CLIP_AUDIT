@@ -9,7 +9,6 @@ import einops
 from typing import List, Tuple
 import pandas as pd
 import os
-from clip_audit.utils.load_imagenet import load_imagenet
 
 import numpy as np
 import h5py
@@ -20,11 +19,17 @@ from PIL import Image
 
 from torchvision.transforms.functional import InterpolationMode
 
+from tqdm import tqdm
+
+
 
 from vit_prisma.transforms.open_clip_transforms import get_clip_val_transforms 
 from vit_prisma.dataloaders.imagenet_classes_simple import imagenet_classes
 
+from clip_audit.utils.load_imagenet import load_imagenet
 from clip_audit.dataloader.conceptual_captions import load_conceptual_captions
+from clip_audit.dataloader.imagenet21k_dataloader_simple_iterator import load_imagenet21k
+
 
 VERBOSE = True
 SAVE_FIGURES = True
@@ -36,9 +41,83 @@ def print_available_layers(file_path):
             if key != 'image_indices':
                 print(f"- {key}")
 
-def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samples=20, type_of_sampling='avg'):
+def get_extreme_activations_chunked(file_dir, neuron_idx, layer_idx, layer_type, dataset_name, n_samples=20, 
+                                  type_of_sampling='avg', chunk_size=1000):
+    activation_file_path = os.path.join(file_dir, f"{layer_type}.h5")
+
+    print(f"Activation file path: {activation_file_path}")
+    
+    with h5py.File(activation_file_path, 'r') as f:
+        if layer_type == 'hook_post':
+            layer_key = f'blocks.{layer_idx}.mlp.hook_post'
+        else:
+            layer_key = f'blocks.{layer_idx}.{layer_type}'
+            
+        if layer_key not in f:
+            print(f"Warning: Layer key '{layer_key}' not found in the file.")
+            return None, None, None, None
+
+        dataset = f[layer_key]
+        total_samples = dataset.shape[0]
+        
+        # Initialize arrays to store top/bottom k candidates
+        top_k_values = np.full(n_samples, -np.inf)
+        bottom_k_values = np.full(n_samples, np.inf)
+        top_k_indices = np.zeros(n_samples, dtype=int)
+        bottom_k_indices = np.zeros(n_samples, dtype=int)
+        
+        # Process data in chunks
+        for start_idx in tqdm(range(0, total_samples, chunk_size)):
+            end_idx = min(start_idx + chunk_size, total_samples)
+            chunk = dataset[start_idx:end_idx, :, neuron_idx]
+            
+            # Calculate aggregated activations based on sampling type
+            if type_of_sampling == 'max':
+                chunk_agg = np.max(chunk, axis=1)
+            elif type_of_sampling == 'avg':
+                chunk_agg = np.mean(chunk, axis=1)
+            elif type_of_sampling == 'max_cls':
+                chunk_agg = chunk[:, 0]
+            else:
+                raise ValueError(f"Unknown sampling type: {type_of_sampling}")
+            
+            # Update top k
+            all_values = np.concatenate([top_k_values, chunk_agg])
+            all_indices = np.concatenate([top_k_indices, np.arange(start_idx, end_idx)])
+            sorted_idx = np.argsort(all_values)
+            top_k_values = all_values[sorted_idx[-n_samples:]]
+            top_k_indices = all_indices[sorted_idx[-n_samples:]]
+            
+            # Update bottom k
+            all_values = np.concatenate([bottom_k_values, chunk_agg])
+            sorted_idx = np.argsort(all_values)
+            bottom_k_values = all_values[sorted_idx[:n_samples]]
+            bottom_k_indices = all_indices[sorted_idx[:n_samples]]
+        
+        # Get corresponding image IDs/indices
+        if dataset_name == 'imagenet21k':
+            image_ids_file_path = os.path.join(file_dir, "image_ids.h5")
+            with h5py.File(image_ids_file_path, 'r') as id_f:
+                image_ids = id_f['image_ids'][:]
+                top_sampled_indices = image_ids[top_k_indices]
+                bottom_sampled_indices = image_ids[bottom_k_indices]
+        else:
+            image_indices = f['image_indices'][:]
+            top_sampled_indices = image_indices[top_k_indices]
+            bottom_sampled_indices = image_indices[bottom_k_indices]
+
+    # Convert to list, handling both string and numeric arrays
+        if isinstance(top_sampled_indices, np.ndarray):
+            top_sampled_indices = top_sampled_indices.tolist()
+            bottom_sampled_indices = bottom_sampled_indices.tolist()
+    
+    
+    return (top_sampled_indices, top_k_values, 
+            bottom_sampled_indices, bottom_k_values)
+
+def get_extreme_activations(file_dir, neuron_idx, layer_idx, layer_type, n_samples=20, type_of_sampling='avg', dataset_name=None):
     # print_available_layers(file_path)
-    file_path = os.path.join(file_path, f"{layer_type}.h5")
+    file_path = os.path.join(file_dir, f"{layer_type}.h5")
     # print(f"File path: {file_path}")
     # print_available_layers(file_path)
     with h5py.File(file_path, 'r') as f:
@@ -74,14 +153,28 @@ def get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, n_samp
         top_k_activations = aggregated_activations[top_k_indices]
         bottom_k_activations = aggregated_activations[bottom_k_indices]
         
-        image_indices = f['image_indices'][:]
-        top_sampled_image_indices = image_indices[top_k_indices]
-        bottom_sampled_image_indices = image_indices[bottom_k_indices]
+        if dataset_name == 'imagenet21k':
+            # Get image IDs from the separate file
+            image_ids_file_path = os.path.join(file_dir, "image_ids.h5")
+            with h5py.File(image_ids_file_path, 'r') as id_f:
+                image_ids = id_f['image_ids'][:]
+                top_sampled_indices = image_ids[top_k_indices]
+                bottom_sampled_indices = image_ids[bottom_k_indices]
+        else:
+            # Use the indices directly stored in activation file
+            image_indices = f['image_indices'][:]
+            top_sampled_indices = image_indices[top_k_indices]
+            bottom_sampled_indices = image_indices[bottom_k_indices]
 
+        # Convert to list, handling both string and numeric arrays
+        if isinstance(top_sampled_indices, np.ndarray):
+            top_sampled_indices = top_sampled_indices.tolist()
+            bottom_sampled_indices = bottom_sampled_indices.tolist()
+    
         # print(f"Top sampled image indices for {layer_key}: {top_sampled_image_indices}")
         # print(f"Bottom sampled image indices for {layer_key}: {bottom_sampled_image_indices}")
     
-    return top_sampled_image_indices.tolist(), top_k_activations, bottom_sampled_image_indices.tolist(), bottom_k_activations
+    return top_sampled_indices, top_k_activations, bottom_sampled_indices, bottom_k_activations
 
 def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, dataset_name, type_of_sampling='max', imagenet_classes=None):
     
@@ -92,8 +185,10 @@ def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, d
     
 
     for layer_type in layer_types:
-        top_indices, top_activations, bottom_indices, bottom_activations = get_extreme_activations(file_path, neuron_idx, layer_idx, layer_type, type_of_sampling=type_of_sampling)
+        top_indices, top_activations, bottom_indices, bottom_activations = get_extreme_activations_chunked(file_path, neuron_idx, layer_idx, layer_type, type_of_sampling=type_of_sampling, dataset_name=dataset_name)
         # print(f"Neuron {neuron_idx}, Layer {layer_idx}, Layer Type {layer_type}")
+
+        print(f"Top indices: {top_indices}")
 
         if dataset_name == 'imagenet':
             image_key = 0
@@ -101,9 +196,16 @@ def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, d
         elif dataset_name == 'conceptual_captions':
             image_key = 'image'
             label_key = 'caption'
-
-        top_images = [dataset[idx][image_key] for idx in top_indices]
-        bottom_images = [dataset[idx][image_key] for idx in bottom_indices]
+        elif dataset_name == 'imagenet21k':
+            image_key = 'image'
+            label_key = 'class_id'
+    
+        # Get images
+        if dataset_name == 'imagenet' or dataset_name == 'conceptual_captions':
+            top_images = [dataset[idx][image_key] for idx in top_indices]
+            bottom_images = [dataset[idx][image_key] for idx in bottom_indices]
+        elif dataset_name == 'imagenet21k':
+            top_images = [dataset.find_image(idx) for idx in top_indices]
 
         if dataset_name == 'imagenet':
             top_class_names = [imagenet_classes[dataset[idx][label_key]] for idx in top_indices]
@@ -113,6 +215,9 @@ def process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, d
             # bottom_class_names = [dataset[idx][label_key] for idx in bottom_indices]
             top_class_names = ['' for idx in top_indices]
             bottom_class_names = ['' for idx in bottom_indices]
+        elif dataset_name == 'imagenet21k':
+            top_class_names = top_indices
+            bottom_class_names = bottom_indices
 
         # Save values and indices
         top_dir = f"{save_dir}/layer_{layer_idx}/neuron_{neuron_idx}/{layer_type}/{type_of_sampling}/top"
@@ -374,6 +479,7 @@ def get_interval_keys(i):
 
 def get_all_activations(image_index, layer_idx, layer_type, neuron_idx, file_path):
     file_path = os.path.join(file_path, f"{layer_type}.h5")
+    print(f"File path: {file_path}")
     with h5py.File(file_path, 'r') as f:
 
         if layer_type == 'hook_post':
@@ -464,6 +570,10 @@ def main(args):
         dataset = load_dataset(args.imagenet_path, args.train_or_test)
     elif args.dataset_name == 'conceptual_captions':
         dataset = load_conceptual_captions(args.train_or_test, dataloader=False)
+    elif args.dataset_name == 'imagenet21k':
+        tar_path = '/network/datasets/imagenet21k/winter21_whole.tar.gz'
+        batch_size = 64
+        dataset = load_imagenet21k(tar_path,transforms= None, batch_size = batch_size)
 
     model = HookedViT.from_pretrained(args.model_name, is_clip=True, is_timm=False, fold_ln=False).to('cuda')
     # df_intervals = pd.read_csv(df_intervals_path)

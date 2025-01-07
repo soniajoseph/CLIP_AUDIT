@@ -1,6 +1,0 @@
-Official model name open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
-Converting OpenCLIP weights
-visual projection shape torch.Size([768, 512])
-Setting center_writing_weights to False for OpenCLIP
-Setting fold_ln to False for OpenCLIP
-Loaded pretrained model open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K into HookedTransformer

@@ -106,8 +106,8 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
     
     # Create extensible dataset for image IDs
     if dataset_name == 'imagenet21k':
-        initial_size = min(100000, 14_000_000)  # Start with reasonable size
-        max_size = 14_000_000
+        initial_size = min(100000, 14_197_122)  # Start with reasonable size
+        max_size = 15_000_000
     else:
         initial_size = len(dataloader)
         max_size = initial_size
@@ -121,7 +121,6 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
         compression='lzf'  # Light compression
     )
 
-    image_index = 0
     
 
     # Create names_filter
@@ -145,8 +144,7 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
         length = len(dataloader)
 
     image_index = 0
-
-
+    count = 0
     with torch.no_grad():
         for output in tqdm(dataloader, desc="Evaluating", total=length):
             
@@ -212,6 +210,9 @@ def main(imagenet_path, train_val, model_name, dataset_name, save_dir, neuron_in
                     f['image_indices'][-images.shape[0]:] = np.arange(image_index, image_index + images.shape[0])
 
             image_index += images.shape[0]
+            # count += 1
+            # if count > 500:
+            #     break
           
     # Cl
     ids_dataset.resize((image_index,))

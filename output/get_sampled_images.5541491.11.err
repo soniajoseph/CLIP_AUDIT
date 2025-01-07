@@ -1,6 +1,0 @@
-[=== Module python/3.10 loaded ===]
-slurmstepd: error: *** JOB 5541491 ON cn-c025 CANCELLED AT 2024-11-02T14:11:52 ***
-/etc/slurm/slurmtask_epilog: line 26: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 27: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 28: ${OUT_FILE}: ambiguous redirect
-slurmstepd: error: --task-epilog failed status=1

@@ -1,49 +1,0 @@
-[=== Module python/3.10 loaded ===]
-Layer:   0%|          | 0/1 [00:00<?, ?it/s]
-Neuron:   0%|          | 0/30 [00:00<?, ?it/s][A
-Neuron:   3%|▎         | 1/30 [03:29<1:41:06, 209.18s/it][A
-Neuron:   7%|▋         | 2/30 [06:15<1:25:55, 184.14s/it][A
-Neuron:  10%|█         | 3/30 [07:58<1:06:09, 147.02s/it][A
-Neuron:  13%|█▎        | 4/30 [09:51<57:55, 133.66s/it]  [A
-Neuron:  17%|█▋        | 5/30 [12:34<1:00:00, 144.00s/it][A
-Neuron:  20%|██        | 6/30 [14:53<56:59, 142.49s/it]  [A
-Neuron:  23%|██▎       | 7/30 [16:37<49:45, 129.79s/it][A
-Neuron:  27%|██▋       | 8/30 [18:18<44:15, 120.69s/it][A
-Neuron:  30%|███       | 9/30 [20:03<40:32, 115.81s/it][A
-Neuron:  33%|███▎      | 10/30 [22:00<38:43, 116.17s/it][A
-Neuron:  37%|███▋      | 11/30 [24:18<38:55, 122.90s/it][A
-Neuron:  40%|████      | 12/30 [26:29<37:33, 125.19s/it][A
-Neuron:  43%|████▎     | 13/30 [27:47<31:26, 110.95s/it][A
-Neuron:  47%|████▋     | 14/30 [29:35<29:21, 110.11s/it][A
-Neuron:  50%|█████     | 15/30 [31:35<28:15, 113.05s/it][A
-Neuron:  53%|█████▎    | 16/30 [33:45<27:33, 118.12s/it][A
-Neuron:  57%|█████▋    | 17/30 [35:25<24:23, 112.61s/it][A
-Neuron:  60%|██████    | 18/30 [37:04<21:42, 108.52s/it][A
-Neuron:  63%|██████▎   | 19/30 [39:05<20:37, 112.47s/it][A
-Neuron:  67%|██████▋   | 20/30 [41:17<19:43, 118.31s/it][A
-Neuron:  70%|███████   | 21/30 [43:25<18:09, 121.06s/it][A
-Neuron:  73%|███████▎  | 22/30 [45:45<16:54, 126.81s/it][A
-Neuron:  77%|███████▋  | 23/30 [47:48<14:38, 125.57s/it][A
-Neuron:  80%|████████  | 24/30 [49:42<12:12, 122.13s/it][A
-Neuron:  83%|████████▎ | 25/30 [51:30<09:49, 117.89s/it][A
-Neuron:  87%|████████▋ | 26/30 [53:21<07:43, 115.91s/it][A
-Neuron:  90%|█████████ | 27/30 [55:19<05:49, 116.47s/it][ANeuron:  90%|█████████ | 27/30 [56:19<06:15, 125.18s/it]
-Layer:   0%|          | 0/1 [56:19<?, ?it/s]
-Traceback (most recent call last):
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 423, in <module>
-    main(args)
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 412, in main
-    process_neuron(layer_idx, neuron_idx, model, dataset, file_path, save_dir, args.type_of_sampling, imagenet_classes)
-  File "/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/sample_images_from_interval.py", line 109, in process_neuron
-    torch.save({
-  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/torch/serialization.py", line 618, in save
-    with _open_zipfile_writer(f) as opened_zipfile:
-  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/torch/serialization.py", line 492, in _open_zipfile_writer
-    return container(name_or_buffer)
-  File "/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/torch/serialization.py", line 463, in __init__
-    super().__init__(torch._C.PyTorchFileWriter(self.name))
-RuntimeError: Parent directory /network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/CLIP-ViT-B-32-DataComp.XL-s13B-b90K//layer_11/neuron_258/hook_resid_post/max_cls/bottom does not exist.
-/etc/slurm/slurmtask_epilog: line 26: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 27: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 28: ${OUT_FILE}: ambiguous redirect
-slurmstepd: error: --task-epilog failed status=1

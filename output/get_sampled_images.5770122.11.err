@@ -1,42 +1,0 @@
-[=== Module python/3.10 loaded ===]
-Layer:   0%|          | 0/1 [00:00<?, ?it/s]
-Neuron:   0%|          | 0/30 [00:00<?, ?it/s][A
-Neuron:   3%|▎         | 1/30 [00:43<21:14, 43.96s/it][A
-Neuron:   7%|▋         | 2/30 [01:28<20:36, 44.17s/it][A/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/TiffImagePlugin.py:890: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0. 
-  warnings.warn(str(msg))
-
-Neuron:  10%|█         | 3/30 [02:12<19:56, 44.32s/it][A
-Neuron:  13%|█▎        | 4/30 [02:57<19:15, 44.44s/it][A
-Neuron:  17%|█▋        | 5/30 [03:46<19:10, 46.00s/it][A
-Neuron:  20%|██        | 6/30 [04:38<19:13, 48.06s/it][A
-Neuron:  23%|██▎       | 7/30 [05:52<21:44, 56.73s/it][A
-Neuron:  27%|██▋       | 8/30 [06:37<19:23, 52.88s/it][A
-Neuron:  30%|███       | 9/30 [07:21<17:29, 49.98s/it][A
-Neuron:  33%|███▎      | 10/30 [08:04<16:00, 48.01s/it][A
-Neuron:  37%|███▋      | 11/30 [08:49<14:54, 47.10s/it][A
-Neuron:  40%|████      | 12/30 [09:43<14:43, 49.09s/it][A
-Neuron:  43%|████▎     | 13/30 [10:27<13:28, 47.58s/it][A
-Neuron:  47%|████▋     | 14/30 [11:12<12:30, 46.91s/it][A
-Neuron:  50%|█████     | 15/30 [12:10<12:34, 50.32s/it][A
-Neuron:  53%|█████▎    | 16/30 [12:59<11:36, 49.73s/it][A/home/mila/s/sonia.joseph/env/lib/python3.10/site-packages/PIL/Image.py:1000: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
-  warnings.warn(
-
-Neuron:  57%|█████▋    | 17/30 [13:55<11:11, 51.66s/it][A
-Neuron:  60%|██████    | 18/30 [14:45<10:12, 51.08s/it][A
-Neuron:  63%|██████▎   | 19/30 [15:28<08:56, 48.77s/it][A
-Neuron:  67%|██████▋   | 20/30 [16:13<07:56, 47.68s/it][A
-Neuron:  70%|███████   | 21/30 [16:57<06:58, 46.54s/it][A
-Neuron:  73%|███████▎  | 22/30 [17:41<06:05, 45.65s/it][A
-Neuron:  77%|███████▋  | 23/30 [18:28<05:22, 46.02s/it][A
-Neuron:  80%|████████  | 24/30 [19:25<04:56, 49.39s/it][A
-Neuron:  83%|████████▎ | 25/30 [20:12<04:02, 48.57s/it][A
-Neuron:  87%|████████▋ | 26/30 [21:03<03:17, 49.36s/it][A
-Neuron:  90%|█████████ | 27/30 [21:47<02:23, 47.91s/it][A
-Neuron:  93%|█████████▎| 28/30 [22:34<01:35, 47.61s/it][A
-Neuron:  97%|█████████▋| 29/30 [23:21<00:47, 47.48s/it][A
-Neuron: 100%|██████████| 30/30 [24:19<00:00, 50.55s/it][ANeuron: 100%|██████████| 30/30 [24:19<00:00, 48.65s/it]
-Layer: 100%|██████████| 1/1 [24:19<00:00, 1459.52s/it]Layer: 100%|██████████| 1/1 [24:19<00:00, 1459.52s/it]
-/etc/slurm/slurmtask_epilog: line 26: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 27: ${OUT_FILE}: ambiguous redirect
-/etc/slurm/slurmtask_epilog: line 28: ${OUT_FILE}: ambiguous redirect
-slurmstepd: error: --task-epilog failed status=1

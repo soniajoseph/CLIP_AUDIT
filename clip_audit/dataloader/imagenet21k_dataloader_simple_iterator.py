@@ -183,6 +183,19 @@ def load_imagenet21k(tar_path, transforms, batch_size=64):
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=collate_fn)
     return dataloader
 
+# import h5py
+# import h5repack
+
+# # Path to your corrupted file
+# input_file = '/network/scratch/s/sonia.joseph/CLIP_AUDIT/open-clip_laion_CLIP-ViT-B-32-DataComp.XL-s13B-b90K/conceptual_captions/train/hook_mlp_out.h5'
+# # Path for the repaired file
+# output_file = input_file.replace('.h5', '_repaired.h5')
+
+# h5repack.repack(input_file, output_file)
+# print("File successfully repaired")
+
+
+
 # # Usage example:
 # if __name__ == "__main__":
 #     tar_path = '/network/datasets/imagenet21k/winter21_whole.tar.gz'

@@ -1,0 +1,615 @@
+Starting to create index for /network/datasets/imagenet21k/winter21_whole.tar.gz
+Starting index creation at 16:18:20
+
+Processed 100 classes in 17.78 seconds
+Rate: 5.62 classes/second
+
+Processed 200 classes in 35.71 seconds
+Rate: 5.60 classes/second
+
+Processed 300 classes in 54.24 seconds
+Rate: 5.53 classes/second
+
+Processed 400 classes in 73.67 seconds
+Rate: 5.43 classes/second
+
+Processed 500 classes in 90.75 seconds
+Rate: 5.51 classes/second
+
+Processed 600 classes in 109.26 seconds
+Rate: 5.49 classes/second
+
+Processed 700 classes in 124.51 seconds
+Rate: 5.62 classes/second
+
+Processed 800 classes in 143.97 seconds
+Rate: 5.56 classes/second
+
+Processed 900 classes in 159.41 seconds
+Rate: 5.65 classes/second
+
+Processed 1000 classes in 178.39 seconds
+Rate: 5.61 classes/second
+
+Processed 1100 classes in 194.92 seconds
+Rate: 5.64 classes/second
+
+Processed 1200 classes in 214.36 seconds
+Rate: 5.60 classes/second
+
+Processed 1300 classes in 230.16 seconds
+Rate: 5.65 classes/second
+
+Processed 1400 classes in 246.82 seconds
+Rate: 5.67 classes/second
+
+Processed 1500 classes in 261.02 seconds
+Rate: 5.75 classes/second
+
+Processed 1600 classes in 277.94 seconds
+Rate: 5.76 classes/second
+
+Processed 1700 classes in 295.54 seconds
+Rate: 5.75 classes/second
+
+Processed 1800 classes in 315.69 seconds
+Rate: 5.70 classes/second
+
+Processed 1900 classes in 332.16 seconds
+Rate: 5.72 classes/second
+
+Processed 2000 classes in 351.64 seconds
+Rate: 5.69 classes/second
+
+Processed 2100 classes in 372.48 seconds
+Rate: 5.64 classes/second
+
+Processed 2200 classes in 387.24 seconds
+Rate: 5.68 classes/second
+
+Processed 2300 classes in 402.70 seconds
+Rate: 5.71 classes/second
+
+Processed 2400 classes in 423.70 seconds
+Rate: 5.66 classes/second
+
+Processed 2500 classes in 442.98 seconds
+Rate: 5.64 classes/second
+
+Processed 2600 classes in 459.33 seconds
+Rate: 5.66 classes/second
+
+Processed 2700 classes in 477.90 seconds
+Rate: 5.65 classes/second
+
+Processed 2800 classes in 497.24 seconds
+Rate: 5.63 classes/second
+
+Processed 2900 classes in 515.62 seconds
+Rate: 5.62 classes/second
+
+Processed 3000 classes in 534.28 seconds
+Rate: 5.62 classes/second
+
+Processed 3100 classes in 552.22 seconds
+Rate: 5.61 classes/second
+
+Processed 3200 classes in 571.53 seconds
+Rate: 5.60 classes/second
+
+Processed 3300 classes in 590.74 seconds
+Rate: 5.59 classes/second
+
+Processed 3400 classes in 608.08 seconds
+Rate: 5.59 classes/second
+
+Processed 3500 classes in 622.83 seconds
+Rate: 5.62 classes/second
+
+Processed 3600 classes in 636.13 seconds
+Rate: 5.66 classes/second
+
+Processed 3700 classes in 655.72 seconds
+Rate: 5.64 classes/second
+
+Processed 3800 classes in 674.63 seconds
+Rate: 5.63 classes/second
+
+Processed 3900 classes in 693.39 seconds
+Rate: 5.62 classes/second
+
+Processed 4000 classes in 709.18 seconds
+Rate: 5.64 classes/second
+
+Processed 4100 classes in 725.76 seconds
+Rate: 5.65 classes/second
+
+Processed 4200 classes in 741.22 seconds
+Rate: 5.67 classes/second
+
+Processed 4300 classes in 758.72 seconds
+Rate: 5.67 classes/second
+
+Processed 4400 classes in 777.24 seconds
+Rate: 5.66 classes/second
+
+Processed 4500 classes in 794.88 seconds
+Rate: 5.66 classes/second
+
+Processed 4600 classes in 816.25 seconds
+Rate: 5.64 classes/second
+
+Processed 4700 classes in 834.02 seconds
+Rate: 5.64 classes/second
+
+Processed 4800 classes in 850.46 seconds
+Rate: 5.64 classes/second
+
+Processed 4900 classes in 869.03 seconds
+Rate: 5.64 classes/second
+
+Processed 5000 classes in 886.08 seconds
+Rate: 5.64 classes/second
+
+Processed 5100 classes in 902.83 seconds
+Rate: 5.65 classes/second
+
+Processed 5200 classes in 920.82 seconds
+Rate: 5.65 classes/second
+
+Processed 5300 classes in 938.41 seconds
+Rate: 5.65 classes/second
+
+Processed 5400 classes in 954.70 seconds
+Rate: 5.66 classes/second
+
+Processed 5500 classes in 973.15 seconds
+Rate: 5.65 classes/second
+
+Processed 5600 classes in 990.58 seconds
+Rate: 5.65 classes/second
+
+Processed 5700 classes in 1008.54 seconds
+Rate: 5.65 classes/second
+
+Processed 5800 classes in 1026.77 seconds
+Rate: 5.65 classes/second
+
+Processed 5900 classes in 1045.63 seconds
+Rate: 5.64 classes/second
+
+Processed 6000 classes in 1062.82 seconds
+Rate: 5.65 classes/second
+
+Processed 6100 classes in 1080.03 seconds
+Rate: 5.65 classes/second
+
+Processed 6200 classes in 1096.87 seconds
+Rate: 5.65 classes/second
+
+Processed 6300 classes in 1114.59 seconds
+Rate: 5.65 classes/second
+
+Processed 6400 classes in 1129.99 seconds
+Rate: 5.66 classes/second
+
+Processed 6500 classes in 1148.61 seconds
+Rate: 5.66 classes/second
+
+Processed 6600 classes in 1164.44 seconds
+Rate: 5.67 classes/second
+
+Processed 6700 classes in 1179.26 seconds
+Rate: 5.68 classes/second
+
+Processed 6800 classes in 1197.43 seconds
+Rate: 5.68 classes/second
+
+Processed 6900 classes in 1214.37 seconds
+Rate: 5.68 classes/second
+
+Processed 7000 classes in 1233.69 seconds
+Rate: 5.67 classes/second
+
+Processed 7100 classes in 1249.45 seconds
+Rate: 5.68 classes/second
+
+Processed 7200 classes in 1267.79 seconds
+Rate: 5.68 classes/second
+
+Processed 7300 classes in 1284.30 seconds
+Rate: 5.68 classes/second
+
+Processed 7400 classes in 1300.74 seconds
+Rate: 5.69 classes/second
+
+Processed 7500 classes in 1319.43 seconds
+Rate: 5.68 classes/second
+
+Processed 7600 classes in 1336.92 seconds
+Rate: 5.68 classes/second
+
+Processed 7700 classes in 1355.33 seconds
+Rate: 5.68 classes/second
+
+Processed 7800 classes in 1372.23 seconds
+Rate: 5.68 classes/second
+
+Processed 7900 classes in 1391.57 seconds
+Rate: 5.68 classes/second
+
+Processed 8000 classes in 1409.25 seconds
+Rate: 5.68 classes/second
+
+Processed 8100 classes in 1427.89 seconds
+Rate: 5.67 classes/second
+
+Processed 8200 classes in 1445.76 seconds
+Rate: 5.67 classes/second
+
+Processed 8300 classes in 1461.75 seconds
+Rate: 5.68 classes/second
+
+Processed 8400 classes in 1480.15 seconds
+Rate: 5.68 classes/second
+
+Processed 8500 classes in 1497.18 seconds
+Rate: 5.68 classes/second
+
+Processed 8600 classes in 1515.52 seconds
+Rate: 5.67 classes/second
+
+Processed 8700 classes in 1535.75 seconds
+Rate: 5.66 classes/second
+
+Processed 8800 classes in 1553.49 seconds
+Rate: 5.66 classes/second
+
+Processed 8900 classes in 1568.60 seconds
+Rate: 5.67 classes/second
+
+Processed 9000 classes in 1583.52 seconds
+Rate: 5.68 classes/second
+
+Processed 9100 classes in 1601.43 seconds
+Rate: 5.68 classes/second
+
+Processed 9200 classes in 1617.46 seconds
+Rate: 5.69 classes/second
+
+Processed 9300 classes in 1634.41 seconds
+Rate: 5.69 classes/second
+
+Processed 9400 classes in 1651.74 seconds
+Rate: 5.69 classes/second
+
+Processed 9500 classes in 1668.32 seconds
+Rate: 5.69 classes/second
+
+Processed 9600 classes in 1683.11 seconds
+Rate: 5.70 classes/second
+
+Processed 9700 classes in 1702.64 seconds
+Rate: 5.70 classes/second
+
+Processed 9800 classes in 1720.54 seconds
+Rate: 5.70 classes/second
+
+Processed 9900 classes in 1737.88 seconds
+Rate: 5.70 classes/second
+
+Processed 10000 classes in 1754.62 seconds
+Rate: 5.70 classes/second
+
+Processed 10100 classes in 1774.95 seconds
+Rate: 5.69 classes/second
+
+Processed 10200 classes in 1790.03 seconds
+Rate: 5.70 classes/second
+
+Processed 10300 classes in 1807.31 seconds
+Rate: 5.70 classes/second
+
+Processed 10400 classes in 1823.90 seconds
+Rate: 5.70 classes/second
+
+Processed 10500 classes in 1840.80 seconds
+Rate: 5.70 classes/second
+
+Processed 10600 classes in 1860.54 seconds
+Rate: 5.70 classes/second
+
+Processed 10700 classes in 1878.69 seconds
+Rate: 5.70 classes/second
+
+Processed 10800 classes in 1898.49 seconds
+Rate: 5.69 classes/second
+
+Processed 10900 classes in 1915.02 seconds
+Rate: 5.69 classes/second
+
+Processed 11000 classes in 1934.05 seconds
+Rate: 5.69 classes/second
+
+Processed 11100 classes in 1949.22 seconds
+Rate: 5.69 classes/second
+
+Processed 11200 classes in 1966.83 seconds
+Rate: 5.69 classes/second
+
+Processed 11300 classes in 1985.25 seconds
+Rate: 5.69 classes/second
+
+Processed 11400 classes in 2003.13 seconds
+Rate: 5.69 classes/second
+
+Processed 11500 classes in 2022.93 seconds
+Rate: 5.68 classes/second
+
+Processed 11600 classes in 2041.73 seconds
+Rate: 5.68 classes/second
+
+Processed 11700 classes in 2060.58 seconds
+Rate: 5.68 classes/second
+
+Processed 11800 classes in 2077.54 seconds
+Rate: 5.68 classes/second
+
+Processed 11900 classes in 2094.57 seconds
+Rate: 5.68 classes/second
+
+Processed 12000 classes in 2113.91 seconds
+Rate: 5.68 classes/second
+
+Processed 12100 classes in 2129.69 seconds
+Rate: 5.68 classes/second
+
+Processed 12200 classes in 2146.50 seconds
+Rate: 5.68 classes/second
+
+Processed 12300 classes in 2167.43 seconds
+Rate: 5.67 classes/second
+
+Processed 12400 classes in 2182.02 seconds
+Rate: 5.68 classes/second
+
+Processed 12500 classes in 2200.36 seconds
+Rate: 5.68 classes/second
+
+Processed 12600 classes in 2217.72 seconds
+Rate: 5.68 classes/second
+
+Processed 12700 classes in 2234.46 seconds
+Rate: 5.68 classes/second
+
+Processed 12800 classes in 2248.90 seconds
+Rate: 5.69 classes/second
+
+Processed 12900 classes in 2267.14 seconds
+Rate: 5.69 classes/second
+
+Processed 13000 classes in 2283.80 seconds
+Rate: 5.69 classes/second
+
+Processed 13100 classes in 2301.17 seconds
+Rate: 5.69 classes/second
+
+Processed 13200 classes in 2318.41 seconds
+Rate: 5.69 classes/second
+
+Processed 13300 classes in 2335.51 seconds
+Rate: 5.69 classes/second
+
+Processed 13400 classes in 2354.66 seconds
+Rate: 5.69 classes/second
+
+Processed 13500 classes in 2370.44 seconds
+Rate: 5.70 classes/second
+
+Processed 13600 classes in 2387.59 seconds
+Rate: 5.70 classes/second
+
+Processed 13700 classes in 2402.97 seconds
+Rate: 5.70 classes/second
+
+Processed 13800 classes in 2421.24 seconds
+Rate: 5.70 classes/second
+
+Processed 13900 classes in 2439.83 seconds
+Rate: 5.70 classes/second
+
+Processed 14000 classes in 2457.97 seconds
+Rate: 5.70 classes/second
+
+Processed 14100 classes in 2473.74 seconds
+Rate: 5.70 classes/second
+
+Processed 14200 classes in 2494.11 seconds
+Rate: 5.69 classes/second
+
+Processed 14300 classes in 2511.15 seconds
+Rate: 5.69 classes/second
+
+Processed 14400 classes in 2528.48 seconds
+Rate: 5.70 classes/second
+
+Processed 14500 classes in 2546.30 seconds
+Rate: 5.69 classes/second
+
+Processed 14600 classes in 2566.60 seconds
+Rate: 5.69 classes/second
+
+Processed 14700 classes in 2584.77 seconds
+Rate: 5.69 classes/second
+
+Processed 14800 classes in 2603.36 seconds
+Rate: 5.68 classes/second
+
+Processed 14900 classes in 2619.53 seconds
+Rate: 5.69 classes/second
+
+Processed 15000 classes in 2635.88 seconds
+Rate: 5.69 classes/second
+
+Processed 15100 classes in 2655.01 seconds
+Rate: 5.69 classes/second
+
+Processed 15200 classes in 2673.38 seconds
+Rate: 5.69 classes/second
+
+Processed 15300 classes in 2691.69 seconds
+Rate: 5.68 classes/second
+
+Processed 15400 classes in 2708.69 seconds
+Rate: 5.69 classes/second
+
+Processed 15500 classes in 2728.84 seconds
+Rate: 5.68 classes/second
+
+Processed 15600 classes in 2745.23 seconds
+Rate: 5.68 classes/second
+
+Processed 15700 classes in 2761.92 seconds
+Rate: 5.68 classes/second
+
+Processed 15800 classes in 2782.52 seconds
+Rate: 5.68 classes/second
+
+Processed 15900 classes in 2797.02 seconds
+Rate: 5.68 classes/second
+
+Processed 16000 classes in 2815.24 seconds
+Rate: 5.68 classes/second
+
+Processed 16100 classes in 2833.44 seconds
+Rate: 5.68 classes/second
+
+Processed 16200 classes in 2855.34 seconds
+Rate: 5.67 classes/second
+
+Processed 16300 classes in 2874.15 seconds
+Rate: 5.67 classes/second
+
+Processed 16400 classes in 2890.57 seconds
+Rate: 5.67 classes/second
+
+Processed 16500 classes in 2906.99 seconds
+Rate: 5.68 classes/second
+
+Processed 16600 classes in 2925.12 seconds
+Rate: 5.67 classes/second
+
+Processed 16700 classes in 2941.42 seconds
+Rate: 5.68 classes/second
+
+Processed 16800 classes in 2956.26 seconds
+Rate: 5.68 classes/second
+
+Processed 16900 classes in 2976.79 seconds
+Rate: 5.68 classes/second
+
+Processed 17000 classes in 2995.11 seconds
+Rate: 5.68 classes/second
+
+Processed 17100 classes in 3012.57 seconds
+Rate: 5.68 classes/second
+
+Processed 17200 classes in 3027.50 seconds
+Rate: 5.68 classes/second
+
+Processed 17300 classes in 3041.89 seconds
+Rate: 5.69 classes/second
+
+Processed 17400 classes in 3056.54 seconds
+Rate: 5.69 classes/second
+
+Processed 17500 classes in 3073.55 seconds
+Rate: 5.69 classes/second
+
+Processed 17600 classes in 3089.29 seconds
+Rate: 5.70 classes/second
+
+Processed 17700 classes in 3103.94 seconds
+Rate: 5.70 classes/second
+
+Processed 17800 classes in 3123.11 seconds
+Rate: 5.70 classes/second
+
+Processed 17900 classes in 3143.09 seconds
+Rate: 5.70 classes/second
+
+Processed 18000 classes in 3159.90 seconds
+Rate: 5.70 classes/second
+
+Processed 18100 classes in 3177.59 seconds
+Rate: 5.70 classes/second
+
+Processed 18200 classes in 3195.11 seconds
+Rate: 5.70 classes/second
+
+Processed 18300 classes in 3211.85 seconds
+Rate: 5.70 classes/second
+
+Processed 18400 classes in 3230.27 seconds
+Rate: 5.70 classes/second
+
+Processed 18500 classes in 3251.12 seconds
+Rate: 5.69 classes/second
+
+Processed 18600 classes in 3268.25 seconds
+Rate: 5.69 classes/second
+
+Processed 18700 classes in 3283.95 seconds
+Rate: 5.69 classes/second
+
+Processed 18800 classes in 3302.67 seconds
+Rate: 5.69 classes/second
+
+Processed 18900 classes in 3321.37 seconds
+Rate: 5.69 classes/second
+
+Processed 19000 classes in 3340.47 seconds
+Rate: 5.69 classes/second
+
+Processed 19100 classes in 3358.05 seconds
+Rate: 5.69 classes/second
+
+Finished at 17:14:30
+Total time: 3369.85 seconds (56.16 minutes)
+Final count: 19167 classes
+Average rate: 5.69 classes/second
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Sun Dec 29 17:14:30 2024
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:27:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes                   : None
+
+Sun Dec 29 17:14:30 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 8000                On  |   00000000:27:00.0 Off |                    0 |
+| 34%   36C    P8             24W /  235W |       1MiB /  46080MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
