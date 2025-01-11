@@ -178,9 +178,9 @@ def collate_fn(batch):
     }
 
 
-def load_imagenet21k(tar_path, transforms, batch_size=64):
+def load_imagenet21k(tar_path, transforms, batch_size=64, num_workers=4, pin_memory=True):
     dataset  = StreamingImageNet21k(tar_path, transform=transforms)
-    dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=collate_fn)
+    dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=collate_fn, num_workers=num_workers, pin_memory=pin_memory)
     return dataloader
 
 # import h5py
