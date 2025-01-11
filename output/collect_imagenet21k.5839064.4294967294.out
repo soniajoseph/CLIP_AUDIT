@@ -1,3 +1,86 @@
 Model loaded: open-clip:laion/CLIP-ViT-B-32-DataComp.XL-s13B-b90K
 Number of layers: 12
 Number of neurons: 30
+Error processing image n01896844_997.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01e4101e40>
+Checkpoint saved to activation_results/checkpoint_640064.pt
+Error processing image n01678043_6448.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df488c70>
+Checkpoint saved to activation_results/checkpoint_1280064.pt
+Error processing image n04257684_9033.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df4e0e50>
+Checkpoint saved to activation_results/checkpoint_1920064.pt
+Error processing image n12353203_3849.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df2dfce0>
+Checkpoint saved to activation_results/checkpoint_2560064.pt
+Error processing image n09224725_3995.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df3e3dd0>
+Checkpoint saved to activation_results/checkpoint_3200064.pt
+Error processing image n02597972_5463.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df0404a0>
+Error processing image n04427559_2974.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df158a90>
+Checkpoint saved to activation_results/checkpoint_3840064.pt
+Checkpoint saved to activation_results/checkpoint_4480064.pt
+Error processing image n02368116_318.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df02d260>
+Checkpoint saved to activation_results/checkpoint_5120064.pt
+Error processing image n09359803_8155.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df0a9120>
+Error processing image n09894445_7463.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01df042bb0>
+Checkpoint saved to activation_results/checkpoint_5760064.pt
+Checkpoint saved to activation_results/checkpoint_6400064.pt
+Error processing image n12630763_8018.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01def33b50>
+Error processing image n06470073_47249.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01dee65120>
+Checkpoint saved to activation_results/checkpoint_7040064.pt
+Error processing image n07930062_4147.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01dec5d0d0>
+Checkpoint saved to activation_results/checkpoint_7680064.pt
+Checkpoint saved to activation_results/checkpoint_8320064.pt
+Checkpoint saved to activation_results/checkpoint_8960064.pt
+Checkpoint saved to activation_results/checkpoint_9600064.pt
+Checkpoint saved to activation_results/checkpoint_10240064.pt
+Error processing image n02428089_710.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01de92a610>
+Checkpoint saved to activation_results/checkpoint_10880064.pt
+Error processing image n02487347_1956.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01d8719ad0>
+Checkpoint saved to activation_results/checkpoint_11520064.pt
+Error processing image n04135315_8814.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01de9cabb0>
+Error processing image n04135315_9318.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01d86baca0>
+Checkpoint saved to activation_results/checkpoint_12160064.pt
+Error processing image n03957420_8296.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01d868a700>
+Error processing image n03957420_30695.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01d86bb790>
+Error processing image n03957420_33553.JPEG: cannot identify image file <_io.BytesIO object at 0x7f01d8753830>
+Checkpoint saved to activation_results/checkpoint_12800064.pt
+Checkpoint saved to activation_results/checkpoint_final.pt
+Final results saved to activation_results/top_k_activations_final_14300000.pt
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Wed Jan  8 06:18:54 2025
+Driver Version                            : 560.35.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:15:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 4167701
+            GPU Utilization               : 12 %
+            Memory Utilization            : 4 %
+            Max memory usage              : 1438 MiB
+            Time                          : 121603028 ms
+            Is Running                    : 0
+
+Wed Jan  8 06:18:54 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:15:00.0 Off |                    0 |
+| N/A   35C    P0             71W /  300W |       1MiB /  32768MiB |     20%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
