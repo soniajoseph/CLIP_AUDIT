@@ -41,10 +41,12 @@ if RANDOM:
     cfg = model.cfg
     random_model = HookedViT(cfg)
     random_model.init_weights()
+
     del model
     model = random_model
+    model.to(DEVICE)
 
-num_layers = model.cfg.n_layers
+num_layers = 1
 num_neurons = len(neuron_indices_mlp_out[0])
 sublayer_types = ['hook_resid_post', 'hook_mlp_out']
 intervals = ['top', 'bottom']
@@ -201,6 +203,6 @@ with torch.no_grad():
             torch.cuda.empty_cache()
 
 # Save final results
-final_path = os.path.join(save_dir, f'top_k_activations_final_{MAX}.pt')
+final_path = os.path.join(save_dir, f'random_top_k_activations_final_{MAX}.pt')
 save_checkpoint(top_k_storage, 'final')
 print(f"Final results saved to {final_path}")
