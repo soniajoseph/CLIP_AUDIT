@@ -219,6 +219,7 @@ def image_patch_heatmap(activation_values, image_size=224, pixel_num=7):
         for j in range(pixel_num):
             heatmap[i*patch_size:(i+1)*patch_size, j*patch_size:(j+1)*patch_size] = activation_values[i, j]
     return heatmap
+
 def visualize_layer_activations(checkpoint_path, save_dir, image_path, model, layer_idx):
     checkpoint = torch.load(checkpoint_path)
     
@@ -228,6 +229,7 @@ def visualize_layer_activations(checkpoint_path, save_dir, image_path, model, la
     
     # Restructure the processing to handle both layer types for each neuron
     for strategy in checkpoint.keys():
+        print("checkpoint keys: ", checkpoint.keys())
         for interval in checkpoint[strategy].keys():
             # Get data for both layer types
             layer_data = {
@@ -245,6 +247,7 @@ def visualize_layer_activations(checkpoint_path, save_dir, image_path, model, la
             for neuron_idx in tqdm(range(num_neurons)):
                 # Process each layer type for this neuron
                 for layer_type, data in layer_data.items():
+                    print(data['activations'].shape)
                     activations = data['activations'][layer_idx][neuron_idx]
                     image_ids = data['image_ids'][layer_idx][neuron_idx]
                     
@@ -257,6 +260,8 @@ def visualize_layer_activations(checkpoint_path, save_dir, image_path, model, la
                             img = Image.open(img_path)
                             images.append(img)
                             class_names.append(f"Image {img_id}")
+                    
+                    print("Length of images: ", len(images))
                     
                     if images:  # Only plot if we have images
                         plot_images(
@@ -279,13 +284,15 @@ def visualize_layer_activations(checkpoint_path, save_dir, image_path, model, la
 # [Rest of the functions remain the same]
 
 def main():
+
+    
     import argparse
     parser = argparse.ArgumentParser(description='Visualize neuron activations for a specific layer')
     parser.add_argument('--layer', type=int, required=True, help='Layer number to process')
-    parser.add_argument('--checkpoint', type=str, default='/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/activation_results/checkpoint_final.pt')
+    parser.add_argument('--checkpoint', type=str, default='/home/mila/s/sonia.joseph/CLIP_AUDIT/clip_audit/random_activation_results/checkpoint_final.pt')
     parser.add_argument('--image-dir', type=str, default='/network/scratch/s/sonia.joseph/CLIP_AUDIT/selected_imagenet21k')
     parser.add_argument('--save-dir', type=str, 
-                        default="/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/open-clip_laion_CLIP-ViT-B-32-DataComp.XL-s13B-b90K/imagenet21k/train/all_neurons")
+                        default="/network/scratch/s/sonia.joseph/CLIP_AUDIT/sampled_images/open-clip_laion_CLIP-ViT-B-32-DataComp.XL-s13B-b90K/imagenet21k/train/all_neurons/random")
     
     args = parser.parse_args()
     
